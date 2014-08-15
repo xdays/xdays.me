@@ -1,4 +1,4 @@
-Title: 静态博客构建和切换流程
+Title: Pelican和Github构建静态博客
 Date: 2014-08-15 17:30
 Author: admin
 Category: devops
