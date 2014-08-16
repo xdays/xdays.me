@@ -1,8 +1,8 @@
 Title: Docker详解
 Date: 2014-08-16 09:40
 Author: admin
-Category: devops
-Tags: blog,pelican,lua
+Category: cloud
+Tags: cloud,docker
 Slug: docker详解
 
 <!--<iframe frameborder="0" src="http://cloud.xdays.info/slide/docker.html#1"></iframe>-->
