@@ -33,3 +33,5 @@ Slug: links
 * [峰云](http://xiaorui.cc)
 * [安静](http://www.80aj.com)
 * [刘志](http://blog.csdn.net/orangleliu)
+* [Reboot](http://linrc.com/blog/)
+* [京奥](http://www.awops.com)
