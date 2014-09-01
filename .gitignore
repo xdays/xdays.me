@@ -1,4 +1,4 @@
-cache/*
-output/*
+cache
+output
 theme
 *.pyc
