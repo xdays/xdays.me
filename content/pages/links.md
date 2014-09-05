@@ -35,3 +35,4 @@ Slug: links
 * [刘志](http://blog.csdn.net/orangleliu)
 * [Reboot](http://linrc.com/blog/)
 * [京奥](http://www.awops.com)
+* [国梁](http://www.dbsa.cn)
