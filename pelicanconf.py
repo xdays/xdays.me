@@ -5,10 +5,14 @@ from __future__ import unicode_literals
 # Misc
 AUTHOR = u'xdays'
 SITENAME = u'xdays'
-SITEURL = 'http://xdays.info'
+SITEURL = 'https://www.xdays.info'
 KEYWORD = '架构，运维，开发, 生活随想'
 PATH = 'content'
 STATIC_PATHS = ['wp-content']
+EXTRA_PATH_METADATA = {
+    'wp-content/static/robots.txt': {'path': 'robots.txt'},
+    'wp-content/static/favicon.ico': {'path': 'favicon.ico'},
+}
 
 # Time
 TIMEZONE = 'Asia/Shanghai'
@@ -39,3 +43,7 @@ GITHUB_REPO_COUNT = 5
 
 # Goole Custom Search
 CSE_CODE = '008104676222079813428:xcoyettaqmw'
+
+PLUGINS = [
+    'extended_sitemap'
+]
