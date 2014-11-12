@@ -36,3 +36,4 @@ Slug: links
 * [Reboot](http://linrc.com/blog/)
 * [京奥](http://www.awops.com)
 * [国梁](http://www.dbsa.cn)
+* [字母哥](http://n4mine.github.io/)

@@ -44,6 +44,4 @@ GITHUB_REPO_COUNT = 5
 # Goole Custom Search
 CSE_CODE = '008104676222079813428:xcoyettaqmw'
 
-PLUGINS = [
-    'extended_sitemap'
-]
+PLUGINS = []
