@@ -37,3 +37,4 @@ Slug: links
 * [京奥](http://www.awops.com)
 * [国梁](http://www.dbsa.cn)
 * [字母哥](http://n4mine.github.io/)
+* [青岛火一五](http://bbs.huo15.com/)
