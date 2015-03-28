@@ -38,3 +38,4 @@ Slug: links
 * [国梁](http://www.dbsa.cn)
 * [字母哥](http://n4mine.github.io/)
 * [青岛火一五](http://bbs.huo15.com/)
+* [丰杰](https://www.zhoufengjie.cn/)
