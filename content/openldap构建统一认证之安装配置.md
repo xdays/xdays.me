@@ -29,10 +29,9 @@ slapd.conf和cn=config
 ---------------------
 
 配置slapd服务有两种方式：  
-\*
-slapd.conf是传统方式，修改配置文件然后重启服务，centos默认采用这种方式。  
-\* cn=config是新的配置方式，称之为on-line
-configuration，ubuntu默认采用这种方式。
+
+* slapd.conf是传统方式，修改配置文件然后重启服务，centos默认采用这种方式。  
+* cn=config是新的配置方式，称之为on-line configuration，ubuntu默认采用这种方式。
 
 配置TLS
 =======
@@ -51,10 +50,10 @@ configuration，ubuntu默认采用这种方式。
 ### 编写配置数据文件
 
     dn: cn=config
-    add: olcTLSCertificateFile
+    replace: olcTLSCertificateFile
     olcTLSCertificateFile: /etc/openldap/certs/ldap.crt
     -
-    add: olcTLSCertificateKeyFile
+    replace: olcTLSCertificateKeyFile
     olcTLSCertificateKeyFile: /etc/openldap/certs/ldap.key
 
 ### 导入配置

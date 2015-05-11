@@ -8,45 +8,57 @@ Slug: openldap构建统一认证之管理工具
 自带工具
 ========
 
-**注意：**
-如果服务器的ssl证书是自签名的，那么在客户端的ldap.conf文件加入一行`TLS_REQCERT never`，否则认证会不通过。
+**注意：** 如果服务器的ssl证书是自签名的，那么在客户端的ldap.conf文件加入一行`TLS_REQCERT never`，否则认证会不通过。
 
 安装
 ----
 
-ubuntu执行： apt-get install -y ldap-utils
+ubuntu执行：
 
-centos执行： yum install -y openldap-clients
+    apt-get install -y ldap-utils
+
+centos执行：
+
+    yum install -y openldap-clients
 
 使用
 ----
 
 ### ldapsearch
 
-ldapsearch，搜索目录树，示例如下： ldapsearch -v -x -H
-ldaps://example.com -D "cn=admin,dc=example,dc=com" -W -W -b
-"dc=xdays,dc=info" -LL
+ldapsearch，搜索目录树，示例如下：
 
-简单解释下选项的作用： \* -H 指定服务器url \* -x 使用简单认证 \* -D
-绑定的DN \* -W 提示输入密码 \* -b 指定搜索的baseDN \* -LL 输出LDIF格式
-\* -v 显示详细信息
+    ldapsearch -v -x -H ldaps://example.com -D "cn=admin,dc=example,dc=com" -W -W -b "dc=xdays,dc=info" -LL
+
+简单解释下选项的作用： 
+
+* -H 指定服务器url
+* -x 使用简单认证
+* -D 绑定的DN
+* -W 提示输入密码
+* -b 指定搜索的baseDN
+* -LL 输出LDIF格式
+* -v 显示详细信息
 
 ### ldapadd
 
-ldapadd，添加数据，要输入标准LDIF文件，示例如下： ldapadd -v -x -H
-ldaps://example.com -D "cn=admin,dc=example,dc=com" -W -f data.ldif
+ldapadd，添加数据，要输入标准LDIF文件，示例如下：
 
-选项与ldapsearch类似，-f指定文件路径
+    ldapadd -v -x -H ldaps://example.com -D "cn=admin,dc=example,dc=com" -W -f data.ldif
+
+选项与ldapsearch类似， `-f` 指定文件路径
 
 ### ldapdelete
 
-ldapdelete，删除数据，要输入标准LDIF文件，示例如下： ldapdelete -v -x -H
-ldaps://example.com -D "cn=admin,dc=example,dc=com" -W -f data.ldif
+ldapdelete，删除数据，要输入标准LDIF文件，示例如下：
+
+    ldapdelete -v -x -H ldaps://example.com -D "cn=admin,dc=example,dc=com" -W -f data.ldif
 
 ### ldapmodify
 
-ldapdelete，修改数据，要输入标准LDIF文件，示例如下： ldapmodify -v -x -H
-ldaps://example.com -D "cn=admin,dc=example,dc=com" -W -f data.ldif
+ldapdelete，修改数据，要输入标准LDIF文件，示例如下： 
+
+    ldapmodify -v -x -H ldaps://example.com -D "cn=admin,dc=example,dc=com" -W -f data.ldif
 
 LAM
 ===
