@@ -1,4 +1,4 @@
-Title: zabbix监控MySQL
+Title: Zabbix监控MySQL
 Date: 2015-06-13 10:31
 Author: admin
 Category: monitor 

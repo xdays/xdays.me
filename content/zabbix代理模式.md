@@ -3,7 +3,7 @@ Date: 2015-06-13 10:04
 Author: admin
 Category: monitor
 Tags: monitor, zabbix
-Slug: Zabbix代理模式
+Slug: zabbix代理模式
  
 #简介
 Proxy模式用于监控服务器无法直接访问被监控机器的情况，如内网监控。
