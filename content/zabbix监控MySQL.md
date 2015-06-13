@@ -1,3 +1,10 @@
+Title: zabbix监控MySQL
+Date: 2015-06-13 10:31
+Author: admin
+Category: monitor 
+Tags: monitor,zabbix
+Slug: zabbix监控MySQL
+
 #安装源
 <pre>
 rpm -ivh http://www.percona.com/downloads/percona-release/percona-release-0.0-1.x86_64.rpm
@@ -62,3 +69,4 @@ chmod 600 /var/lib/zabbix/.my.cnf /var/lib/zabbix/percona/scripts/ss_get_mysql_s
 ##启动agent
 
     /etc/init.d/zabbix-agent start
+ 
