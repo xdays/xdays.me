@@ -51,10 +51,10 @@ slapd.conf和cn=config
 
     dn: cn=config
     replace: olcTLSCertificateFile
-    olcTLSCertificateFile: /etc/openldap/certs/ldap.crt
+    olcTLSCertificateFile: /etc/ldap/certs/ldap.crt
     -
     replace: olcTLSCertificateKeyFile
-    olcTLSCertificateKeyFile: /etc/openldap/certs/ldap.key
+    olcTLSCertificateKeyFile: /etc/ldap/certs/ldap.key
 
 ### 导入配置
 
