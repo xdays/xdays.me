@@ -86,7 +86,7 @@ Slug: ccnp-redistribute
 
 到目前为止我们学习了那么多的列表，这些列表有什么关系，如何从更深层次上看待这些列表。从控制和数据层面上来列举如下图所示：
 
-[](http://www.xdays.info/wp-content/uploads/2011/03/list-framework.jpg)[](http://www.xdays.info/wp-content/uploads/2011/03/list-framework.jpg)[![](http://www.xdays.info/wp-content/uploads/2011/03/list-framework.jpg "list-framework")](http://www.xdays.info/wp-content/uploads/2011/03/list-framework.jpg)  
+![list-framework](http://www.xdays.info/wp-content/uploads/2011/03/list-framework.jpg "list-framework")
 </a>  
 </a>
 

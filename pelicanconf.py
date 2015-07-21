@@ -5,7 +5,7 @@ from __future__ import unicode_literals
 # Misc
 AUTHOR = u'xdays'
 SITENAME = u'xdays'
-SITEURL = 'https://www.xdays.info'
+SITEURL = 'http://www.xdays.info'
 KEYWORD = '架构，运维，开发, 生活随想'
 PATH = 'content'
 STATIC_PATHS = ['wp-content']
