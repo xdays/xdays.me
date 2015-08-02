@@ -5,7 +5,6 @@ from __future__ import unicode_literals
 # Misc
 AUTHOR = u'xdays'
 SITENAME = u'xdays'
-SITEURL = 'http://www.xdays.info'
 KEYWORD = '架构，运维，开发, 生活随想'
 PATH = 'content'
 STATIC_PATHS = ['wp-content']
@@ -19,12 +18,11 @@ TIMEZONE = 'Asia/Shanghai'
 DEFAULT_LANG = u'zh'
 
 # Feed
-FEED_ALL_ATOM = None
-CATEGORY_FEED_ATOM = None
-TRANSLATION_FEED_ATOM = None
+FEED_ATOM = None
+FEED_ATOM = None
 
 # Menu
-MENUITEMS = (('首页', SITEURL),)
+MENUITEMS = (('首页', '/'),)
 DISPLAY_PAGES_ON_MENU = True
 DISPLAY_CATEGORIES_ON_MENU = False
 

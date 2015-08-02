@@ -21,3 +21,4 @@ Slug: event
 -   2014.07.21-迁移至Linode。
 -   2014.08.12-放弃wordpress，改用pelican静态博客。
 -   2014.08.15-博客托管与Github，自动发布。
+-   2015.08.1-新换域名xdays.me。
