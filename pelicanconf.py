@@ -3,6 +3,7 @@
 from __future__ import unicode_literals
 
 # Misc
+SITEURL = 'http://xdays.me'
 AUTHOR = u'xdays'
 SITENAME = u'xdays'
 KEYWORD = '架构，运维，开发, 生活随想'
@@ -32,8 +33,7 @@ DEFAULT_PAGINATION = 20
 # Output
 DELETE_OUTPUT_DIRECTORY = True
 
-# Disqus
-DISQUS_SITENAME = "xdays"
+DISQUS_SITENAME = 'xdays'
 
 # Github
 GITHUB_USER = 'xdays'
