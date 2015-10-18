@@ -1,4 +1,4 @@
-Title: VPN-基于openvpn构建
+Title: VPN-基于OpenVPN构建
 Date: 2011-07-14 21:38
 Author: admin
 Category: server

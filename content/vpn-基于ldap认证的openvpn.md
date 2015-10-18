@@ -1,4 +1,4 @@
-Title: vpn-基于LDAP认证的openvpn
+Title: VPN-基于LDAP认证的OpenVPN
 Date: 2015-10-18 09:05
 Author: admin
 Category: server
