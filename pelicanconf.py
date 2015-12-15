@@ -19,8 +19,10 @@ TIMEZONE = 'Asia/Shanghai'
 DEFAULT_LANG = u'zh'
 
 # Feed
-FEED_ATOM = None
-FEED_ATOM = None
+FEED_DOMAIN = SITEURL
+FEED_ATOM = 'feeds/atom.xml'
+AUTHOR_FEED_ATOM = None
+AUTHOR_FEED_RSS = None
 
 # Menu
 MENUITEMS = (('首页', '/'),)
