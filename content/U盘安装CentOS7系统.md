@@ -1,9 +1,9 @@
-Title: U盘安装centos系统
+Title: U盘安装CentOS7系统
 Date: 2016-02-23 13:14
 Author: admin
-Category: 
+Category: linux
 Tags: pxe,centos
-Slug: U盘安装centos系统
+Slug: U盘安装CentOS7系统
  
 # 需求
 
