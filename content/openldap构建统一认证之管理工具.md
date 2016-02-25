@@ -1,8 +1,8 @@
 Title: OpenLDAP构建统一认证之管理工具
 Date: 2014-05-15 18:05
 Author: admin
-Category: arch
-Tags: arch, ldap
+Category: server
+Tags: server, ldap
 Slug: openldap构建统一认证之管理工具
 
 自带工具

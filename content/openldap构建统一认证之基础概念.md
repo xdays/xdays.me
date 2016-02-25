@@ -1,8 +1,8 @@
 Title: OpenLDAP构建统一认证之基础概念
 Date: 2014-05-15 18:00
 Author: admin
-Category: arch
-Tags: arch, ldap
+Category: server
+Tags: server, ldap
 Slug: openldap构建统一认证之基础概念
 
 目录服务与关系数据库

@@ -1,8 +1,8 @@
 Title: OpenLDAP构建统一认证之项目实战
 Date: 2015-12-26 13:26
 Author: admin
-Category: arch
-Tags: arch,ldap
+Category: server
+Tags: server, ldap
 Slug: openldap构建统一认证之项目实战
  
 # 背景
