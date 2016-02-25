@@ -2,7 +2,7 @@ Title: linux 字符处理
 Date: 2010-08-05 19:20
 Author: admin
 Category: linux
-Tags: cat/tac, cut, diff, expand/unexpand, grep, head /tail, join, linux, paste, sed, sort, tr, uniq
+Tags: linux
 Slug: linux-字符处理
 
 linux

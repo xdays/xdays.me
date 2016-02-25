@@ -2,7 +2,7 @@ Title: linux 特殊权限
 Date: 2010-08-01 20:56
 Author: admin
 Category: linux
-Tags: linux, 权限
+Tags: linux
 Slug: linux-特殊权限
 
 在linux系统里除了常见的三组权限外，还有一组特殊权限它们分别是  

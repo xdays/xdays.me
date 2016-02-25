@@ -2,7 +2,7 @@ Title: linux 环境变量文件
 Date: 2010-08-01 20:59
 Author: admin
 Category: linux
-Tags: linux, 环境变量
+Tags: linux
 Slug: linux-环境变量文件
 
 环境设置文件包括系统设置文件和个人设置文件。  

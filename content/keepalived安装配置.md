@@ -1,8 +1,8 @@
 Title: Keepalived安装配置
 Date: 2015-10-18 10:11
 Author: admin
-Category: 
-Tags: 
+Category: server
+Tags: server, keepalived
 Slug: keepalived安装配置
 
 

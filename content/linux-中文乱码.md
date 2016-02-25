@@ -2,7 +2,7 @@ Title: linux 中文乱码
 Date: 2010-09-26 12:20
 Author: admin
 Category: linux
-Tags: linux 乱码
+Tags: linux
 Slug: linux-中文乱码
 
 开这篇文章主要目的是来总结一下自己在linux下遇到的各种问题及其解决办法，其实归根结底都是字符编码的问题，不同系统的不同字符编码之间相互显示就会出现乱码，要做的就是把编码统一就行了。windows采用的gb2312而linux用的utf8，所以两者之间经常出现编码不一致

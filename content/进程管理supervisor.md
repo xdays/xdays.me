@@ -1,8 +1,8 @@
 Title: Supervisor进程管理
 Date: 2014-10-18 21:36
 Author: admin
-Category: 
-Tags: 
+Category: server
+Tags: server, supervisor
 Slug: supervisor进程管理
  
 # 功能

@@ -2,6 +2,7 @@ Title: linux-LVM
 Date: 2010-12-27 19:02
 Author: admin
 Category: linux
+Tags: linux
 Slug: linux-lvm
 
 什么是lvm？
