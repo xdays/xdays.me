@@ -246,26 +246,26 @@ wget -SO /opt/bind/var/named.root http://www.internic.net/domain/named.root
 ## 导入数据
 导入records数据：
 <pre>
-INSERT INTO demo.records (zone, host, type, data, ttl) VALUES ('xdays.info', 'www', 'A', '1.1.1.1', '60');
-INSERT INTO demo.records (zone, host, type, data, ttl) VALUES ('xdays.info', 'cloud', 'A', '2.2.2.2', '60'); 
-INSERT INTO demo.records (zone, host, type, data, ttl) VALUES ('xdays.info', 'ns', 'A', '3.3.3.3', '60');
-INSERT INTO demo.records (zone, host, type, data, ttl) VALUES ('xdays.info', 'blog', 'CNAME', 'cloud.xdays.info.', '60');
-INSERT INTO demo.records (zone, host, type, data, ttl) VALUES ('xdays.info', '@', 'NS', 'ns.xdays.info.', '60');
-INSERT INTO demo.records (zone, host, type,  ttl, data,refresh, retry, expire, minimum, serial, resp_person) VALUES ('xdays.info', '@', 'SOA', '60', 'ns', '28800', '14400', '86400', '86400', '2012020809', 'admin');
+INSERT INTO demo.records (zone, host, type, data, ttl) VALUES ('xdays.me', 'www', 'A', '1.1.1.1', '60');
+INSERT INTO demo.records (zone, host, type, data, ttl) VALUES ('xdays.me', 'cloud', 'A', '2.2.2.2', '60'); 
+INSERT INTO demo.records (zone, host, type, data, ttl) VALUES ('xdays.me', 'ns', 'A', '3.3.3.3', '60');
+INSERT INTO demo.records (zone, host, type, data, ttl) VALUES ('xdays.me', 'blog', 'CNAME', 'cloud.xdays.me.', '60');
+INSERT INTO demo.records (zone, host, type, data, ttl) VALUES ('xdays.me', '@', 'NS', 'ns.xdays.me.', '60');
+INSERT INTO demo.records (zone, host, type,  ttl, data,refresh, retry, expire, minimum, serial, resp_person) VALUES ('xdays.me', '@', 'SOA', '60', 'ns', '28800', '14400', '86400', '86400', '2012020809', 'admin');
 </pre>
 
 导入acl数据：
 <pre>
-INSERT INTO demo.acl (zone, client) VALUES ('xdays.info', '127.0.0.1');
+INSERT INTO demo.acl (zone, client) VALUES ('xdays.me', '127.0.0.1');
 </pre>
 
 ## 测试记录
 <pre>
-dig @127.0.0.1 www.xdays.info a
-dig @127.0.0.1 blog.xdays.info a
-dig @127.0.0.1 blog.xdays.info cname
-dig @127.0.0.1 xdays.info ns
-dig @127.0.0.1 www.xdays.info axfr
+dig @127.0.0.1 www.xdays.me a
+dig @127.0.0.1 blog.xdays.me a
+dig @127.0.0.1 blog.xdays.me cname
+dig @127.0.0.1 xdays.me ns
+dig @127.0.0.1 www.xdays.me axfr
 </pre>
 
 #参考

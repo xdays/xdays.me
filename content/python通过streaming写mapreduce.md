@@ -16,7 +16,7 @@ MapReduce工作流程
 如下图所示：
 
 ![MapReduce
-Flow](http://www.xdays.info/wp-content/uploads/2013/03/mapreduce_flow.png)
+Flow](/wp-content/uploads/2013/03/mapreduce_flow.png)
 
 概括整个过程如下：
 

@@ -13,7 +13,7 @@ freeradius，lamp提供给freeradius数据库和phpmyadmin运行的环境。这�
 
 引用一张图：
 
-[![aaacs](http://www.xdays.info/wp-content/uploads/2011/01/AAAbs-1024x804.jpg "aaacs")](http://www.xdays.info/wp-content/uploads/2011/01/AAAbs.jpg)
+[![aaacs](/wp-content/uploads/2011/01/AAAbs-1024x804.jpg "aaacs")](/wp-content/uploads/2011/01/AAAbs.jpg)
 
 基于C/S架构，只是这里数据库和freeradius放一台上了。
 

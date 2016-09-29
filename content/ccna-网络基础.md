@@ -85,25 +85,25 @@ get、head、post。每种方法规定了客户与服务器联系的类型不同
 
 #### ftp协议
 
-用于文件传输的协议，具体可参考<http://www.xdays.info/?p=101>
+用于文件传输的协议，具体可参考</?p=101>
 
 #### dhcp协议
 
-用于局域网内自动分配ip地址的协议，具体可参考<http://www.xdays.info/?p=179>
+用于局域网内自动分配ip地址的协议，具体可参考</?p=179>
 
 ### <a name="transport"></a>  
 **传输层协议**
 
 #### tcp/udp协议
 
-传输层通过顺序和确认号提供可靠传输，通过窗口来实现流量和拥塞控制，具体参考<http://www.xdays.info/?p=105>
+传输层通过顺序和确认号提供可靠传输，通过窗口来实现流量和拥塞控制，具体参考</?p=105>
 
 ### <a name="network"></a>  
 **网络层协议**
 
 #### ip协议
 
-[![ip-headers](http://www.xdays.info/wp-content/uploads/2010/10/ip-headers.jpg "ip-headers")](http://www.xdays.info/wp-content/uploads/2010/10/ip-headers.jpg)
+[![ip-headers](/wp-content/uploads/2010/10/ip-headers.jpg "ip-headers")](/wp-content/uploads/2010/10/ip-headers.jpg)
 
 字段依次代表：版本，包头长度，服务类型，数据包长度，标识（标识同一数据包），标志和分片偏移量（重组数据包依据），ttl生存时间，协议类型（上层协议），校验和（如果出错只是丢弃而不重传），源地址，目的地址，其他选项，填充（以满足32位）
 
@@ -111,11 +111,11 @@ get、head、post。每种方法规定了客户与服务器联系的类型不同
 
 虽然是网络层协议，但是它是封装在ip包内的，具体类型主要有
 
-[![icmp-type](http://www.xdays.info/wp-content/uploads/2010/10/icmp-type.jpg "icmp-type")](http://www.xdays.info/wp-content/uploads/2010/10/icmp-type.jpg)
+[![icmp-type](/wp-content/uploads/2010/10/icmp-type.jpg "icmp-type")](/wp-content/uploads/2010/10/icmp-type.jpg)
 
 #### arp协议
 
-提供通过广播由ip地址到mac地址的解析过程的协议，关于arp欺骗参考<http://www.xdays.info/?p=109>
+提供通过广播由ip地址到mac地址的解析过程的协议，关于arp欺骗参考</?p=109>
 
 #### rarp协议
 
@@ -165,7 +165,7 @@ cable，光纤，无线），编码（不归零码，曼侧斯特码），信号
 
 数据链路层上面已经介绍了，下表是物理层上以太网的类型
 
-[![ethernet-type](http://www.xdays.info/wp-content/uploads/2010/10/ethernet-type.jpg "ethernet-type")](http://www.xdays.info/wp-content/uploads/2010/10/ethernet-type.jpg)
+[![ethernet-type](/wp-content/uploads/2010/10/ethernet-type.jpg "ethernet-type")](/wp-content/uploads/2010/10/ethernet-type.jpg)
 
 CSMA/CD载波监听多路访问/冲突检测（carrier sense multiple
 access/collision

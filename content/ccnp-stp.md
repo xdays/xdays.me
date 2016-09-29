@@ -230,7 +230,7 @@ backbonefast
 
 实验配置通过实验来验证三种特性：
 
-[![stp-feathers](http://www.xdays.info/wp-content/uploads/2011/03/stp-feathers.jpg "stp-feathers")](http://www.xdays.info/wp-content/uploads/2011/03/stp-feathers.jpg)
+[![stp-feathers](/wp-content/uploads/2011/03/stp-feathers.jpg "stp-feathers")](/wp-content/uploads/2011/03/stp-feathers.jpg)
 
     sw1#sh spanning-tree
 

@@ -11,7 +11,7 @@ pptp的运行原理
 
 实验拓扑图
 
-[![pptpd-vpn-top](http://www.xdays.info/wp-content/uploads/2011/03/pptpd-vpn-top.jpg "pptpd-vpn-top")](http://www.xdays.info/wp-content/uploads/2011/03/pptpd-vpn-top.jpg)
+[![pptpd-vpn-top](/wp-content/uploads/2011/03/pptpd-vpn-top.jpg "pptpd-vpn-top")](/wp-content/uploads/2011/03/pptpd-vpn-top.jpg)
 
 安装软件包
 

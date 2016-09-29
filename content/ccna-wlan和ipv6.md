@@ -121,7 +121,7 @@ IPv6
 
 #### 报头格式
 
-[![wan-ipv6-header](http://www.xdays.info/wp-content/uploads/2010/11/wan-ipv6-header.jpg "wan-ipv6-header")](http://www.xdays.info/wp-content/uploads/2010/11/wan-ipv6-header.jpg)3个基本字段和5个新增字段
+[![wan-ipv6-header](/wp-content/uploads/2010/11/wan-ipv6-header.jpg "wan-ipv6-header")](/wp-content/uploads/2010/11/wan-ipv6-header.jpg)3个基本字段和5个新增字段
 
 #### 地址表示方式
 

@@ -107,7 +107,7 @@ RIP的各种定时器
 
 这个问题能很有意思，通过这个例子也能更好的理解RIPv1和RIPv2的区别。
 
-[![route-ripv1-discontiguousnetworks](http://www.xdays.info/wp-content/uploads/2010/10/route-ripv1-discontiguousnetworks.jpg "route-ripv1-discontiguousnetworks")](http://www.xdays.info/wp-content/uploads/2010/10/route-ripv1-discontiguousnetworks.jpg)
+[![route-ripv1-discontiguousnetworks](/wp-content/uploads/2010/10/route-ripv1-discontiguousnetworks.jpg "route-ripv1-discontiguousnetworks")](/wp-content/uploads/2010/10/route-ripv1-discontiguousnetworks.jpg)
 
 有类网络172.30.0.0的三个子网172.30.1.0，172.30.2.0，172.30.100.0被不同的有类网络的子网209.265.200.228和209.265.200.232分隔开。由于RIPv1是有类网络在更新中只发送有类网络的路由信息这是最根本的问题，R2会认为到达172.30.0.0有两条路径且度量相等，所以会执行等价均衡负载，R1和R3也不能学习到各自相连的网络。
 

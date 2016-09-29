@@ -81,7 +81,7 @@ LAN体系结构分为三层，包括接入层（access），分发层（distribu
 
 下图是通过wireshark抓到的STP消息：
 
-[![switch-stp-bpdu](http://www.xdays.info/wp-content/uploads/2010/11/switch-stp-bpdu.jpg "switch-stp-bpdu")](http://www.xdays.info/wp-content/uploads/2010/11/switch-stp-bpdu.jpg)注意消息类型字段是区分BPDU类型：0x00表示配置BPDU，0x80表示TCN用于拓扑发生变化时通告，另外链路开销如下表：
+[![switch-stp-bpdu](/wp-content/uploads/2010/11/switch-stp-bpdu.jpg "switch-stp-bpdu")](/wp-content/uploads/2010/11/switch-stp-bpdu.jpg)注意消息类型字段是区分BPDU类型：0x00表示配置BPDU，0x80表示TCN用于拓扑发生变化时通告，另外链路开销如下表：
 
   ----------- ------
   链路速度    开销
@@ -116,7 +116,7 @@ LAN体系结构分为三层，包括接入层（access），分发层（distribu
 
 总体上来说是选举根桥--选举根端口--选举指定端口--把非指定端口block掉，完成收敛。下面用转自[china-ccie](http://www.china-ccie.com/ccie/lilun/switching/switching.html#6)上的例子来说明
 
-[![switch-stp-converge](http://www.xdays.info/wp-content/uploads/2010/11/switch-stp-converge.jpg "switch-stp-converge")](http://www.xdays.info/wp-content/uploads/2010/11/switch-stp-converge.jpg)  
+[![switch-stp-converge](/wp-content/uploads/2010/11/switch-stp-converge.jpg "switch-stp-converge")](/wp-content/uploads/2010/11/switch-stp-converge.jpg)  
 上图的网络环境中，运行STP后，则选举如下角色：（所有链路为100
 Mb/s，即Path Cost值为19）
 

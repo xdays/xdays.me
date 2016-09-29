@@ -33,7 +33,7 @@ Slug: javascript基础语法
 
 -   操作符列表如下：  
 
-    ![operator](http://www.xdays.info/wp-content/uploads/2013/10/operator.png)
+    ![operator](/wp-content/uploads/2013/10/operator.png)
 
 -   操作符优先级，与其他语言类似，记住用括号显示表达优先级就可以了。
 

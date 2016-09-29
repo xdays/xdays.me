@@ -20,7 +20,7 @@ vg（逻辑卷组）由多个物理卷组成一个大的卷，可以把他想象
 \* lv（逻辑卷）在vg上创建的逻辑卷，可以想象成vg的分区。
 然后，lv大小的更改是通过增减pe实现的，pe是vg和lv的基本单位，vg通过在添加的pv上创建pe来增加自身大小，然后通过增减分配给lv的pe数来控制lv的大小，基本原理图如下：
 
-[![lvm](http://www.xdays.info/wp-content/uploads/2010/12/lvm.jpg "lvm")](http://www.xdays.info/wp-content/uploads/2010/12/lvm.jpg)
+[![lvm](/wp-content/uploads/2010/12/lvm.jpg "lvm")](/wp-content/uploads/2010/12/lvm.jpg)
 
 相关命令有哪些？
 ================

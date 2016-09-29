@@ -40,16 +40,16 @@ allow *
 
 ## 客户端
 <pre>
-curl -s --insecure --cert /var/lib/puppet/ssl/certs/test2.xdays.info.pem --key /var/lib/puppet/ssl/private_keys/test2.xdays.info.pem --cacert /var/lib/puppet/ssl/certs/ca.pem -H "Accept: pson" https://puppet.xdays.info:8140/stage/certificate_statuses/no_key | python -m json.tool
+curl -s --insecure --cert /var/lib/puppet/ssl/certs/test2.xdays.me.pem --key /var/lib/puppet/ssl/private_keys/test2.xdays.me.pem --cacert /var/lib/puppet/ssl/certs/ca.pem -H "Accept: pson" https://puppet.xdays.me:8140/stage/certificate_statuses/no_key | python -m json.tool
 </pre>
 
 <pre>
-curl -s --insecure  -X PUT --cert /var/lib/puppet/ssl/certs/test2.xdays.info.pem --key /var/lib/puppet/ssl/private_keys/test2.xdays.info.pem --cacert /var/lib/puppet/ssl/certs/ca.pem -H "Content-Type: text/pson" --data '{"desired_state":"signed"}' https://puppet.xdays.info:8140/stage/certificate_status/test2.xdays.info
+curl -s --insecure  -X PUT --cert /var/lib/puppet/ssl/certs/test2.xdays.me.pem --key /var/lib/puppet/ssl/private_keys/test2.xdays.me.pem --cacert /var/lib/puppet/ssl/certs/ca.pem -H "Content-Type: text/pson" --data '{"desired_state":"signed"}' https://puppet.xdays.me:8140/stage/certificate_status/test2.xdays.me
 </pre>
 
 <pre>
-curl -s -X DELETE --insecure --cert /var/lib/puppet/ssl/certs/test2.xdays.info.pem --key /var/lib/puppet/ssl/private_keys/test2.xdays.info.pem --cacert /var/lib/puppet/ssl/certs/ca.pem -H "Accept: pson" https://puppet.xdays.info:8140/stage/certificate_status/test2.xdays.info
-"Deleted for test2.xdays.info: Puppet::SSL::Certificate"
+curl -s -X DELETE --insecure --cert /var/lib/puppet/ssl/certs/test2.xdays.me.pem --key /var/lib/puppet/ssl/private_keys/test2.xdays.me.pem --cacert /var/lib/puppet/ssl/certs/ca.pem -H "Accept: pson" https://puppet.xdays.me:8140/stage/certificate_status/test2.xdays.me
+"Deleted for test2.xdays.me: Puppet::SSL::Certificate"
 </pre>
 
 # 扩展

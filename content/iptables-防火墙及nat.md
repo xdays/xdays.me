@@ -21,7 +21,7 @@ iptables是用来配置linux内核自带的包过滤系统的命令行工具，�
 
 数据包有怎样的传输过程（链之间的关系）？
 
-[![iptables](http://www.xdays.info/wp-content/uploads/2010/08/iptables.png "iptables")](http://www.xdays.info/wp-content/uploads/2010/08/iptables.png)
+[![iptables](/wp-content/uploads/2010/08/iptables.png "iptables")](/wp-content/uploads/2010/08/iptables.png)
 
 (图片转自鸟哥私房菜)
 

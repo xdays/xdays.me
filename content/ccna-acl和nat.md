@@ -50,7 +50,7 @@ direction）只能配置一条acl
 
 ### 执行过程
 
-[![acl-process](http://www.xdays.info/wp-content/uploads/2010/11/acl-process.jpg "acl-process")](http://www.xdays.info/wp-content/uploads/2010/11/acl-process.jpg)需要注意的是如果在一个接口的一个方向如果所有acl规则都不匹配，默认路由器会丢弃该数据包
+[![acl-process](/wp-content/uploads/2010/11/acl-process.jpg "acl-process")](/wp-content/uploads/2010/11/acl-process.jpg)需要注意的是如果在一个接口的一个方向如果所有acl规则都不匹配，默认路由器会丢弃该数据包
 
 ### 分类
 

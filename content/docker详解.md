@@ -5,9 +5,9 @@ Category: cloud
 Tags: cloud,docker
 Slug: docker详解
 
-<!--<iframe frameborder="0" src="http://cloud.xdays.info/slide/docker.html#1"></iframe>-->
+<!--<iframe frameborder="0" src="http://cloud.xdays.me/slide/docker.html#1"></iframe>-->
 
-**说明** 本文档来自前段时间写的一个[slide](http://xstore2.xdays.info/upload/docker.html)，由于remark没有很好的支持嵌入到HTML中，只能把markdown搬过来了。
+**说明** 本文档来自前段时间写的一个[slide](http://xstore2.xdays.me/upload/docker.html)，由于remark没有很好的支持嵌入到HTML中，只能把markdown搬过来了。
 
 # Docker
 #### by 张向军

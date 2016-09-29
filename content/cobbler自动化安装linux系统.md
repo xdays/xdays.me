@@ -26,7 +26,7 @@ Slug: cobbler自动化安装linux系统
 PXE原理
 -------
 
-![PXE原理](http://www.xdays.info/wp-content/uploads/2013/08/pxe-flow.png)
+![PXE原理](/wp-content/uploads/2013/08/pxe-flow.png)
 
 1.  客户端发起Discover包，通过flag说明自身的PXE拓展信息；
 2.  服务器响应Offer包，告知客户端下边去找哪台服务器；
@@ -38,7 +38,7 @@ PXE原理
 Cobbler模型
 -----------
 
-![Cobbler模型](http://www.xdays.info/wp-content/uploads/2013/08/how-we-do.png)
+![Cobbler模型](/wp-content/uploads/2013/08/how-we-do.png)
 
 这张图画出了Cobbler的模型，越往上的对象越基础越通用，自上而下不断的添加一些新的东西进来让其满足个性化的需求。这里我们需要重点关注的是distro和profile这两个概念。
 

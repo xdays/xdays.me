@@ -41,7 +41,7 @@ SSO：状态化切换切换速度快，不会造成用户流量中断。
 
 ### 参考拓扑
 
-[![hsrp-vrrp-glbp-top](http://www.xdays.info/wp-content/uploads/2011/03/hsrp-vrrp-glbp-top.jpg "hsrp-vrrp-glbp-top")](http://www.xdays.info/wp-content/uploads/2011/03/hsrp-vrrp-glbp-top.jpg)
+[![hsrp-vrrp-glbp-top](/wp-content/uploads/2011/03/hsrp-vrrp-glbp-top.jpg "hsrp-vrrp-glbp-top")](/wp-content/uploads/2011/03/hsrp-vrrp-glbp-top.jpg)
 
 ### 一些传统的冗余技术
 
