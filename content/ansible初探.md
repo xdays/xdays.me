@@ -13,7 +13,7 @@ ansible是一个自动化管理工具，它足够简单且足够强大来管理�
 特性
 ====
 
--   无agent模式，push模式，这一点与[fabric](http://www.xdays.info/fabric初探.html)有几分类似
+-   无agent模式，push模式，这一点与[fabric](/fabric初探.html)有几分类似
 -   并发执行
 -   可用任何语言写扩展模块
 -   有类似[Puppet](http://puppetlabs.com/)（RAL）或者[SaltStack](http://saltstack.org/)（state）的playbook
@@ -23,7 +23,7 @@ ansible是一个自动化管理工具，它足够简单且足够强大来管理�
 ========
 
 如图所示： ![ansible
-architecture](http://www.xdays.info/wp-content/uploads/2013/10/ansible_architecture.jpg)
+architecture](/wp-content/uploads/2013/10/ansible_architecture.jpg)
 
 ​\* 首先，你需要定义设备列表，即任务执行的范围 \*
 然后，Ansible能通过调用模块来在这些设备上执行任务 \*
@@ -56,7 +56,7 @@ ansible命令
 vim /etc/ansible/hosts
 
     local   ansible_ssh_host=localhost   ansible_connection=local
-    aliyun  ansible_ssh_host=cloud.xdays.info   ansible_ssh_private_key_file=~/.ssh/id_rsa​
+    aliyun  ansible_ssh_host=cloud.xdays.me   ansible_ssh_private_key_file=~/.ssh/id_rsa​
 
 执行命令
 --------

@@ -40,7 +40,7 @@ from __future__ import unicode_literals
 # Misc 
 AUTHOR = u'xdays' 
 SITENAME = u'xdays' 
-SITEURL = 'http://xdays.info' 
+SITEURL = 'http://xdays.me' 
 KEYWORD = '架构，运维，开发, 生活随想' 
 PATH = 'content' 
 STATIC_PATHS = ['wp-content'] 
@@ -132,7 +132,7 @@ for i in flist:
 git init 
 git add . 
 git commit -m 'first owesome commit' 
-git remote add origin git@github.com:xdays/xdays.info.git 
+git remote add origin git@github.com:xdays/xdays.me.git 
 git push -u origin master
 </pre>
 

@@ -15,6 +15,6 @@ DeskSpace是一个非常炫的虚拟桌面软件，它以3D方块旋转的方式
 
 效果图一张：
 
-[![3d-deskspace](http://www.xdays.info/wp-content/uploads/2010/12/3d-deskspace.jpg "3d-deskspace")](http://www.xdays.info/wp-content/uploads/2010/12/3d-deskspace.jpg)
+[![3d-deskspace](/wp-content/uploads/2010/12/3d-deskspace.jpg "3d-deskspace")](/wp-content/uploads/2010/12/3d-deskspace.jpg)
 
 下载地址：<http://www.xdowns.com/soft/xdowns2009.asp?softid=39126&downid=5&id=41441>

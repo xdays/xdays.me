@@ -44,8 +44,8 @@ vpn。它最大的优势是构建在tcp或udp，所以可以穿越proxy，nat，
     export KEY_COUNTRY="CN"
     export KEY_PROVINCE="BJ"
     export KEY_CITY="BJ"
-    export KEY_ORG="www.xdays.info"
-    export KEY_EMAIL="xdays@xdays.info"
+    export KEY_ORG="www.xdays.me"
+    export KEY_EMAIL="xdays@xdays.me"
     source /etc/openvpn/easy-rsa/2.0/vars
 
 #### 生成cert

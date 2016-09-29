@@ -29,7 +29,7 @@ Slug: zabbix基本安装
 --------
 
 ![zabbix hardware
-reuqirement](http://www.xdays.info/wp-content/uploads/2013/11/zabbix_requirement.jpg)
+reuqirement](/wp-content/uploads/2013/11/zabbix_requirement.jpg)
 
 安装官方源
 ----------

@@ -24,4 +24,4 @@ Site:http://moc.daper.net/
 
 附上截图一张：
 
-[![mocp](http://www.xdays.info/wp-content/uploads/2010/09/mocp-300x188.jpg "mocp")](http://www.xdays.info/wp-content/uploads/2010/09/mocp.jpg)
+[![mocp](/wp-content/uploads/2010/09/mocp-300x188.jpg "mocp")](/wp-content/uploads/2010/09/mocp.jpg)

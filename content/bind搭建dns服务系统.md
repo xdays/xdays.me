@@ -13,7 +13,7 @@ Bind是目前应用最广泛的DNS服务器软件，其主要包括服务器实�
 说明
 ====
 
-本文仅讨论如何把Bind配置成一台DNS域名服务器，关于DNS协议的说明，请参考[DNS协议详解](http://www.xdays.info/dns%e5%8d%8f%e8%ae%ae%e8%af%a6%e8%a7%a3.html)
+本文仅讨论如何把Bind配置成一台DNS域名服务器，关于DNS协议的说明，请参考[DNS协议详解](/dns%e5%8d%8f%e8%ae%ae%e8%af%a6%e8%a7%a3.html)
 
 安装
 ====
@@ -106,7 +106,7 @@ SOA记录是zone文件里最复杂的记录类型了，所以单独说明下：
 说明
 ----
 
-本示例我将演示如何通过四台服务器搭建一个完整DNS系统，其中包括root，com和info的授权，xdays.com和xdays.info的授权案，cache-only域名解析服务器。
+本示例我将演示如何通过四台服务器搭建一个完整DNS系统，其中包括root，com和info的授权，xdays.com和xdays.me的授权案，cache-only域名解析服务器。
 
 配置
 ----
@@ -273,10 +273,10 @@ info.zone如下：
 
     info. 518400 IN NS ns.info.
     ns.info. 3600000 IN A 192.168.110.101
-    xdays.info. 518400 IN NS ns.xdays.info.
-    ns.xdays.info. 3600000 IN A 192.168.110.102
+    xdays.me. 518400 IN NS ns.xdays.me.
+    ns.xdays.me. 3600000 IN A 192.168.110.102
 
-### xdays.info
+### xdays.me
 
 named.conf如下：
 
@@ -330,9 +330,9 @@ named.conf如下：
     };
 
 
-    zone "xdays.info." IN {
+    zone "xdays.me." IN {
      type master;
-     file "xdays.info.zone";
+     file "xdays.me.zone";
     };
 
 
@@ -350,7 +350,7 @@ named.ca如下：
     . 518400 IN NS xdays.root.net.
     xdays.root.net. 3600000 IN A 192.168.110.100
 
-xdays.info.zone如下：
+xdays.me.zone如下：
 
     $TTL 86400
     @ IN SOA @ root (
@@ -361,10 +361,10 @@ xdays.info.zone如下：
      1D ) ; minimum
 
 
-    xdays.info. 86400 IN NS ns.xdays.info.
-    ns.xdays.info. 360 IN A 192.168.110.101
-    www.xdays.info. 360 IN A 1.1.1.1
-    img.xdays.info. 360 IN A 2.2.2.2
+    xdays.me. 86400 IN NS ns.xdays.me.
+    ns.xdays.me. 360 IN A 192.168.110.101
+    www.xdays.me. 360 IN A 1.1.1.1
+    img.xdays.me. 360 IN A 2.2.2.2
 
 ### cache-only
 
@@ -433,16 +433,16 @@ named.ca如下：
 
 ### 标准域名解析
 
-执行dig www.xdays.info，数据包如下： ![DNS A
-Record](http://www.xdays.info/wp-content/uploads/2013/10/dns-a.png)
+执行dig www.xdays.me，数据包如下： ![DNS A
+Record](/wp-content/uploads/2013/10/dns-a.png)
 
 ### 带CNAME域名解析
 
-执行dig img.xdays.info，数据包如下： ![DNS
-A-CNAME](http://www.xdays.info/wp-content/uploads/2013/10/dns-cname.png)
-注意一点，如果img.xdays.info的CNAME记录是img.xdays.com，而且这里俩域的授权是同一台，那么授权会把CNAME记录和A记录同时返回给本地域名解析服务器，数据包如下：
+执行dig img.xdays.me，数据包如下： ![DNS
+A-CNAME](/wp-content/uploads/2013/10/dns-cname.png)
+注意一点，如果img.xdays.me的CNAME记录是img.xdays.com，而且这里俩域的授权是同一台，那么授权会把CNAME记录和A记录同时返回给本地域名解析服务器，数据包如下：
 ![DNS A-CNAME
-detail](http://www.xdays.info/wp-content/uploads/2013/10/dns-cname-detail.png)
+detail](/wp-content/uploads/2013/10/dns-cname-detail.png)
 
 注意：这里有个疑问尚未解决，在CNAME和A记录同时被返回之后，本地域名服务器又对img.xdays.com进行了一次递归解析，我不知道意义何在，如有结论请指教。经过请教这个过程称为**DNS重查**，也就是说即使你直接给我了CNAME和A记录，但是我无法验证你到底是不是xdays.com的授权，所以我要递归解析查询一次。
 

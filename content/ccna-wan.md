@@ -64,7 +64,7 @@ WAN常用的数据链路层协议：HDLC，PPP，frame-relay，ATM
 
 WAN接入方式如下图所示：
 
-[![wan-link-options](http://www.xdays.info/wp-content/uploads/2010/11/wan-link-options.jpg "wan-link-options")](http://www.xdays.info/wp-content/uploads/2010/11/wan-link-options.jpg)综合业务数字网络（ISDN）
+[![wan-link-options](/wp-content/uploads/2010/11/wan-link-options.jpg "wan-link-options")](/wp-content/uploads/2010/11/wan-link-options.jpg)综合业务数字网络（ISDN）
 
 一种电路交换网络，让PSTN的本地环路可以传送数字信号。有两种基本的ISDN接口，基本接口速率BRI（base
 rate

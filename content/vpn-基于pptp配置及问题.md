@@ -12,11 +12,11 @@ Slug: vpn-基于pptp配置及问题
 1）目前优先选取的是pptp
 VPN，因为它配置简单，况且仅需要几个连接，对性能也没什么要求。
 
-2）配置步骤见另一篇文章[VPN-基于pptp的简单配置](http://www.xdays.info/vpn-%E5%9F%BA%E4%BA%8Epptp%E7%9A%84%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE.html)
+2）配置步骤见另一篇文章[VPN-基于pptp的简单配置](/vpn-%E5%9F%BA%E4%BA%8Epptp%E7%9A%84%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE.html)
 
 拓扑图如下：
 
-[![pptpd-vpn-top](http://www.xdays.info/wp-content/uploads/2011/03/pptpd-vpn-top.jpg "pptpd-vpn-top")](http://www.xdays.info/wp-content/uploads/2011/03/pptpd-vpn-top.jpg)
+[![pptpd-vpn-top](/wp-content/uploads/2011/03/pptpd-vpn-top.jpg "pptpd-vpn-top")](/wp-content/uploads/2011/03/pptpd-vpn-top.jpg)
 
 出现的问题：
 

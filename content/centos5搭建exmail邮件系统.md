@@ -7,7 +7,7 @@ Slug: centos5搭建exmail邮件系统
 
 ### 邮件系统运行原理
 
-#### [![mail-architecture](http://www.xdays.info/wp-content/uploads/2011/08/mail-architecture.gif "mail-architecture")](http://www.xdays.info/wp-content/uploads/2011/08/mail-architecture.gif)
+#### [![mail-architecture](/wp-content/uploads/2011/08/mail-architecture.gif "mail-architecture")](/wp-content/uploads/2011/08/mail-architecture.gif)
 
 #### MUA，MTA和MDA
 

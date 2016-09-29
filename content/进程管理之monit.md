@@ -30,17 +30,17 @@ set logfile /var/log/monit.log
 set pidfile /var/run/monit.pid 
 set idfile /var/.monit.id 
 set statefile /var/.monit.state 
-set mailserver smtp.xdays.info port 25 
-  username "admin@xdays.info" password "password" 
+set mailserver smtp.xdays.me port 25 
+  username "admin@xdays.me" password "password" 
   #using tlsv1 
-set mail-format { from: admin@xdays.info } 
+set mail-format { from: admin@xdays.me } 
 set alert easedays@gmail.com # receive all alerts
 
 set httpd port 2812 and
     use address localhost
     allow localhost
 
-check system cloud.xdays.info 
+check system cloud.xdays.me 
   if loadavg (1min) > 4 then alert 
   if loadavg (5min) > 2 then alert 
   if memory usage > 75% then alert 
@@ -57,7 +57,7 @@ check process nginx with pidfile /var/run/nginx.pid
   if totalmem > 200.0 MB for 5 cycles then restart 
   if children > 250 then restart 
   if loadavg(5min) greater than 10 for 8 cycles then stop 
-  if failed host www.xdays.info port 80 protocol http 
+  if failed host www.xdays.me port 80 protocol http 
     and request "/" 
   then restart 
   if failed port 443 type tcpssl protocol http 

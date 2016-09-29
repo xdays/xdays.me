@@ -7,7 +7,7 @@ Slug: 传输层协议tcpudp
 
 ### 一、TCP和UDP分段结构
 
-[![tcp&udpsegment](http://www.xdays.info/wp-content/uploads/2010/06/tcpudpsegment.jpg "tcp&udpsegment")](http://www.xdays.info/wp-content/uploads/2010/06/tcpudpsegment.jpg)
+[![tcp&udpsegment](/wp-content/uploads/2010/06/tcpudpsegment.jpg "tcp&udpsegment")](/wp-content/uploads/2010/06/tcpudpsegment.jpg)
 
 1）！<span
 style="color: #000000;">顺序号的单位是应用层数据的大小（byte为单位），也就是说两次tcp报文段的顺序号之差就是应用层数据大小（byte为单位）。！  
@@ -31,11 +31,11 @@ G标志位置1时紧急指针才有效。紧急指针是一个正的偏移量，
 
 1）三次握手，建立连接
 
-[![tcp-3hands-shake](http://www.xdays.info/wp-content/uploads/2010/06/tcp-3hands-shake.jpg "tcp-3hands-shake")](http://www.xdays.info/wp-content/uploads/2010/06/tcp-3hands-shake.jpg)
+[![tcp-3hands-shake](/wp-content/uploads/2010/06/tcp-3hands-shake.jpg "tcp-3hands-shake")](/wp-content/uploads/2010/06/tcp-3hands-shake.jpg)
 
 2）四次握手，连接终止
 
-[![tcp-finish](http://www.xdays.info/wp-content/uploads/2010/06/tcp-finish.jpg "tcp-finish")](http://www.xdays.info/wp-content/uploads/2010/06/tcp-finish.jpg)
+[![tcp-finish](/wp-content/uploads/2010/06/tcp-finish.jpg "tcp-finish")](/wp-content/uploads/2010/06/tcp-finish.jpg)
 
 这里再讨论一个细节：当A发送了FIN消息，并收到确认时整个连接进入半关闭状态。这时B仍能向A发送数据，A仍要接收。当B没有数据要发送时就发送FIN消息，A回复ACK消息。至此，连接并没有完全释放，A进入time-wait状态。两个MSL（最长报文寿命）之后，A进入closed状态，连接释放。
 

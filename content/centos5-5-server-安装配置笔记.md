@@ -65,7 +65,7 @@ nameserver 202.102.152.3
 三、配置ssh
 
 系统默认安装并且启动了ssh服务，这里仅修改一下配置文件使root可以直接登录，去掉PermitRootLogin
-yes这一行的注释。另外配置文件的详细介绍参考：ssh服务器一文<http://www.xdays.info/?p=99>
+yes这一行的注释。另外配置文件的详细介绍参考：ssh服务器一文</?p=99>
 
 四、挂载centos镜像作为本地源。
 
@@ -143,7 +143,7 @@ mount -o loop /var/ftp/centos5.5.iso /media/CentOS/
 
 ​3) make install;cp vsftpd.conf /etc。
 
-​4) 配置参考简易vsftp搭建一文<http://www.xdays.info/?p=101>
+​4) 配置参考简易vsftp搭建一文</?p=101>
 
 ​5) 开机自动运行，在/etc/rc.local添加一行/usr/local/sbin/vsftpd
 &（后台运行不要忘了，不然的话它一直占用前台就没办法登录了）
@@ -152,8 +152,8 @@ mount -o loop /var/ftp/centos5.5.iso /media/CentOS/
 
 ​1) 安装参考INSTALL文件
 
-​2) 配置参考proxy 服务器-squid一文<http://www.xdays.info/?p=192>
+​2) 配置参考proxy 服务器-squid一文</?p=192>
 
 七、搭建lamp环境
 
-安装配置参考lamp环境搭建一文<http://www.xdays.info/?p=290>
+安装配置参考lamp环境搭建一文</?p=290>

@@ -13,14 +13,14 @@ Slug: vmware-虚拟化架构理解
 
 VMware虚拟化架构？
 
-[![vi3-1](http://www.xdays.info/wp-content/uploads/2010/10/vi3-1.jpg "vi3-1")](http://www.xdays.info/wp-content/uploads/2010/10/vi3-1.jpg)参考上图，VMware
+[![vi3-1](/wp-content/uploads/2010/10/vi3-1.jpg "vi3-1")](/wp-content/uploads/2010/10/vi3-1.jpg)参考上图，VMware
 vSphere是虚拟化平台的最新版本，它包括了VMware ESX 4.1和VMware vCenter
 Server 4.1等组件。而上一个版本是VMware Infrastructure
 3（简称VI3），主要包括VMware ESX 3.5和VMware vCenter Server
 2.5等组件。如果再大的环境下可能要像下图所示的架构添加存储网络。
 
-[![vi3-2](http://www.xdays.info/wp-content/uploads/2010/10/vi3-2.gif "vi3-2")](http://www.xdays.info/wp-content/uploads/2010/10/vi3-2.gif)[  
-](http://www.xdays.info/wp-content/uploads/2010/10/vi3-1.jpg)
+[![vi3-2](/wp-content/uploads/2010/10/vi3-2.gif "vi3-2")](/wp-content/uploads/2010/10/vi3-2.gif)[  
+](/wp-content/uploads/2010/10/vi3-1.jpg)
 
 VMware ESX
 ：从上图也可以看出，他就是运行在硬件上的虚拟层，调度硬件，虚拟机运行在其上。  

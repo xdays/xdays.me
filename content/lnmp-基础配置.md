@@ -23,7 +23,7 @@ apt-get install nginx php5-cgi mysql-server
 
 下图所示整个环境的运作:
 
-[![nginx-fastcgi](http://www.xdays.info/wp-content/uploads/2010/11/nginx-fastcgi.jpg "nginx-fastcgi")](http://www.xdays.info/wp-content/uploads/2010/11/nginx-fastcgi.jpg)
+[![nginx-fastcgi](/wp-content/uploads/2010/11/nginx-fastcgi.jpg "nginx-fastcgi")](/wp-content/uploads/2010/11/nginx-fastcgi.jpg)
 
 后端的PHP程序根据用户请求来读写mysql数据库，配置的过程一个主要任务是连接nginx和php5-cgi。这里我碰到了两个问题如下：
 
@@ -40,7 +40,7 @@ apt-get install nginx php5-cgi mysql-server
 http
 server》，粗略的看了一下算是比较系统详尽的文档了。下面还是简单的说一下我对nginx配置文件的理解，配置文件是由一系列的按照一定结构组织的指令组成的，这种结构叫块（block），主要的块包括event，http，server和location他们分别控制着不同的方面，event控制与连接相关，http控制与http协议相关以及日志相关等。
 
-[![nginx-config](http://www.xdays.info/wp-content/uploads/2010/11/nginx.jpg "nginx-config")](http://www.xdays.info/wp-content/uploads/2010/11/nginx.jpg)
+[![nginx-config](/wp-content/uploads/2010/11/nginx.jpg "nginx-config")](/wp-content/uploads/2010/11/nginx.jpg)
 
 还有一个比较重要的指令是include，它可以把其他文件的内容包含进来，由这些文件共同组成整个配置文件，debian对配置文件的组织就很好，条理清晰。下面就对apt安装的nginx的配置文件简单介绍，更详尽的指令用法参考《nginx
 http server》（见参考链接）

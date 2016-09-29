@@ -13,7 +13,7 @@ Slug: dns协议详解
 
 树是一种数据结构，用来表达一种一对多的关系，一图胜千言。
 
-![tree](http://www.xdays.info/wp-content/uploads/2013/10/dns-tree.png)
+![tree](/wp-content/uploads/2013/10/dns-tree.png)
 
 **注意：** 图选自《大话数据结构》
 
@@ -39,7 +39,7 @@ Slug: dns协议详解
 用树结构表示出来的互联网所有域名数据就是域的命名空间。再来一张图说明下：
 
 ![domain
-namespace](http://www.xdays.info/wp-content/uploads/2013/10/dns-model.png)
+namespace](/wp-content/uploads/2013/10/dns-model.png)
 
 需要对命名空间有几点说明：
 
@@ -108,21 +108,21 @@ Records](http://www.zytrax.com/books/dns/ch8/)
 ------
 
 ![dns
-request](http://www.xdays.info/wp-content/uploads/2013/10/dns-query.png)
+request](/wp-content/uploads/2013/10/dns-query.png)
 
 响应包
 ------
 
 ![dns
-response1](http://www.xdays.info/wp-content/uploads/2013/10/dns-response-1.png)  
+response1](/wp-content/uploads/2013/10/dns-response-1.png)  
 ![dns
-response2](http://www.xdays.info/wp-content/uploads/2013/10/dns-response-2.png)
+response2](/wp-content/uploads/2013/10/dns-response-2.png)
 
 解析流程
 ========
 
 ![dns
-procedure](http://www.xdays.info/wp-content/uploads/2013/10/dns-procedure.gif)
+procedure](/wp-content/uploads/2013/10/dns-procedure.gif)
 
 1.  用户电脑的解析器向LDNS发起域名解析请求，查询www.google.com的IP地址
 2.  在缓存没有命中的情况下，LDNS向根服务器查询www.google.com的IP地址
