@@ -1,7 +1,7 @@
 image: python:2.7-alpine
 pages:
   script:
-  - apk update && apk add git && git submodule update
+  - apk update && apk add git && git submodule update --init --recursive
   - pip install -r requirements.txt
   - ./genblog.sh
   artifacts:
