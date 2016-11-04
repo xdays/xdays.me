@@ -7,12 +7,13 @@ SITEURL = 'http://xdays.me'
 AUTHOR = u'xdays'
 SITENAME = u'xdays'
 KEYWORD = '架构，运维，开发, 生活随想'
-PATH = 'content'
 STATIC_PATHS = ['wp-content']
 EXTRA_PATH_METADATA = {
     'wp-content/static/robots.txt': {'path': 'robots.txt'},
     'wp-content/static/favicon.ico': {'path': 'favicon.ico'},
 }
+PATH = 'content'
+OUTPUT_PATH = 'public'
 
 # Time
 TIMEZONE = 'Asia/Shanghai'

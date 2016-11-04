@@ -6,4 +6,4 @@ pages:
   - ./genblog.sh
   artifacts:
     paths:
-    - output/
+    - public/
