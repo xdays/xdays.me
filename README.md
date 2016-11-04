@@ -1,4 +1,4 @@
-# xdays.me ![Build Status](https://gitlab.com/xdays/xdays.gitlab.io/badges/master/build.svg)
+# xdays.me [![Build Status](https://gitlab.com/xdays/xdays.gitlab.io/tree/master)](https://gitlab.com/xdays/xdays.gitlab.io/badges/master/build.svg)
 
 我的博客使用pelican静态博客引擎，本仓库托管所有博文的markdown文件。
 
