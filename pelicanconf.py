@@ -36,7 +36,7 @@ DEFAULT_PAGINATION = 20
 # Output
 DELETE_OUTPUT_DIRECTORY = True
 
-DISQUS_SITENAME = 'xdays'
+DUOSHUO_SITENAME = 'xdays'
 
 # Github
 GITHUB_USER = 'xdays'
