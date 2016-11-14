@@ -1,8 +1,8 @@
 Title: Docker初识
 Date: 2014-01-12 22:44
 Author: admin
-Category: cloud
-Tags: cloud, docker
+Category: container
+Tags: docker
 Slug: docker初识
 
 简介

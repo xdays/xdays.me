@@ -2,7 +2,7 @@ Title: Puppet之API操作
 Date: 2014-12-31 23:38
 Author: admin
 Category: devops
-Tags: puppet,api
+Tags: puppet
 Slug: Puppet之API操作
  
 # 背景

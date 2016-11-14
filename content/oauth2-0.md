@@ -1,8 +1,8 @@
 Title: OAuth2.0
 Date: 2013-07-31 16:31
 Author: admin
-Category: cloud
-Tags: cloud, oauth
+Category: devops
+Tags: devops, oauth
 Slug: oauth2-0
 
 前言

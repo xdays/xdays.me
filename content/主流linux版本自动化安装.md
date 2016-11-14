@@ -1,8 +1,8 @@
 Title: 主流Linux版本自动化安装
 Date: 2013-08-11 16:21
 Author: admin
-Category: cloud
-Tags: cloud, kickstart, preseed
+Category: linux
+Tags: linux, kickstart, preseed
 Slug: 主流linux版本自动化安装
 
 概述

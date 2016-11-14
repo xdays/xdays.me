@@ -1,8 +1,8 @@
 Title: Cobbler自动化安装Linux系统
 Date: 2013-08-09 09:58
 Author: admin
-Category: cloud
-Tags: clould, cobbler, linux
+Category: linux
+Tags: cobbler, linux
 Slug: cobbler自动化安装linux系统
 
 简介

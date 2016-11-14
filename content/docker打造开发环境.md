@@ -1,7 +1,7 @@
 Title: Docker打造开发环境
 Date: 2014-04-08 14:01
 Author: admin
-Category: cloud
+Category: container
 Tags: docker
 Slug: docker打造开发环境
 
