@@ -4,10 +4,10 @@ Author: admin
 Category: devops
 Tags: blog,pelican
 Slug: 基于GitLab的Pages服务构建静态博客
- 
+
 # 背景
 
-之前我有[一篇博客](/Pelican和Github构建静态博客.html)讨论过基于Pelican, Github以及Nginx+Lua实现的自动发布静态博客。最近重新思考这个方案感觉不够精简，也许当时是出于学习的目的引入了Ngnix+Lua这块。正好今年上半年[GitLab宣布支持Pages服务](https://about.gitlab.com/2016/04/07/gitlab-pages-setup/)了，而且支持的远比Github彻底，所以决定将我的博客托管在GitLab的Pages上。
+之前我有[一篇博客]({filename}/Pelican和Github构建静态博客.md)讨论过基于Pelican, Github以及Nginx+Lua实现的自动发布静态博客。最近重新思考这个方案感觉不够精简，也许当时是出于学习的目的引入了Ngnix+Lua这块。正好今年上半年[GitLab宣布支持Pages服务](https://about.gitlab.com/2016/04/07/gitlab-pages-setup/)了，而且支持的远比Github彻底，所以决定将我的博客托管在GitLab的Pages上。
 
 # 流程
 

@@ -13,7 +13,7 @@ Bind是目前应用最广泛的DNS服务器软件，其主要包括服务器实�
 说明
 ====
 
-本文仅讨论如何把Bind配置成一台DNS域名服务器，关于DNS协议的说明，请参考[DNS协议详解](/dns%e5%8d%8f%e8%ae%ae%e8%af%a6%e8%a7%a3.html)
+本文仅讨论如何把Bind配置成一台DNS域名服务器，关于DNS协议的说明，请参考[DNS协议详解](dns协议详解.md)
 
 安装
 ====
@@ -452,4 +452,3 @@ detail](/wp-content/uploads/2013/10/dns-cname-detail.png)
 -   [BIND 9 Administrator Reference
     Manual](http://www.oit.uci.edu/dcslib/bind/bind-9.2.1/Bv9ARM.html)
 -   [Pro DNS and BIND](http://www.netwidget.net/books/apress/dns/)
-

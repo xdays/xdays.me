@@ -4,7 +4,7 @@ Author: admin
 Category: server
 Tags: server, ldap
 Slug: openldap构建统一认证之项目实战
- 
+
 # 背景
 
 ## 问题
@@ -33,11 +33,11 @@ Slug: openldap构建统一认证之项目实战
 
 ## 服务端
 ### OpenLDAP安装配置
-关于OpenLDAP的安装可以参考[OpenLDAP构建统一认证之安装配置](/openldap%E6%9E%84%E5%BB%BA%E7%BB%9F%E4%B8%80%E8%AE%A4%E8%AF%81%E4%B9%8B%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE.html)
+关于OpenLDAP的安装可以参考[OpenLDAP构建统一认证之安装配置]({filename}/openldap构建统一认证之安装配置.md)
 
 
 ### LAM安装配置
-关于LAM安装配置可以参考[OpenLDAP构建统一认证之管理工具](/openldap%E6%9E%84%E5%BB%BA%E7%BB%9F%E4%B8%80%E8%AE%A4%E8%AF%81%E4%B9%8B%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7.html)
+关于LAM安装配置可以参考[OpenLDAP构建统一认证之管理工具]({filename}/openldap构建统一认证之管理工具.md)
 
 
 ### 管理账号
@@ -310,4 +310,4 @@ AuthorizedKeysCommand /usr/bin/sss_ssh_authorizedkeys
 * http://linux.die.net/man/5/sudoers.ldap
 * https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Identity_Management_Guide/users.html#homedir-pammod
 * http://support.hp.com/us-en/document/c03737146
-* http://thornelabs.net/2013/01/28/linux-restrict-server-login-via-ldap-groups.html 
+* http://thornelabs.net/2013/01/28/linux-restrict-server-login-via-ldap-groups.html

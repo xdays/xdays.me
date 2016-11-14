@@ -4,15 +4,15 @@ Author: admin
 Category: container
 Tags: docker
 Slug: docker基础教程之基本概念
- 
+
 # 简介
 
 本文是整个系列教程的第一篇，我将从一个使用者的角度向你展示其中几个技术：namespace, cgroups, veth, bridge, copy-on-write, image 和 container。整个容器技术的核心包括namespace和cgroup两个部分，其中namespace负责资源隔离，cgroups负责资源限制。而Docker在这两个技术之上提出了几个重要概念让容器技术得以流行。
 
 如果你刚接触Docker请参考我另外两篇文章:
 
-* [Docker初识](/docker初识.html)
-* [Docker详解](/docker详解.html)
+* [Docker初识]({filename}/docker初识.md)
+* [Docker详解]({filename}/docker详解.md)
 
 # 安装
 
@@ -208,4 +208,4 @@ container在我看来更像是将以上所有技术的一个包装，一个conta
 1. 虚拟机里运行了一个完整的操作系统，而container只是通过host的内核运行了一个程序
 2. 对虚拟机资源的变更通常设计虚拟机重启，而对container资源的变更可以在线操作，不影响程序的运行
 3. 对虚拟机的调度目前都在分钟级，而对container的调度都在秒级
-4. 虚拟机相比container来说隔离性好，所以更安全。 
+4. 虚拟机相比container来说隔离性好，所以更安全。
