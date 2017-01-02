@@ -19,7 +19,7 @@ Slug: docker基础教程
     * copy-on-write
     * image
     * container
-* 镜像存储
+* [镜像存储]({filename}/docker基础教程之镜像存储.md)
     * registry
     * nexus
     * harbor
