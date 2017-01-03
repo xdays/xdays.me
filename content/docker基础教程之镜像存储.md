@@ -19,6 +19,7 @@ Slug: Docker基础教程之镜像存储
 
 ## 编译安装nginx
 
+```
 mkdir /opt/source
 git clone https://github.com/kvspb/nginx-auth-ldap.git
 git clone https://github.com/openresty/headers-more-nginx-module.git
@@ -26,6 +27,7 @@ wget -O - | tar xzf - -C /opt/source && \
 ./configure --prefix=/opt/nginx-1.11.8 --add-module=/opt/source/nginx-auth-ldap --add-module=/opt/source/headers-more-nginx-module --with-http_ssl_module && \
 make && make install
 ln -s /opt/nginx-1.11.8 /opt/nginx
+```
 
 ## 配置nginx
 
@@ -75,7 +77,7 @@ server {
     }
 
     # To add basic authentication to v2 use auth_basic setting.
-    auth_ldap "EverString Registry";
+    auth_ldap "Private Registry";
     auth_ldap_servers test1;
 
     ## If  is empty, the header will not be added.
