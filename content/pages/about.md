@@ -23,4 +23,5 @@ Slug: about
 * 2011.7-2013.10 ChinaCache, 运维工程师，运维主管
 * 2013.11-2014.8 UpYun，开发运维工程师
 * 2014.8-2015.5 Yottaa, System Engineer
-* 2015.8-Now Everstring, DevOps Engineer
+* 2015.5-2016.11 Everstring, DevOps Engineer
+* 2016.11-Now CacheMoment, 创业
