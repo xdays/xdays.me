@@ -14,6 +14,7 @@ EXTRA_PATH_METADATA = {
 }
 PATH = 'content'
 OUTPUT_PATH = 'public'
+DIRECT_TEMPLATES = ['index', 'categories', 'authors', 'archives']
 
 # Time
 TIMEZONE = 'Asia/Shanghai'
@@ -26,7 +27,7 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 # Menu
-MENUITEMS = (('首页', '/'),)
+MENUITEMS = (('首页', '/'), ('归档', 'archives.html'))
 DISPLAY_PAGES_ON_MENU = True
 DISPLAY_CATEGORIES_ON_MENU = False
 
