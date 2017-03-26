@@ -43,7 +43,16 @@ NETEASE_GENTIE = True
 GITHUB_USER = 'xdays'
 GITHUB_REPO_COUNT = 5 
 
+# CacheMoment
+CACHEMOMENT_REFER = True
+
 # Goole Custom Search
-CSE_CODE = '008104676222079813428:xcoyettaqmw'
+GOOGLE_CSE_CODE = '008104676222079813428:xcoyettaqmw'
+
+# Google Analyze
+GOOGLE_ANALYTICS = 'UA-96220381-1'
+
+# Google Adsense
+GOOGLE_ADSENSE = True
 
 PLUGINS = []
