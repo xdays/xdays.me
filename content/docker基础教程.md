@@ -23,11 +23,11 @@ Slug: docker基础教程
     * registry
     * nexus
     * harbor
-* 镜像构建
+* [镜像构建]({filename}/docker基础教程之镜像构建.md)
     * docker build
-    * jenkins
     * puppet
     * ansible
+    * packer
 * 镜像安全
     * clair
     * docker-bench-security
