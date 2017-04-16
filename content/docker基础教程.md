@@ -10,7 +10,7 @@ Slug: docker基础教程
 我要总结的第一个系列是Docker，我从14年开始使用Docker，大概是0.5或者0.6的版本，一路过来见证了Docker从一个小而美发展成了大而全的项目，也见证了整个容器生态圈的蓬勃发展。简单整理了下这个系列的大纲：
 
 
-* [基础]({filename}/docker基础教程之基本概念.md)
+* [基本概念]({filename}/docker基础教程之基本概念.md)
     * cgroups
     * namespace
     * veth
@@ -28,9 +28,9 @@ Slug: docker基础教程
     * puppet
     * ansible
     * packer
-* 镜像安全
+* [镜像安全]({filename}/docker基础教程之镜像安全.md)
+    * anchore
     * clair
-    * docker-bench-security
 * 网络
     * flannel
     * openvswitch

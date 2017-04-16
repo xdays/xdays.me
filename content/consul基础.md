@@ -17,7 +17,7 @@ Slug: Consul基础
 
 ## 概览
 
-![architect-of-consul](/wp-content/uploads/2016/02/consul-arch.png)
+![architect-of-consul]({filename}/wp-content/uploads/2016/02/consul-arch.png)
 
 * 通过一个WAN的Gossip池来原生支持跨数据中心的状态同步
 * 一个数据中心内部通过LAN Gossip来维持数据中心内部状态同步
