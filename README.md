@@ -7,6 +7,7 @@
 * 用Git管理所有博客的变动
 * 当有改动提交时通过GitLab的Pipeline来生成站点文件
 * 托管在GitLab的Pages服务下
+* 页面优化和加速服务由[魔门云](https://www.cachemoment.com/)提供
 
 # 感谢
 
