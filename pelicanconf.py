@@ -37,7 +37,8 @@ DEFAULT_PAGINATION = 20
 # Output
 DELETE_OUTPUT_DIRECTORY = True
 
-NETEASE_GENTIE = True
+# Comment
+DISQUS_SITENAME = 'xdays'
 
 # Github
 GITHUB_USER = 'xdays'
