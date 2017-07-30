@@ -3,7 +3,7 @@
 from __future__ import unicode_literals
 
 # Misc
-SITEURL = 'http://www.xdays.me'
+SITEURL = 'http://xdays.me'
 AUTHOR = u'xdays'
 SITENAME = u'xdays'
 KEYWORD = '架构，运维，开发, 生活随想'
