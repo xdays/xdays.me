@@ -3,7 +3,7 @@
 from __future__ import unicode_literals
 
 # Misc
-SITEURL = 'http://xdays.me'
+SITEURL = 'http://www.xdays.me'
 AUTHOR = u'xdays'
 SITENAME = u'xdays'
 KEYWORD = '架构，运维，开发, 生活随想'
@@ -36,6 +36,11 @@ DEFAULT_PAGINATION = 20
 
 # Output
 DELETE_OUTPUT_DIRECTORY = True
+
+# Theme
+THEME = 'attila'
+SOCIAL = (('twitter', 'https://twitter.com/easedays'),
+          ('github', 'https://github.com/xdays'))
 
 # Comment
 DISQUS_SITENAME = 'xdays'
