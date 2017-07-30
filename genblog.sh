@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # -*- coding: utf-8 -*-
  
 THEME_PATH=/tmp/attila
