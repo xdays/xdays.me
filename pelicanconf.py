@@ -15,6 +15,7 @@ EXTRA_PATH_METADATA = {
 PATH = 'content'
 OUTPUT_PATH = 'public'
 DIRECT_TEMPLATES = ['index', 'categories', 'authors', 'archives']
+RELATIVE_URLS = True
 
 # Time
 TIMEZONE = 'Asia/Shanghai'
