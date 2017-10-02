@@ -24,6 +24,7 @@ DEFAULT_LANG = u'zh'
 # Feed
 FEED_DOMAIN = SITEURL
 FEED_ATOM = 'feeds/atom.xml'
+FEED_RSS = 'feeds/rss.xml'
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
