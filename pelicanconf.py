@@ -40,9 +40,8 @@ DEFAULT_PAGINATION = 20
 DELETE_OUTPUT_DIRECTORY = True
 
 # Theme
-THEME = 'attila'
-SOCIAL = (('twitter', 'https://twitter.com/easedays'),
-          ('github', 'https://github.com/xdays'))
+SOCIAL = (('Twitter', 'https://twitter.com/easedays'),
+          ('Github', 'https://github.com/xdays'))
 
 # Comment
 DISQUS_SITENAME = 'xdays'
@@ -64,3 +63,20 @@ GOOGLE_ANALYTICS = 'UA-96220381-1'
 GOOGLE_ADSENSE = True
 
 PLUGINS = []
+
+LINKS = [
+    ('李爽', 'http,//www.iamle.com'),
+    ('培强', 'http,//peiqiang.net'),
+    ('钿田', 'http,//blog.54im.com'),
+    ('三斗室', 'http,//chenlinux.com'),
+    ('张斌', 'http,//opslinux.com'),
+    ('老徐的私房菜', 'http,//laoxu.blog.51cto.com'),
+    ('邓磊', 'http,//dl528888.blog.51cto.com'),
+    ('沈灿', 'http,//www.shencan.net'),
+    ('胡阳', 'http,//www.the5fire.com'),
+    ('峰云', 'http,//xiaorui.cc'),
+    ('安静', 'http,//www.80aj.com'),
+    ('刘志', 'http,//orangleliu.info/'),
+    ('字母哥', 'http,//n4mine.github.io/'),
+    ('丰杰', 'https,//www.zhoufengjie.cn/')
+]
