@@ -1,10 +1,10 @@
 ---
-title: Window10的一些使用体验
+title: Windows10的一些使用体验
 date: 2019-01-13
 author: admin
 category: windows
 tags: windows
-slug: Window10的一些使用体验
+slug: Windows10的一些使用体验
 ---
 
 ## 一点体会
