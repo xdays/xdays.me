@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `xdays`,
     author: `xdays`,
-    description: `这里记录记录着我技术的成长，生活的点滴和感悟，如果能对你有所帮助，那个更好。`,
+    description: `记录着我技术的成长，生活的点滴和感悟，能对你有所帮助那更好。`,
     siteUrl: `https://xdays.me/`,
     social: {
       github: `xdays`,
