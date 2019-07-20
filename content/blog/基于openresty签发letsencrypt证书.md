@@ -37,7 +37,7 @@ ln -s /usr/local/openresty/luajit/bin/luarocks /usr/local/bin/
 ## 安装lua-resty-auto-ssl
 
 ```
-luarocks install lua-resty-ssl
+luarocks install lua-resty-auto-ssl
 ```
 
 ## 配置lua-resty-auto-ssl
