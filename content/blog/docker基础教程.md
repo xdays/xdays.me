@@ -33,21 +33,5 @@ slug: docker基础教程
 * [镜像安全](//docker基础教程之镜像安全/)
     * anchore
     * clair
-* 网络
-    * flannel
-    * openvswitch
-    * swarm mode
-* 存储
-    * torus
-    * ceph
-* 调度
-    * swarm mode
-    * kubernetes
-    * mesos
-* 服务发现
-    * dlb
-    * fabio
-    * consul + registrator + consul-template
-    * etcd + registrator + confd
 
 声明：我只是一个具备基础开发能力的运维，我没有能力解释清楚容器技术的底层原理，所有本系列的大多数知识都是我从实践中得来，但也不能保证百分百正确，如果你在阅读过程中发现错误或者疑问欢迎沟通。 
