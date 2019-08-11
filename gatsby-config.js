@@ -3,6 +3,7 @@ module.exports = {
     title: `xdays`,
     author: `xdays`,
     description: `记录着我技术的成长，生活的点滴和感悟，能对你有所帮助那更好。`,
+    keywords: [`blog`, `gatsby`, `devops`, `fullstack`, `indie hacker`],
     siteUrl: `https://xdays.me/`,
     social: {
       github: `xdays`,
