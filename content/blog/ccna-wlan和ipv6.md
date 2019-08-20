@@ -2,7 +2,7 @@
 title: CCNA-WLAN和IPv6
 date: 2010-11-06
 author: admin
-category: ccna
+category: network
 tags: ccna, cisco, ipv6, wlan
 slug: ccna-wlan和ipv6
 ---

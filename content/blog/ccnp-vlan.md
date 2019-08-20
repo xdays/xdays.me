@@ -2,7 +2,7 @@
 title: CCNP-VLAN
 date: 2011-03-22
 author: admin
-category: ccnp
+category: network
 tags: ccna, cisco, vlan
 slug: ccnp-vlan
 ---

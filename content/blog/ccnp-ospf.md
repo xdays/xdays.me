@@ -2,7 +2,7 @@
 title: CCNP-OSPF
 date: 2011-03-17
 author: admin
-category: ccnp
+category: network
 tags: ccnp, cisco, ospf
 slug: ccnp-ospf
 ---

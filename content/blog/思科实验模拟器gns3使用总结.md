@@ -2,7 +2,7 @@
 title: 思科实验模拟器GNS3使用总结
 date: 2011-01-04
 author: admin
-category: ccnp
+category: network
 slug: 思科实验模拟器gns3使用总结
 ---
 

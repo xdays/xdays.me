@@ -2,7 +2,7 @@
 title: CCNA-EIGRP和OSPF
 date: 2010-10-31
 author: admin
-category: ccna
+category: network
 tags: ccna, cisco, eigrp, ospf
 slug: ccna-eigrp和ospf
 ---

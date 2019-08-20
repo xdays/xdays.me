@@ -2,7 +2,7 @@
 title: CCNP-STP
 date: 2011-03-20
 author: admin
-category: ccnp
+category: network
 tags: ccnp, cisco, stp
 slug: ccnp-stp
 ---

@@ -2,7 +2,7 @@
 title: ccna-summary
 date: 2010-07-26
 author: admin
-category: ccna
+category: network
 tags: ccna
 slug: ccna-summary
 ---

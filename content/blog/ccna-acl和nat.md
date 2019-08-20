@@ -2,7 +2,7 @@
 title: CCNA-ACL和NAT
 date: 2010-11-05
 author: admin
-category: ccna
+category: network
 tags: acl, ccna, cisco, nat
 slug: ccna-acl和nat
 ---

@@ -2,7 +2,7 @@
 title: CCNA-WAN
 date: 2010-11-17
 author: admin
-category: ccna
+category: network
 tags: ccna, cisco, wan
 slug: ccna-wan
 ---

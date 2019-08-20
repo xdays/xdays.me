@@ -2,7 +2,7 @@
 title: CCNP-Redistribute
 date: 2011-03-18
 author: admin
-category: ccnp
+category: network
 tags: ccnp, cisco, redistribute
 slug: ccnp-redistribute
 ---

@@ -2,7 +2,7 @@
 title: CCNP-EIGRP
 date: 2011-03-16
 author: admin
-category: ccnp
+category: network
 tags: ccnp, cisco, eigrp
 slug: ccnp-eigrp
 ---

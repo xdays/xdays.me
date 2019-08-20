@@ -2,7 +2,7 @@
 title: CCNA-硬件及IOS
 date: 2010-10-28
 author: admin
-category: ccna
+category: network
 tags: cisco, cli, ios
 slug: ccna-硬件及ios
 ---

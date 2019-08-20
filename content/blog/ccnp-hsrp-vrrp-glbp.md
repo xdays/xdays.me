@@ -2,7 +2,7 @@
 title: CCNP-HSRP-VRRP-GLBP
 date: 2011-03-26
 author: admin
-category: ccnp
+category: network
 tags: ccnp, cisco, hsrp-vrrp-glbp
 slug: ccnp-hsrp-vrrp-glbp
 ---

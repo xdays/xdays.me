@@ -2,7 +2,7 @@
 title: ccnp-summary
 date: 2011-03-16
 author: admin
-category: ccnp
+category: network
 slug: ccnp-summary
 ---
 

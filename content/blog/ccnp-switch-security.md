@@ -2,7 +2,7 @@
 title: CCNP-Switch-Security
 date: 2011-03-26
 author: admin
-category: ccnp
+category: network
 tags: ccnp, cisco, switch-security
 slug: ccnp-switch-security
 ---

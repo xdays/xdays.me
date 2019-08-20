@@ -2,7 +2,7 @@
 title: CCNA-交换基础和STP
 date: 2010-11-02
 author: admin
-category: ccna
+category: network
 tags: ccna, cisco, stp, swith
 slug: ccna-交换基础和stp
 ---

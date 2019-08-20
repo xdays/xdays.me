@@ -2,7 +2,7 @@
 title: 思科实验模拟器Dynamips&Dynagen
 date: 2010-10-24
 author: admin
-category: ccna
+category: network
 tags: ccna, cisco, dynamips
 slug: 思科实验模拟器dynamipsdynagen
 ---

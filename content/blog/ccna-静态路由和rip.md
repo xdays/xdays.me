@@ -2,7 +2,7 @@
 title: CCNA-静态路由和RIP
 date: 2010-10-30
 author: admin
-category: ccna
+category: network
 tags: ccna, cisco, rip, static
 slug: ccna-静态路由和rip
 ---

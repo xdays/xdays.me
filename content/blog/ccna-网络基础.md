@@ -2,7 +2,7 @@
 title: CCNA-网络基础
 date: 2010-10-25
 author: admin
-category: ccna
+category: network
 tags: ccna, 网络基础
 slug: ccna-网络基础
 ---
