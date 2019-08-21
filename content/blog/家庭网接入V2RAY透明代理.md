@@ -94,3 +94,12 @@ service dnsmasq restart
 
 然后极路由作为网关和透明代理，所有的设备都以极路由为网关，而且DHCP这块不需要啥特殊配置了。但是路由光猫改成桥接模式后IPTV就不好使了，所以这种场景不适合我，如果你不需要IPTV，那么这种模式最为理想，当然得有个比较牛逼的路由器哇。
 
+
+
+# 参考文档
+
+* [利用 Dnsmasq 部署 DHCP 服务](https://www.hi-linux.com/posts/17088.html)
+* [DHCP Option Reference](http://www.networksorcery.com/enp/protocol/bootp/options.htm)
+* [OpenWrt DNS and DHCP configuration](https://openwrt.org/docs/guide-user/base-system/dhcp)
+* [OpenWrt DNS and DHCP configuration examples](https://openwrt.org/docs/guide-user/base-system/dhcp_configuration)
+
