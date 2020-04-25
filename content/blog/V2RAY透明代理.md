@@ -7,7 +7,7 @@ tags: v2ray,iptables
 slug: V2RAY透明代理
 ---
 
- 
+
 
 # 目标
 
@@ -381,7 +381,7 @@ stop() {
     iptables -t mangle -D PREROUTING -j V2RAY
     iptables -t mangle -F V2RAY
     iptables -t mangle -X V2RAY
-    iptables -t mangle -D OUTPUT -j V2RAY
+    iptables -t mangle -D OUTPUT -j V2RAY_MARK
     iptables -t mangle -F V2RAY_MARK
     iptables -t mangle -X V2RAY_MARK
     ip rule del fwmark 1 lookup 100
@@ -448,4 +448,3 @@ stop() {
 * [TPROXY官方文档](https://www.kernel.org/doc/Documentation/networking/tproxy.txt)
 * [Netfilter维基百科](https://en.wikipedia.org/wiki/Netfilter)
 * [OpenWrt服务脚本](https://oldwiki.archive.openwrt.org/doc/techref/initscripts)
-
