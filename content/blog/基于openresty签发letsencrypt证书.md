@@ -3,25 +3,24 @@ title: 基于OpenResty自动签发Let's Encrypt证书
 date: 2017-03-30
 author: admin
 category: devops
-tags: openresty,letsencrypt
+tags: ['openresty', 'letsencrypt']
 slug: 基于openresty签发letsencrypt证书
 ---
 
-
-# 安装OpenResty
+# 安装 OpenResty
 
 ```
 yum-config-manager --add-repo https://openresty.org/yum/centos/OpenResty.repo
 yum install -y openresty
 ```
 
-OpenResty所有的文件以及依赖包都安装在 `/usr/local/openresty` 目录下
+OpenResty 所有的文件以及依赖包都安装在 `/usr/local/openresty` 目录下
 
-# 安装配置lua-resty-auto-ssl
+# 安装配置 lua-resty-auto-ssl
 
-## 安装Luarocks
+## 安装 Luarocks
 
-Luarocks是Lua的包管理工具，很多OpenResty的包都可以通过luarocks来安装。
+Luarocks 是 Lua 的包管理工具，很多 OpenResty 的包都可以通过 luarocks 来安装。
 
 ```
 yum install -y unzip openssl gcc make
@@ -34,13 +33,13 @@ rm -rf luarocks-2.4.2*
 ln -s /usr/local/openresty/luajit/bin/luarocks /usr/local/bin/
 ```
 
-## 安装lua-resty-auto-ssl
+## 安装 lua-resty-auto-ssl
 
 ```
 luarocks install lua-resty-auto-ssl
 ```
 
-## 配置lua-resty-auto-ssl
+## 配置 lua-resty-auto-ssl
 
 编辑配置文件 `vim conf/nginx.conf` ，内容如下：
 
@@ -77,7 +76,7 @@ http {
       return ngx.re.match(domain, domains, "ijo")
     end)
     auto_ssl:set("dir", "/tmp/")
-    
+
     auto_ssl:init()
   }
 
@@ -130,14 +129,14 @@ http {
 }
 ```
 
-**注意**！以上配置文件来自项目的README的示例配置，我修改了两个地方：
+**注意**！以上配置文件来自项目的 README 的示例配置，我修改了两个地方：
 
 1. 证书的输出路径，为了避免权限问题我将证书写到了/tmp/目录下，但是 **非常不建议** 在生产环境下降证书写到这里。
 2. 默认配置允许给所有的域名签发证书，这样显然可能会被滥用，所以我对 `allow_domain` 这个配置项加了一些限制，只允许我自己的域名进来。
 
 ## 修改脚本权限
 
-Luarocks安装的lua-resty-ssl里有些脚本的权限不对，导致证书签发失败，这里赋予可执行权限：
+Luarocks 安装的 lua-resty-ssl 里有些脚本的权限不对，导致证书签发失败，这里赋予可执行权限：
 
 ```
 chmod 755 /usr/local/openresty/luajit/share/lua/5.1/resty/auto-ssl/shell/start_sockproc
@@ -146,22 +145,22 @@ chmod 755 /usr/local/openresty/luajit/share/lua/5.1/resty/auto-ssl/vendor/dehydr
 chmod 755 /usr/local/openresty/luajit/share/lua/5.1/resty/auto-ssl/shell/letsencrypt_hooks
 ```
 
-## 启动OpenResty
+## 启动 OpenResty
 
 ```
 openresty -t
 openresty
 ```
 
-# 容器化lua-resty-auto-ssl
+# 容器化 lua-resty-auto-ssl
 
-如果你觉得上边这个过程太复杂了，那么你也可以使用我自己build的[Let's encrypt image](https://github.com/xdays/dockerfiles/tree/master/letsencrypt)来运行
+如果你觉得上边这个过程太复杂了，那么你也可以使用我自己 build 的[Let's encrypt image](https://github.com/xdays/dockerfiles/tree/master/letsencrypt)来运行
 
     docker run -d --name letsencrypt --net host -e DOMAINS=example.com -v $PWD:/tmp xdays/letsencrypt
 
 # 使用
 
-首先将你要签发证书的域名解析到运行openresty的机器上，然后直接向域名发送https请求即可拿到对应的证书：
+首先将你要签发证书的域名解析到运行 openresty 的机器上，然后直接向域名发送 https 请求即可拿到对应的证书：
 
 ```
 curl https://ttt.xdays.me/

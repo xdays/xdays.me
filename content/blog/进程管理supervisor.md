@@ -3,25 +3,26 @@ title: Supervisor进程管理
 date: 2014-10-18
 author: admin
 category: server
-tags: server, supervisor
+tags: ['server', 'supervisor']
 slug: supervisor进程管理
 ---
- 
+
 # 功能
+
 优点
 
-* 配置简单
-* 管理精准
-* 进程组管理
-* RPC扩展
-* API支持
-* FastCGI进程管理
-* 事件支持（如定时任务）
+- 配置简单
+- 管理精准
+- 进程组管理
+- RPC 扩展
+- API 支持
+- FastCGI 进程管理
+- 事件支持（如定时任务）
 
 缺点
 
-* 被管理进程必须前台运行
-* 退出后会使被监管的进程也退出
+- 被管理进程必须前台运行
+- 退出后会使被监管的进程也退出
 
 # 配置
 
@@ -59,4 +60,5 @@ files = /etc/supervisor/conf.d/*.conf
 supervisorctl status 查看进程状态
 supervisorctl reload 重启supervisord
 supervisorctl start|stop|restart 启动关闭重启进程
-</pre> 
+</pre>
+```

@@ -3,18 +3,18 @@ title: putty
 date: 2010-09-26
 author: admin
 category: tool
-tags: putty, software
+tags: ['software']
 slug: putty
 ---
 
-什么是putty ?
+什么是 putty ?
 
 维基：PuTTY is a free and open source terminal emulator application
 which can act as a client for the SSH, Telnet, rlogin, and raw TCP
 computing protocols and as a serial console client. The name "PuTTY" has
 no definitive meaning[1], though 'tty' is the name for a terminal in the
 Unix tradition, usually held to be short for teletype.  
-支持ssh,telnet,rlogin等的终端程序，原来tty来自于teletype
+支持 ssh,telnet,rlogin 等的终端程序，原来 tty 来自于 teletype
 
 有什么特点？
 

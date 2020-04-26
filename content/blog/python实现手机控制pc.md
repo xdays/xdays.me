@@ -3,29 +3,25 @@ title: Python实现手机控制PC
 date: 2013-05-25
 author: admin
 category: python
-tags: develop, python
+tags: ['python']
 slug: python实现手机控制pc
 ---
 
-背景
-====
+# 背景
 
-最初想法起因是这样的：晚上睡觉前看电视剧看困了就不想起来关电脑了，所以需要通过手机远程在PC上执行命令。
+最初想法起因是这样的：晚上睡觉前看电视剧看困了就不想起来关电脑了，所以需要通过手机远程在 PC 上执行命令。
 
-组件
-====
+# 组件
 
--   服务端提供接受指令和下发指令的两个API
--   手机端用Qpython写脚本向服务端提交指令
--   PC端写一个小daemon程序，获取指令并在本机执行
+- 服务端提供接受指令和下发指令的两个 API
+- 手机端用 Qpython 写脚本向服务端提交指令
+- PC 端写一个小 daemon 程序，获取指令并在本机执行
 
-代码
-====
+# 代码
 
-服务端代码
-----------
+## 服务端代码
 
-以Django编写，后端用redis存储。
+以 Django 编写，后端用 redis 存储。
 
 ### views.py
 
@@ -77,12 +73,11 @@ slug: python实现手机控制pc
         else:
             return HttpResponse('echo None')
 
-### forms.py和control.html
+### forms.py 和 control.html
 
 略（用于通过浏览器下发指令）
 
-手机端代码
-----------
+## 手机端代码
 
     import urllib2
     import json
@@ -92,18 +87,17 @@ slug: python实现手机控制pc
     retval = urllib2.urlopen(s, data=json.dumps(d)).read()
     print retval
 
-PC端代码
---------
+## PC 端代码
 
-### PC端daemon.py
+### PC 端 daemon.py
 
-这个类写的简单明了，源代码请[参考这里](http://www.jejik.com/articles/2007/02/a_simple_unix_linux_daemon_in_python/ "Daemon")
+这个类写的简单明了，源代码请[参考这里](http://www.jejik.com/articles/2007/02/a_simple_unix_linux_daemon_in_python/ 'Daemon')
 
-daemon.py代码如下：  
+daemon.py 代码如下：  
 \#!/usr/bin/env python
 
     import sys, os, time, atexit
-    from signal import SIGTERM 
+    from signal import SIGTERM
 
     class Daemon:
         """
@@ -119,33 +113,33 @@ daemon.py代码如下：
 
         def daemonize(self):
             """
-            do the UNIX double-fork magic, see Stevens' "Advanced 
+            do the UNIX double-fork magic, see Stevens' "Advanced
             Programming in the UNIX Environment" for details (ISBN 0201563177)
             http://www.erlenstar.demon.co.uk/unix/faq_2.html#SEC16
             """
-            try: 
-                pid = os.fork() 
+            try:
+                pid = os.fork()
                 if pid > 0:
                     # exit first parent
-                    sys.exit(0) 
-            except OSError, e: 
+                    sys.exit(0)
+            except OSError, e:
                 sys.stderr.write("fork #1 failed: %d (%s)n" % (e.errno, e.strerror))
                 sys.exit(1)
 
             # decouple from parent environment
-            os.chdir("/") 
-            os.setsid() 
-            os.umask(0) 
+            os.chdir("/")
+            os.setsid()
+            os.umask(0)
 
             # do second fork
-            try: 
-                pid = os.fork() 
+            try:
+                pid = os.fork()
                 if pid > 0:
                     # exit from second parent
-                    sys.exit(0) 
-            except OSError, e: 
+                    sys.exit(0)
+            except OSError, e:
                 sys.stderr.write("fork #2 failed: %d (%s)n" % (e.errno, e.strerror))
-                sys.exit(1) 
+                sys.exit(1)
 
             # redirect standard file descriptors
             sys.stdout.flush()
@@ -203,7 +197,7 @@ daemon.py代码如下：
                 sys.stderr.write(message % self.pidfile)
                 return # not an error in a restart
 
-            # Try killing the daemon process    
+            # Try killing the daemon process
             try:
                 while 1:
                     os.kill(pid, SIGTERM)
@@ -230,9 +224,9 @@ daemon.py代码如下：
             daemonized by start() or restart().
             """
 
-### PC端control.py
+### PC 端 control.py
 
-control.py代码如下：
+control.py 代码如下：
 
     #!/usr/bin/env python
 

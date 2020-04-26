@@ -3,7 +3,7 @@ title: NFS文件共享服务器
 date: 2012-08-21
 author: admin
 category: server
-tags: nfs, server
+tags: ['nfs', 'server']
 slug: nfs文件共享服务器
 ---
 
@@ -11,22 +11,22 @@ slug: nfs文件共享服务器
 
 #### 运行流程
 
-NFS主要用于Linux系统间的文件共享，其方便之处在于client只要权限足够可以直接通过挂载的方式使用server端的目录，通过网络读写数据。NFS是通过几个独立的daemons来实现的，例如其中rpc.nfsd用于验证身份，rpc.mountd负责管理文件系统，rpc.lockd用于锁定文件防止写冲突，rpc.statd用于检查一致性。他们启动后选取小于1024的随机端口来监听，这就造成客户端无法了解服务端监听哪些端口的问题？所以NFS的运行依赖于portmap，portmap启动后会监听111端口，NFS各个服务器启动后需要向portmap注册自己的监听端口，这样当客户端要请求响应服务时先向portmap请求响应服务的端口，然后再去请求响应的服务
+NFS 主要用于 Linux 系统间的文件共享，其方便之处在于 client 只要权限足够可以直接通过挂载的方式使用 server 端的目录，通过网络读写数据。NFS 是通过几个独立的 daemons 来实现的，例如其中 rpc.nfsd 用于验证身份，rpc.mountd 负责管理文件系统，rpc.lockd 用于锁定文件防止写冲突，rpc.statd 用于检查一致性。他们启动后选取小于 1024 的随机端口来监听，这就造成客户端无法了解服务端监听哪些端口的问题？所以 NFS 的运行依赖于 portmap，portmap 启动后会监听 111 端口，NFS 各个服务器启动后需要向 portmap 注册自己的监听端口，这样当客户端要请求响应服务时先向 portmap 请求响应服务的端口，然后再去请求响应的服务
 
 #### 权限问题
 
 分以下几种情况讨论：
 
--   当client与server有完全相同的帐号和组（包括UID），client在server端拥有相应帐号的权限
--   当client与server的用户UID相同时，client可以拥有以服务器端相同UID的权限，这可能会造成问题
--   当server上并不存在client的UID，server端会把client的用户看作是一个匿名帐号，如Centos用nfsnobody
--   当client以root用户访问server，默认server会把root用户改成匿名用户的权限
+- 当 client 与 server 有完全相同的帐号和组（包括 UID），client 在 server 端拥有相应帐号的权限
+- 当 client 与 server 的用户 UID 相同时，client 可以拥有以服务器端相同 UID 的权限，这可能会造成问题
+- 当 server 上并不存在 client 的 UID，server 端会把 client 的用户看作是一个匿名帐号，如 Centos 用 nfsnobody
+- 当 client 以 root 用户访问 server，默认 server 会把 root 用户改成匿名用户的权限
 
-这样看来一个client用户要对NFS文件系统有些的权限要满足以下三个条件：
+这样看来一个 client 用户要对 NFS 文件系统有些的权限要满足以下三个条件：
 
--   通过NFS本身的验证
--   在NFS配置中对文件系统有些的权限
--   实际文件系统对响应的用户有些的权限
+- 通过 NFS 本身的验证
+- 在 NFS 配置中对文件系统有些的权限
+- 实际文件系统对响应的用户有些的权限
 
 ### 安装
 
@@ -34,64 +34,64 @@ NFS主要用于Linux系统间的文件共享，其方便之处在于client只要
 
     rpm -q nfs-utils portmap
 
-如果没有安装，yum安装
+如果没有安装，yum 安装
 
     yum install -y nfs-utils portmap
 
 ### 配置
 
-NFS的配置文件在/etc/exports，其格式如下
+NFS 的配置文件在/etc/exports，其格式如下
 
     /full/path host1(option) host2(option)
      开放目录绝对路径 主机（选项） 主机（选项）
 
 主机限定形式：
 
--   完整ip或网段
--   hostname，并且hostname中可以加通配符，如\*或?
+- 完整 ip 或网段
+- hostname，并且 hostname 中可以加通配符，如\*或?
 
 各选项及解释如下：
 
--   rw读写权限
--   ro只读权限
--   async异步写入，先存于内存中
--   sync同步写入，直接写盘
--   root\_squash将root映射为普通用户
--   no\_root\_squash是root就拥有root的权限，不映射
--   all\_squash映射所有用户到普通帐号
--   anonuid/anongid指定匿名用户的UID和GID
+- rw 读写权限
+- ro 只读权限
+- async 异步写入，先存于内存中
+- sync 同步写入，直接写盘
+- root_squash 将 root 映射为普通用户
+- no_root_squash 是 root 就拥有 root 的权限，不映射
+- all_squash 映射所有用户到普通帐号
+- anonuid/anongid 指定匿名用户的 UID 和 GID
 
 ### 客户端操作
 
-查看一个主机开放的NFS文件系统:
+查看一个主机开放的 NFS 文件系统:
 
     showmount -e hostip
 
-像挂载普通文件系统一样挂载NFS文件系统：
+像挂载普通文件系统一样挂载 NFS 文件系统：
 
     mount -t nfs -o *(options) hostip:/remote/path /local/path
 
-**注：如果server挂了，client无法直接用umount卸载掉相应的文件系统，这时候要给umount加-f参数强制卸载。**
+**注：如果 server 挂了，client 无法直接用 umount 卸载掉相应的文件系统，这时候要给 umount 加-f 参数强制卸载。**
 
 ### 双击热备方案
 
 #### 实现功能
 
-两台NFS
-server，相互作同步备份（对一台server写入的文件会立刻同步到另一台上），如果一台server挂了，马上切换到另一台上，也就是可以在两台server之间切换
+两台 NFS
+server，相互作同步备份（对一台 server 写入的文件会立刻同步到另一台上），如果一台 server 挂了，马上切换到另一台上，也就是可以在两台 server 之间切换
 
 #### 设计思路
 
 主要包括如下要素：
 
-所有时间要有timestamp  
-通过nmap定期来判定server是不是已经宕机了，如果端口关闭就表示宕机  
-脚本要能判断当前使用的是那台sever，从而推断出下一台server是谁  
-如果一台server宕机，马上切换到另一个  
-循环不断的做这个检查，脚本运行时间保持大约1分钟（小于1分钟）  
-将脚本写入crontab，并且将output重定向到日志中
+所有时间要有 timestamp  
+通过 nmap 定期来判定 server 是不是已经宕机了，如果端口关闭就表示宕机  
+脚本要能判断当前使用的是那台 sever，从而推断出下一台 server 是谁  
+如果一台 server 宕机，马上切换到另一个  
+循环不断的做这个检查，脚本运行时间保持大约 1 分钟（小于 1 分钟）  
+将脚本写入 crontab，并且将 output 重定向到日志中
 
-#### nfs\_v1.sh
+#### nfs_v1.sh
 
     #!/bin/sh
     #
@@ -144,10 +144,10 @@ server，相互作同步备份（对一台server写入的文件会立刻同步�
     fi
     #date
 
-#### nfs\_v2.sh
+#### nfs_v2.sh
 
-这个版本脚本对当前服务器的目录结构有要求，也就是挂载点必须以NFS
-sever的IP地址命名，因为挂载点和软链接的source之间存在一定的关联性。
+这个版本脚本对当前服务器的目录结构有要求，也就是挂载点必须以 NFS
+sever 的 IP 地址命名，因为挂载点和软链接的 source 之间存在一定的关联性。
 
     #!/bin/sh
     #

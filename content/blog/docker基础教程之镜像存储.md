@@ -3,23 +3,22 @@ title: Docker基础教程之镜像存储
 date: 2017-01-02
 author: admin
 category: container
-tags: docker
+tags: ['docker']
 slug: Docker基础教程之镜像存储
 ---
- 
 
-上一篇我总结下了[Docker的基本概念](http://xdays.me/docker%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B.html)，这一篇我来重点总结下目前主流的镜像存储的方案。
+上一篇我总结下了[Docker 的基本概念](http://xdays.me/docker%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B.html)，这一篇我来重点总结下目前主流的镜像存储的方案。
 
 # Registry
 
-总体上来说，我这里的方案是启动一个仅支持http的registry服务，然后在前面放一个nginx来终结https请求和用户验证(basic auth或者通过第三方模块来集成LDAP)。
+总体上来说，我这里的方案是启动一个仅支持 http 的 registry 服务，然后在前面放一个 nginx 来终结 https 请求和用户验证(basic auth 或者通过第三方模块来集成 LDAP)。
 
-## 启动registry
+## 启动 registry
 
     docker run -d -p 5000:5000 --restart=always --name registry \
         -v /data:/registry/var/lib/registry registry:2
 
-## 编译安装nginx
+## 编译安装 nginx
 
 ```
 mkdir /opt/source
@@ -31,7 +30,7 @@ make && make install
 ln -s /opt/nginx-1.11.8 /opt/nginx
 ```
 
-## 配置nginx
+## 配置 nginx
 
 `vim /opt/nginx/conf/registry.conf` 内容如下：
 
@@ -98,38 +97,37 @@ server {
 
 准备证书的环境我这里就略过了。
 
-然后启动nginx
+然后启动 nginx
 
     /opt/nginx/sbin/nginx
 
-OK，官方的registry的安装配置就介绍到这里了。
-
+OK，官方的 registry 的安装配置就介绍到这里了。
 
 # Nexus
 
-Nexus起初是maven仓库服务软件，后来Sonatype在maven基础上添加了基本上目前主流语言的包管理功能，包括pypi, rubygems，npm等，其中一个闪亮的功能是加入了docker registry的支持。简单来说，使用Nexus的优势在于：
+Nexus 起初是 maven 仓库服务软件，后来 Sonatype 在 maven 基础上添加了基本上目前主流语言的包管理功能，包括 pypi, rubygems，npm 等，其中一个闪亮的功能是加入了 docker registry 的支持。简单来说，使用 Nexus 的优势在于：
 
 1. 你可以用一套程序来处理所有对包管理的需求，便于维护
-2. Nexus有原生的LDAP支持，便于管理用户
+2. Nexus 有原生的 LDAP 支持，便于管理用户
 
-## 启动Nexus
+## 启动 Nexus
 
-基于Nexus的方案和上一节的registry比较类似，启动仅处理http的Nexus服务，然后前面放一个nginx来处理https请求。安装配置Nexus比较简单，只需要启动Nexus容器即可。
+基于 Nexus 的方案和上一节的 registry 比较类似，启动仅处理 http 的 Nexus 服务，然后前面放一个 nginx 来处理 https 请求。安装配置 Nexus 比较简单，只需要启动 Nexus 容器即可。
 
 ```
 mkdir -p /data/nexus-data && chown -R 200 /data/nexus-data
 docker run -d --net host --name nexus -v /data/nexus-data:/nexus-data sonatype/nexus3
 ```
 
-然后我们新建一个类型为docker hostsed的repository，具体配置如下图所示：
+然后我们新建一个类型为 docker hostsed 的 repository，具体配置如下图所示：
 
 ![Nexus Config](/wp-content/uploads/2017/01/nexus-config.png)
 
-注意： 由于Nexus自己不处理https请求，它要暴露给nginx一个端口让nginx将对registry的请求转发过来。
+注意： 由于 Nexus 自己不处理 https 请求，它要暴露给 nginx 一个端口让 nginx 将对 registry 的请求转发过来。
 
-## 配置nginx
+## 配置 nginx
 
-这里对nginx没有特殊要求，所以可以用系统自带的nginx版本，相关的配置如下：
+这里对 nginx 没有特殊要求，所以可以用系统自带的 nginx 版本，相关的配置如下：
 
 ```
 client_max_body_size 0;
@@ -176,23 +174,22 @@ server {
 }
 ```
 
-启动nginx
+启动 nginx
 
     systemctl start nginx
 
-
 # Harbor
 
-Harbor是VMWare开源的一个号称及企业级的镜像管理系统，是基于我们第一部分提到的官方的registry开发的，主要利用了官方registry的auth和notification的hook，然后自己开发了一套web界面以及跑其他任务的jobservice。Harbor的优势在于：
+Harbor 是 VMWare 开源的一个号称及企业级的镜像管理系统，是基于我们第一部分提到的官方的 registry 开发的，主要利用了官方 registry 的 auth 和 notification 的 hook，然后自己开发了一套 web 界面以及跑其他任务的 jobservice。Harbor 的优势在于：
 
-1. 易用的web管理界面
-2. 可以基于project管理镜像
-3. 支持LDAP管理用户认证
-4. 支持多系统之间的数据同步，这对于搭建多地registry镜像很有用
+1. 易用的 web 管理界面
+2. 可以基于 project 管理镜像
+3. 支持 LDAP 管理用户认证
+4. 支持多系统之间的数据同步，这对于搭建多地 registry 镜像很有用
 
 ## 安装配置
 
-Harbor的安装配置也叫容易，推荐使用compose file来启动Harbor。
+Harbor 的安装配置也叫容易，推荐使用 compose file 来启动 Harbor。
 
 首先，根据网络，可以选择下载在线和离线安装包(国情)，我这里下载在线安装包：
 
@@ -208,9 +205,9 @@ ssl_cert = /data/cert/server.crt
 ssl_cert_key = /data/cert/server.key
 ```
 
-注意，我这里用的自己的证书，这样能避免[官方提到的--insecure-registry配置](https://github.com/vmware/harbor/blob/master/docs/user_guide.md#pulling-and-pushing-images-using-docker-client)，但前提是你需要有一个合法的ssl证书，推荐使用[Let's Encrypt](https://letsencrypt.org/)
+注意，我这里用的自己的证书，这样能避免[官方提到的--insecure-registry 配置](https://github.com/vmware/harbor/blob/master/docs/user_guide.md#pulling-and-pushing-images-using-docker-client)，但前提是你需要有一个合法的 ssl 证书，推荐使用[Let's Encrypt](https://letsencrypt.org/)
 
-最后启动Harbor套件：
+最后启动 Harbor 套件：
 
     ./install.sh
 
@@ -218,4 +215,4 @@ ssl_cert_key = /data/cert/server.key
 
 # 总结
 
-你可能会问，我该用哪种来搭建我自己的私有仓库呢？这个要根据自己的需求来：registry比较简单，需要你自己从零开始搭建；Nexus是个大而全的方案，维护较为方便，但是比较耗资源；Harbor确实有一些企业级的特性，通过自动安装脚本简化了部署的过程，但是因为涉及的组件较多，维护成本也较大，而且因为其自己的套件集成了nginx，所以可能就需要一个单独的机器来跑，不能和自己已有的服务融合起来。所以，我个人比较倾向于使用Nexus。 
+你可能会问，我该用哪种来搭建我自己的私有仓库呢？这个要根据自己的需求来：registry 比较简单，需要你自己从零开始搭建；Nexus 是个大而全的方案，维护较为方便，但是比较耗资源；Harbor 确实有一些企业级的特性，通过自动安装脚本简化了部署的过程，但是因为涉及的组件较多，维护成本也较大，而且因为其自己的套件集成了 nginx，所以可能就需要一个单独的机器来跑，不能和自己已有的服务融合起来。所以，我个人比较倾向于使用 Nexus。

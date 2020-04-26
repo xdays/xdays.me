@@ -3,20 +3,18 @@ title: Linux-Btrfs文件系统
 date: 2020-01-04
 author: admin
 category: linux
-tags: linux,btrfs
+tags: ['linux', 'btrfs']
 slug: linux-btrfs文件系统
 ---
 
- # 简介
+# 简介
 
-BtrFS（B-tree文件系统，又称为Butter FS或Better FS），2007由oracle开源后，得到了IBM、intel等厂商的大力支持，其目标计划是替代linux目前的ext3/4，成为下一代linux标准的文件系统。 支持写时复制（CoW）、快照、在线扩容缩容、数据checksum、subvolume、磁盘阵列（raid）等，运行在linux上，并遵循GPL协议的强大文件系统。
+BtrFS（B-tree 文件系统，又称为 Butter FS 或 Better FS），2007 由 oracle 开源后，得到了 IBM、intel 等厂商的大力支持，其目标计划是替代 linux 目前的 ext3/4，成为下一代 linux 标准的文件系统。 支持写时复制（CoW）、快照、在线扩容缩容、数据 checksum、subvolume、磁盘阵列（raid）等，运行在 linux 上，并遵循 GPL 协议的强大文件系统。
 
 1. CoW(Copy on Write)可以保证数据一致性，每次改动块都会创建新的文件
-2. 基于Cow技术可以在volume和文件级别创建快照
-3. 数据块和inode都可以动态分配
-4. 可以给metadata和data块来创建多个副本
-
-
+2. 基于 Cow 技术可以在 volume 和文件级别创建快照
+3. 数据块和 inode 都可以动态分配
+4. 可以给 metadata 和 data 块来创建多个副本
 
 # 文件系统管理
 
@@ -36,14 +34,14 @@ btrfs device add /dev/part3
 btrfs device remove /dev/part3
 ```
 
-## 修改数据快或者meta块的副本
+## 修改数据快或者 meta 块的副本
 
 ```bash
 btrfs balance start -dconvert=dup /srv/shared/
 btrfs balance start -mconvert=dup /srv/shared/
 ```
 
-## 创建挂载删除subvolume
+## 创建挂载删除 subvolume
 
 ```bash
 btrfs subvolume create /srv/shared/video
@@ -52,7 +50,7 @@ umount /mnt
 btrfs subvolume delete /srv/shared/video
 ```
 
-## Quota磁盘配额
+## Quota 磁盘配额
 
 适用于多用户场景，给每个用户分配固定的空间，还可以动态调整
 
@@ -77,7 +75,7 @@ dd: error writing '/mnt/11G.bin': Disk quota exceeded
 
 ## 快照
 
-建快照就是从当前状态下的subvolume新建一个subvolume，你也可以直接挂载snapshot
+建快照就是从当前状态下的 subvolume 新建一个 subvolume，你也可以直接挂载 snapshot
 
 ```bash
 btrfs subvolume snapshot /srv/shared/video /srv/shared/video-backup
@@ -89,4 +87,4 @@ btrfs subvolume delete /srv/shared/video-backup
 
 ## 高能警告
 
-目前社区有一些关于btrfs非常负面的评价，褒贬不一，使用前请想好退路，数据无价。看看官方的 [status](https://btrfs.wiki.kernel.org/index.php/Status) 页面，了解下各个功能当前是否稳定了。
+目前社区有一些关于 btrfs 非常负面的评价，褒贬不一，使用前请想好退路，数据无价。看看官方的 [status](https://btrfs.wiki.kernel.org/index.php/Status) 页面，了解下各个功能当前是否稳定了。

@@ -3,13 +3,13 @@ title: linux 字符处理
 date: 2010-08-05
 author: admin
 category: linux
-tags: linux
+tags: ['linux']
 slug: linux-字符处理
 ---
 
 linux
 系统中很多文件都是纯文本文件，如配置文件和日志文件。系统管理时对这些文件的处理显得尤为重要，系统中带有很多经典的字符处理命令，他们在系统管理和脚
-本编写时有很强大的功能，这些命令包括cut,diff,expand/unexpand,grep,head
+本编写时有很强大的功能，这些命令包括 cut,diff,expand/unexpand,grep,head
 /tail,join,paste,sed,sort,cat/tac,tr,uniq。下面具体总结以下相关命令的常用用法：
 
 cut
@@ -28,13 +28,13 @@ diff
 -B 忽略空白行  
 -i 忽略大小写  
 -I 忽略指定字符差异  
--t 输出的tab以空格替换
+-t 输出的 tab 以空格替换
 
 expand/unexpand
 
-功能：将tab转换成空格/将空格转换成tab  
+功能：将 tab 转换成空格/将空格转换成 tab  
 常用选项：  
--t 指定tab代表空格数，默认8
+-t 指定 tab 代表空格数，默认 8
 
 grep
 
@@ -42,9 +42,9 @@ grep
 常用选项：  
 -i 忽略大小写  
 -n 显示行号  
--v 显示不匹配的行  
+-v 显示不匹配的行
 
-注意：在构造匹配字符串时可以用正则表达式，这是一种相当复杂但是很好很强大的规则，推荐两篇基础教程[正则表达式30分钟入门教程](http://deerchao.net/tutorials/regex/regex.htm)和[揭开正则表达式的神秘面纱](http://www.regexlab.com/zh/regref.htm)，
+注意：在构造匹配字符串时可以用正则表达式，这是一种相当复杂但是很好很强大的规则，推荐两篇基础教程[正则表达式 30 分钟入门教程](http://deerchao.net/tutorials/regex/regex.htm)和[揭开正则表达式的神秘面纱](http://www.regexlab.com/zh/regref.htm)，
 总结的相当不错。
 
 head/tail
@@ -64,7 +64,7 @@ join
 
 paste
 
-功能：将两个文件对应行合并，并以tab分开。  
+功能：将两个文件对应行合并，并以 tab 分开。  
 命令选项：  
 -d 指定分隔符
 
@@ -76,11 +76,11 @@ sed
 -f 输出到文件  
 -r 支持扩展正则表达式  
 操作说明：n1:n2 function  
-function主要包括：  
-a新增；c替换；d删除；i插入；p打印；s搜索  
+function 主要包括：  
+a 新增；c 替换；d 删除；i 插入；p 打印；s 搜索  
 指令示例：ifconfig eth0 |grep 'binetb' | sed 's/\^.\*addr://g' | sed
 's/Bcast.\*\$//g'    
-/\*过滤出带有ip地址的那一行，在把ip地址前后的字符用空白替换掉，就得到ip地址了\*/
+/\*过滤出带有 ip 地址的那一行，在把 ip 地址前后的字符用空白替换掉，就得到 ip 地址了\*/
 
 sort
 

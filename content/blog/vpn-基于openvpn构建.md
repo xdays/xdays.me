@@ -3,14 +3,14 @@ title: VPN-基于OpenVPN构建
 date: 2011-07-14
 author: admin
 category: server
-tags: vpn
+tags: ['vpn']
 slug: openvpn构建vpn
 ---
 
 ### 简介
 
-openvpn是一种ssl
-vpn。它最大的优势是构建在tcp或udp，所以可以穿越proxy，nat，firewalls；此外还可以向client端推送ip地址，路由和一些关于连接的选项。
+openvpn 是一种 ssl
+vpn。它最大的优势是构建在 tcp 或 udp，所以可以穿越 proxy，nat，firewalls；此外还可以向 client 端推送 ip 地址，路由和一些关于连接的选项。
 
 ### 安装
 
@@ -23,7 +23,7 @@ vpn。它最大的优势是构建在tcp或udp，所以可以穿越proxy，nat，
     cd lzo-2.04
     ./configure && make && make check && make test && make install
 
-#### 安装openvpn
+#### 安装 openvpn
 
     cd /usr/local/src
     wget http://swupdate.openvpn.net/community/releases/openvpn-2.1.4.zip
@@ -50,7 +50,7 @@ vpn。它最大的优势是构建在tcp或udp，所以可以穿越proxy，nat，
     export KEY_EMAIL="xdays@xdays.me"
     source /etc/openvpn/easy-rsa/2.0/vars
 
-#### 生成cert
+#### 生成 cert
 
     ./clean-all
     ./build-ca 一串回车，建立root ca
@@ -60,9 +60,9 @@ vpn。它最大的优势是构建在tcp或udp，所以可以穿越proxy，nat，
     ./build-dh
 
 注意：./build-key client1
-命令建立三个文件，client端需要ca.crt，client1.crt和client1.key
+命令建立三个文件，client 端需要 ca.crt，client1.crt 和 client1.key
 
-### 配置openvpn
+### 配置 openvpn
 
     vi  /etc/openvpn/server.conf
 
@@ -118,14 +118,14 @@ vpn。它最大的优势是构建在tcp或udp，所以可以穿越proxy，nat，
     persist-tun
     verb 3
 
-再修改server端iptables做nat：
+再修改 server 端 iptables 做 nat：
 
     iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 
-### client端配置
+### client 端配置
 
-windows安装OpenVPN
-GUI默认安装到C盘，将server端生成的ca.crt，client1.crt和client1.key三个文件拷到openvpn安装目录下的config目录下，再新建文件client.ovpn，内容如下：
+windows 安装 OpenVPN
+GUI 默认安装到 C 盘，将 server 端生成的 ca.crt，client1.crt 和 client1.key 三个文件拷到 openvpn 安装目录下的 config 目录下，再新建文件 client.ovpn，内容如下：
 
     client
     port 443

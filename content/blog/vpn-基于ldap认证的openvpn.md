@@ -3,10 +3,10 @@ title: VPN-基于LDAP认证的OpenVPN
 date: 2015-10-18
 author: admin
 category: server
-tags: vpn
+tags: ['vpn']
 slug: vpn-基于LDAP认证的openvpn
 ---
- 
+
 # 安装
 
     yum install -y openvpn openvpn-auth-ldap
@@ -15,7 +15,7 @@ slug: vpn-基于LDAP认证的openvpn
 
 ## 证书
 
-关于生成证书请参考 [VPN-基于OpenVPN构建](/openvpn构建vpn.html)
+关于生成证书请参考 [VPN-基于 OpenVPN 构建](/openvpn构建vpn.html)
 
 ## /etc/openvpn/server.conf
 
@@ -69,14 +69,15 @@ username-as-common-name
 # /etc/openldap/ldap.conf
 
 最后追加一行
+
 ```
 TLS_REQCERT never
 ```
 
 # 与桥接模式集成
 
-openvpn-auth-ldap不支持桥接模式，需要打patch才能正常工作，具体参考[这里](https://code.google.com/p/openvpn-auth-ldap/issues/detail?id=4)
+openvpn-auth-ldap 不支持桥接模式，需要打 patch 才能正常工作，具体参考[这里](https://code.google.com/p/openvpn-auth-ldap/issues/detail?id=4)
 
 # 参考链接
 
-* https://openvpn.net/index.php/open-source/documentation/howto.html#pki 
+- https://openvpn.net/index.php/open-source/documentation/howto.html#pki

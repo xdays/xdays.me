@@ -3,80 +3,70 @@ title: Bind搭建DNS服务系统
 date: 2013-10-16
 author: admin
 category: server
-tags: bind, dns, server
+tags: ['bind', 'dns', 'server']
 slug: bind搭建dns服务系统
 ---
 
-简介
-====
+# 简介
 
-Bind是目前应用最广泛的DNS服务器软件，其主要包括服务器实现，解析器库实现和测试三个部分。
+Bind 是目前应用最广泛的 DNS 服务器软件，其主要包括服务器实现，解析器库实现和测试三个部分。
 
-说明
-====
+# 说明
 
-本文仅讨论如何把Bind配置成一台DNS域名服务器，关于DNS协议的说明，请参考[DNS协议详解](dns协议详解.md)
+本文仅讨论如何把 Bind 配置成一台 DNS 域名服务器，关于 DNS 协议的说明，请参考[DNS 协议详解](dns协议详解.md)
 
-安装
-====
+# 安装
 
-centos
-------
+## centos
 
     yum install bind bind-libs bind-utils bind-chroot
 
-其中bind-chroot用于让bind运行于chroot模式下。
+其中 bind-chroot 用于让 bind 运行于 chroot 模式下。
 
-ubuntu
-------
+## ubuntu
 
     apt-get install bind9 dnsutils
 
-配置
-====
+# 配置
 
-概述
-----
+## 概述
 
-bind的配置文件为named.conf，没有chroot时位于/etc/named.conf，chroot时位于/var/named/chroot/etc/named.conf下。配置文件由配置语句和注释组成。关于配置的详细说明可参考[BIND
+bind 的配置文件为 named.conf，没有 chroot 时位于/etc/named.conf，chroot 时位于/var/named/chroot/etc/named.conf 下。配置文件由配置语句和注释组成。关于配置的详细说明可参考[BIND
 9 Administrator Reference
 Manual](http://www.oit.uci.edu/dcslib/bind/bind-9.2.1/Bv9ARM.html)
 
-配置语句列表
-------------
+## 配置语句列表
 
--   acl 定义一个IP列表名，用于接入控制
--   controls 宣告rndc使用的控制通道
--   include 包含一个文件
--   key 设置密钥信息，用于授权和认证配置中
--   logging 设置日志服务器
--   options 控制服务器的全局配置
--   server 单服务器基础上配置
--   trusted-keys 定义信任的 DNSSED 密匙
--   view 定义视图
--   zone 定义zonefile
+- acl 定义一个 IP 列表名，用于接入控制
+- controls 宣告 rndc 使用的控制通道
+- include 包含一个文件
+- key 设置密钥信息，用于授权和认证配置中
+- logging 设置日志服务器
+- options 控制服务器的全局配置
+- server 单服务器基础上配置
+- trusted-keys 定义信任的 DNSSED 密匙
+- view 定义视图
+- zone 定义 zonefile
 
-注释形式
---------
+## 注释形式
 
--   C语言风格
--   C++风格
--   Shell风格
+- C 语言风格
+- C++风格
+- Shell 风格
 
-Zonefile
---------
+## Zonefile
 
 ### TTL
 
-zone文件有三处控制TTL的地方，分别是：
+zone 文件有三处控制 TTL 的地方，分别是：
 
--   \$TTL 是没有指定TTL的记录使用的缓存时间
--   SOA 记录中的TTL是NXDOMAIN相应的缓存时间
--   资源记录的第二个字段记录了本记录的缓存时间
+- \$TTL 是没有指定 TTL 的记录使用的缓存时间
+- SOA 记录中的 TTL 是 NXDOMAIN 相应的缓存时间
+- 资源记录的第二个字段记录了本记录的缓存时间
 
-### SOA记录
+### SOA 记录
 
-SOA记录是zone文件里最复杂的记录类型了，所以单独说明下：
+SOA 记录是 zone 文件里最复杂的记录类型了，所以单独说明下：
 
     $TTL 2d ; zone TTL default = 2 days or 172800 seconds
     $ORIGIN example.com.
@@ -102,20 +92,17 @@ SOA记录是zone文件里最复杂的记录类型了，所以单独说明下：
     @ 360 IN MX 90 mail.example.com
     @ 360 IN NS ns.example.com
 
-演示
-====
+# 演示
 
-说明
-----
+## 说明
 
-本示例我将演示如何通过四台服务器搭建一个完整DNS系统，其中包括root，com和info的授权，xdays.com和xdays.me的授权案，cache-only域名解析服务器。
+本示例我将演示如何通过四台服务器搭建一个完整 DNS 系统，其中包括 root，com 和 info 的授权，xdays.com 和 xdays.me 的授权案，cache-only 域名解析服务器。
 
-配置
-----
+## 配置
 
 ### root
 
-named.conf如下：
+named.conf 如下：
 
     //
     // named.conf
@@ -170,7 +157,7 @@ named.conf如下：
     include "/etc/named.rfc1912.zones";
     include "/etc/named.root.key";
 
-named.ca如下：
+named.ca 如下：
 
     $TTL 86400
     @ IN SOA @ root (
@@ -190,7 +177,7 @@ named.ca如下：
 
 ### info
 
-named.conf如下：
+named.conf 如下：
 
     //
     // named.conf
@@ -257,12 +244,12 @@ named.conf如下：
     include "/etc/named.rfc1912.zones";
     include "/etc/named.root.key";
 
-named.ca如下：
+named.ca 如下：
 
     . 518400 IN NS xdays.root.net.
     xdays.root.net. 3600000 IN A 192.168.110.100
 
-info.zone如下：
+info.zone 如下：
 
     $TTL 86400
     @ IN SOA @ root (
@@ -280,7 +267,7 @@ info.zone如下：
 
 ### xdays.me
 
-named.conf如下：
+named.conf 如下：
 
     //
     // named.conf
@@ -347,12 +334,12 @@ named.conf如下：
     include "/etc/named.rfc1912.zones";
     include "/etc/named.root.key";
 
-named.ca如下：
+named.ca 如下：
 
     . 518400 IN NS xdays.root.net.
     xdays.root.net. 3600000 IN A 192.168.110.100
 
-xdays.me.zone如下：
+xdays.me.zone 如下：
 
     $TTL 86400
     @ IN SOA @ root (
@@ -370,7 +357,7 @@ xdays.me.zone如下：
 
 ### cache-only
 
-named.conf如下：
+named.conf 如下：
 
     //
     // named.conf
@@ -425,32 +412,30 @@ named.conf如下：
     include "/etc/named.rfc1912.zones";
     include "/etc/named.root.key";
 
-named.ca如下：
+named.ca 如下：
 
     . 518400 IN NS xdays.root.net.
     xdays.root.net. 3600000 IN A 192.168.110.100
 
-抓包信息
---------
+## 抓包信息
 
 ### 标准域名解析
 
-执行dig www.xdays.me，数据包如下： ![DNS A
+执行 dig www.xdays.me，数据包如下： ![DNS A
 Record](/wp-content/uploads/2013/10/dns-a.png)
 
-### 带CNAME域名解析
+### 带 CNAME 域名解析
 
-执行dig img.xdays.me，数据包如下： ![DNS
+执行 dig img.xdays.me，数据包如下： ![DNS
 A-CNAME](/wp-content/uploads/2013/10/dns-cname.png)
-注意一点，如果img.xdays.me的CNAME记录是img.xdays.com，而且这里俩域的授权是同一台，那么授权会把CNAME记录和A记录同时返回给本地域名解析服务器，数据包如下：
+注意一点，如果 img.xdays.me 的 CNAME 记录是 img.xdays.com，而且这里俩域的授权是同一台，那么授权会把 CNAME 记录和 A 记录同时返回给本地域名解析服务器，数据包如下：
 ![DNS A-CNAME
 detail](/wp-content/uploads/2013/10/dns-cname-detail.png)
 
-注意：这里有个疑问尚未解决，在CNAME和A记录同时被返回之后，本地域名服务器又对img.xdays.com进行了一次递归解析，我不知道意义何在，如有结论请指教。经过请教这个过程称为**DNS重查**，也就是说即使你直接给我了CNAME和A记录，但是我无法验证你到底是不是xdays.com的授权，所以我要递归解析查询一次。
+注意：这里有个疑问尚未解决，在 CNAME 和 A 记录同时被返回之后，本地域名服务器又对 img.xdays.com 进行了一次递归解析，我不知道意义何在，如有结论请指教。经过请教这个过程称为**DNS 重查**，也就是说即使你直接给我了 CNAME 和 A 记录，但是我无法验证你到底是不是 xdays.com 的授权，所以我要递归解析查询一次。
 
-参考链接
-========
+# 参考链接
 
--   [BIND 9 Administrator Reference
-    Manual](http://www.oit.uci.edu/dcslib/bind/bind-9.2.1/Bv9ARM.html)
--   [Pro DNS and BIND](http://www.netwidget.net/books/apress/dns/)
+- [BIND 9 Administrator Reference
+  Manual](http://www.oit.uci.edu/dcslib/bind/bind-9.2.1/Bv9ARM.html)
+- [Pro DNS and BIND](http://www.netwidget.net/books/apress/dns/)

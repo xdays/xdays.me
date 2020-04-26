@@ -3,7 +3,7 @@ title: Acronis Disk Director
 date: 2011-07-18
 author: admin
 category: tool
-tags: software
+tags: ['software']
 slug: acronis-disk-director
 ---
 
@@ -14,23 +14,15 @@ Acronis Disk Director
 
 ### 特点
 
--   Resize, split and merge volumes
--   Create, convert, copy and move volumes
--   Install multiple operating systems on one PC.
--   Boot from CD/DVD, USB stick or USB drive
--   New! Add/break mirrored volumes \*
--   Use with Acronis® True Image Home 2011
+- Resize, split and merge volumes
+- Create, convert, copy and move volumes
+- Install multiple operating systems on one PC.
+- Boot from CD/DVD, USB stick or USB drive
+- New! Add/break mirrored volumes \*
+- Use with Acronis® True Image Home 2011
 
 ### 相关链接
 
 官方主页：<http://www.acronis.com/homecomputing/products/diskdirector/#overview>
 
 下载地址：<http://down.vista123.com/AcronisDiskDirector10.rar>
-
- 
-
- 
-
- 
-
- 

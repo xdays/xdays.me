@@ -3,27 +3,30 @@ title: God进程管理
 date: 2014-10-18
 author: admin
 category: server
-tags: ha,server
+tags: ['ha', 'server']
 slug: god进程管理
 ---
- 
+
 # 功能
+
 优点
 
-* 配置即ruby代码，灵活
-* 可管理后台进程
-* 可动态加载配置
-* 可根据进程消耗资源重启进程
-* 丰富的通知功能，如邮件，campfire等
-* 支持poll和event两种检测模式
+- 配置即 ruby 代码，灵活
+- 可管理后台进程
+- 可动态加载配置
+- 可根据进程消耗资源重启进程
+- 丰富的通知功能，如邮件，campfire 等
+- 支持 poll 和 event 两种检测模式
 
 缺点
 
-* 配置复杂，需要ruby背景
-* 文档太少
+- 配置复杂，需要 ruby 背景
+- 文档太少
 
 # 配置
-poll模式：
+
+poll 模式：
+
 ```
 RAILS_ROOT = "/Users/tom/dev/gravatar2"
 
@@ -72,7 +75,8 @@ RAILS_ROOT = "/Users/tom/dev/gravatar2"
 end
 ```
 
-event模式：
+event 模式：
+
 ```
 RAILS_ROOT = "/Users/tom/dev/gravatar2"
 
@@ -143,9 +147,11 @@ end
 ```
 
 # 操作
+
 ```
 god status 查看被监控进程状态
 god start|stop|restart 启动关闭重启进程
 god load 动态加载配置
 god signal 给进程发信号
-</pre> 
+</pre>
+```

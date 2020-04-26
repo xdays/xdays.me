@@ -3,17 +3,19 @@ title: Puppet之API操作
 date: 2014-12-31
 author: admin
 category: devops
-tags: puppet
+tags: ['puppet']
 slug: Puppet之API操作
 ---
- 
+
 # 背景
-最近在做一个自动部署实例的项目，大致流程是首先调用AWS的API来生成实例，然后用Puppet来部署相关服务。但是由于AWS的EIP是可回收的，也就是说新起的实例可能会被分配到一个之前已经使用过EIP，由于证书名称是根据EIP来的，就会导致有对应的证书名称已经在Puppet上记录了，这样就会导致Puppet这个环节失败。鉴于如此，需要在给实例绑定上EIP之后远程清除下Puppet上对应的证书，这样就用到了Puppet的API操作。
+
+最近在做一个自动部署实例的项目，大致流程是首先调用 AWS 的 API 来生成实例，然后用 Puppet 来部署相关服务。但是由于 AWS 的 EIP 是可回收的，也就是说新起的实例可能会被分配到一个之前已经使用过 EIP，由于证书名称是根据 EIP 来的，就会导致有对应的证书名称已经在 Puppet 上记录了，这样就会导致 Puppet 这个环节失败。鉴于如此，需要在给实例绑定上 EIP 之后远程清除下 Puppet 上对应的证书，这样就用到了 Puppet 的 API 操作。
 
 # 基础
-Puppet支持RESTful的API：master端主要涉及catalog，certificate，report, resource, file, node, status,和fact；agent端主要涉及fact和run。关于这些资源的详细操作参考[这里](https://docs.puppetlabs.com/guides/rest_api.html)
 
-关于API的另一方面就是安全方面，Puppet用一个单独的文件（文件名由rest_authconfig）来配置API的ACL，具体ACL的语法如下：
+Puppet 支持 RESTful 的 API：master 端主要涉及 catalog，certificate，report, resource, file, node, status,和 fact；agent 端主要涉及 fact 和 run。关于这些资源的详细操作参考[这里](https://docs.puppetlabs.com/guides/rest_api.html)
+
+关于 API 的另一方面就是安全方面，Puppet 用一个单独的文件（文件名由 rest_authconfig）来配置 API 的 ACL，具体 ACL 的语法如下：
 
 ```
 path [~] {/path/to/resource|regex}
@@ -23,15 +25,17 @@ path [~] {/path/to/resource|regex}
 [allow {hostname|certname|*}]
 ```
 
-* path为请求的url
-* environment为环境，如production
-* method为请求方法，包括find, search, save和destroy
-* auth为是否需要认证，包括yes, no和any(就是都可以)
-* allow为匹配nodename，2.7.1之后支持正则
-* allow_ip为匹配ip地址或者网段
+- path 为请求的 url
+- environment 为环境，如 production
+- method 为请求方法，包括 find, search, save 和 destroy
+- auth 为是否需要认证，包括 yes, no 和 any(就是都可以)
+- allow 为匹配 nodename，2.7.1 之后支持正则
+- allow_ip 为匹配 ip 地址或者网段
 
 # 配置
+
 ## 服务端
+
 ```
 path /certificate_status
 environment production,stage
@@ -41,6 +45,7 @@ allow *
 ```
 
 ## 客户端
+
 ```
 curl -s --insecure --cert /var/lib/puppet/ssl/certs/test2.xdays.me.pem --key /var/lib/puppet/ssl/private_keys/test2.xdays.me.pem --cacert /var/lib/puppet/ssl/certs/ca.pem -H "Accept: pson" https://puppet.xdays.me:8140/stage/certificate_statuses/no_key | python -m json.tool
 ```
@@ -55,5 +60,5 @@ curl -s -X DELETE --insecure --cert /var/lib/puppet/ssl/certs/test2.xdays.me.pem
 ```
 
 # 扩展
-基于上一小节的curl操作，可以用Python简单封装一个Puppet的SDK用于日常操作，目前我发现已经有人做了[这个](https://github.com/daradib/pypuppet)。
- 
+
+基于上一小节的 curl 操作，可以用 Python 简单封装一个 Puppet 的 SDK 用于日常操作，目前我发现已经有人做了[这个](https://github.com/daradib/pypuppet)。

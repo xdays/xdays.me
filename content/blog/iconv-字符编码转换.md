@@ -3,11 +3,11 @@ title: iconv-字符编码转换
 date: 2010-07-20
 author: admin
 category: tool
-tags: iconv
+tags: ['iconv']
 slug: iconv-字符编码转换
 ---
 
-linux下打开windows下的文本文件时通常都是乱码，这是因为windows的字符编码是gbk而linux的是utf8，所以需要转换才行。  
+linux 下打开 windows 下的文本文件时通常都是乱码，这是因为 windows 的字符编码是 gbk 而 linux 的是 utf8，所以需要转换才行。  
 转换工具：iconv  
 用法：
 

@@ -3,41 +3,35 @@ title: linux-LVM
 date: 2010-12-27
 author: admin
 category: linux
-tags: linux
+tags: ['linux']
 slug: linux-lvm
 ---
 
-什么是lvm？
-===========
+# 什么是 lvm？
 
-lvm即logical volume
-management（逻辑卷管理），是一种灵活组织磁盘和分区的方式，最大的优势在于可以打破磁盘和分区的界限随意的拓展逻辑卷的大小。原先如果分区不够用了只能备份数据重新分区再还原数据，而使用lvm可以动态的放大一个卷甚至也不需要umount下来直接在线拓展分区大小，这对于服务器来说是很不错的功能。
+lvm 即 logical volume
+management（逻辑卷管理），是一种灵活组织磁盘和分区的方式，最大的优势在于可以打破磁盘和分区的界限随意的拓展逻辑卷的大小。原先如果分区不够用了只能备份数据重新分区再还原数据，而使用 lvm 可以动态的放大一个卷甚至也不需要 umount 下来直接在线拓展分区大小，这对于服务器来说是很不错的功能。
 
-lvm是如何工作的？
-=================
+# lvm 是如何工作的？
 
 首先了解几个概念： \*
-pv（物理卷）用于创建vg（逻辑卷组）的卷，需要将普通分区的类型改成8e。 \*
-vg（逻辑卷组）由多个物理卷组成一个大的卷，可以把他想象成一个磁盘，只是这个磁盘时逻辑上的跨越了物理磁盘和分区。
-\* lv（逻辑卷）在vg上创建的逻辑卷，可以想象成vg的分区。
-然后，lv大小的更改是通过增减pe实现的，pe是vg和lv的基本单位，vg通过在添加的pv上创建pe来增加自身大小，然后通过增减分配给lv的pe数来控制lv的大小，基本原理图如下：
+pv（物理卷）用于创建 vg（逻辑卷组）的卷，需要将普通分区的类型改成 8e。 \*
+vg（逻辑卷组）由多个物理卷组成一个大的卷，可以把他想象成一个磁盘，只是这个磁盘时逻辑上的跨越了物理磁盘和分区。 \* lv（逻辑卷）在 vg 上创建的逻辑卷，可以想象成 vg 的分区。
+然后，lv 大小的更改是通过增减 pe 实现的，pe 是 vg 和 lv 的基本单位，vg 通过在添加的 pv 上创建 pe 来增加自身大小，然后通过增减分配给 lv 的 pe 数来控制 lv 的大小，基本原理图如下：
 
-[![lvm](/wp-content/uploads/2010/12/lvm.jpg "lvm")](/wp-content/uploads/2010/12/lvm.jpg)
+[![lvm](/wp-content/uploads/2010/12/lvm.jpg 'lvm')](/wp-content/uploads/2010/12/lvm.jpg)
 
-相关命令有哪些？
-================
+# 相关命令有哪些？
 
--   物理分区相关：fdisk pv相关：pvcreate，pvscan，pvdispaly，pvremove
--   vg相关：vgcreate，vgscan，vgdisplay，vgextend，vgreduce，vgchange，vgremove
--   lv相关：lvcreate，lvscan，lvdisplay，lvextend，lvreduce，lvremove，lvresize
+- 物理分区相关：fdisk pv 相关：pvcreate，pvscan，pvdispaly，pvremove
+- vg 相关：vgcreate，vgscan，vgdisplay，vgextend，vgreduce，vgchange，vgremove
+- lv 相关：lvcreate，lvscan，lvdisplay，lvextend，lvreduce，lvremove，lvresize
 
-如何创建逻辑卷以及调整逻辑卷大小？
-==================================
+# 如何创建逻辑卷以及调整逻辑卷大小？
 
-下面是一个全程实例演示了如何创建，扩大和缩小lv
+下面是一个全程实例演示了如何创建，扩大和缩小 lv
 
-分区并更改分区类型
-------------------
+## 分区并更改分区类型
 
     [root@localhost ~]# fdisk /dev/hda
 
@@ -161,8 +155,7 @@ vg（逻辑卷组）由多个物理卷组成一个大的卷，可以把他想象
     The new table will be used at the next reboot.
     Syncing disks.
 
-更新磁盘分区表
---------------
+## 更新磁盘分区表
 
     [root@localhost ~]# partprobe
     Warning: Unable to open /dev/fd0 read-write (Read-only file system). /dev/fd0
@@ -179,8 +172,7 @@ vg（逻辑卷组）由多个物理卷组成一个大的卷，可以把他想象
     /dev/hda5 4865 7297 19543041 8e Linux LVM
     /dev/hda6 7298 9730 19543041 8e Linux LVM
 
-创建物理卷
-----------
+## 创建物理卷
 
     [root@localhost ~]# pvcreate /dev/hda{5,6}
     Physical volume “/dev/hda5″ successfully created
@@ -213,8 +205,7 @@ vg（逻辑卷组）由多个物理卷组成一个大的卷，可以把他想象
     Allocated PE 0
     PV UUID sx2xgb-i6OW-G1OS-7VHu-yUc7-K18e-mHXfo6
 
-创建vg
-------
+## 创建 vg
 
     [root@localhost ~]# vgcreate -s 16M ftpvg /dev/hda{5,6}
     Volume group “ftpvg” successfully created
@@ -226,8 +217,7 @@ vg（逻辑卷组）由多个物理卷组成一个大的卷，可以把他想象
     PV /dev/hda6 VG ftpvg lvm2 [18.62 GB / 18.62 GB free]
     Total: 2 [37.25 GB] / in use: 2 [37.25 GB] / in no VG: 0 [0 ]
 
-查看vg信息
-----------
+## 查看 vg 信息
 
     [root@localhost ~]# vgdisplay
     — Volume group —
@@ -251,8 +241,7 @@ vg（逻辑卷组）由多个物理卷组成一个大的卷，可以把他想象
     Free PE / Size 2384 / 37.25 GB
     VG UUID OznWAr-uGaq-pLPy-OvkQ-MiS1-NDvk-bVAg1J
 
-创建lv
-------
+## 创建 lv
 
     [root@localhost ~]# lvcreate -L 30G -n ftplv ftpvg
     Logical volume “ftplv” created
@@ -278,8 +267,7 @@ vg（逻辑卷组）由多个物理卷组成一个大的卷，可以把他想象
     Free PE / Size 464 / 7.25 GB
     VG UUID OznWAr-uGaq-pLPy-OvkQ-MiS1-NDvk-bVAg1J
 
-在lv上创建文件系统
-------------------
+## 在 lv 上创建文件系统
 
     [root@localhost ~]# mkfs -t ext3 /dev/ftpvg/ftplv
     mke2fs 1.39 (29-May-2006)
@@ -303,8 +291,7 @@ vg（逻辑卷组）由多个物理卷组成一个大的卷，可以把他想象
     This filesystem will be automatically checked every 36 mounts or
     180 days, whichever comes first. Use tune2fs -c or -i to override.
 
-挂载文件系统写入文件
---------------------
+## 挂载文件系统写入文件
 
     [root@localhost ~]# mount /dev/ftpvg/ftplv /var/ftp/
     [root@localhost ~]# ls
@@ -318,8 +305,7 @@ vg（逻辑卷组）由多个物理卷组成一个大的卷，可以把他想象
     /dev/mapper/ftpvg-ftplv
     30G 528M 28G 2% /var/ftp
 
-调整lv大小（按pe数扩大）
-------------------------
+## 调整 lv 大小（按 pe 数扩大）
 
     [root@localhost ~]# lvresize -l +464 /dev/ftpvg/ftplv
     Extending logical volume ftplv to 37.25 GB
@@ -368,8 +354,7 @@ vg（逻辑卷组）由多个物理卷组成一个大的卷，可以把他想象
     /dev/mapper/ftpvg-ftplv
     30G 528M 28G 2% /var/ftp
 
-调整文件系统大小
-----------------
+## 调整文件系统大小
 
     [root@localhost ~]# resize2fs /dev/ftpvg/ftplv
     resize2fs 1.39 (29-May-2006)
@@ -385,10 +370,9 @@ vg（逻辑卷组）由多个物理卷组成一个大的卷，可以把他想象
     /dev/mapper/ftpvg-ftplv
     37G 532M 35G 2% /var/ftp
 
-所有工作都是在没有umount文件系统前提下在线完成的，这也是lvm的强大之处
+所有工作都是在没有 umount 文件系统前提下在线完成的，这也是 lvm 的强大之处
 
-卸载逻辑卷
-----------
+## 卸载逻辑卷
 
     [root@localhost ~]# umount /var/ftp/ 放大lv可以在线进行，而缩小lv则要umount后进行
     [root@localhost ~]# pvscan
@@ -397,8 +381,7 @@ vg（逻辑卷组）由多个物理卷组成一个大的卷，可以把他想象
     Total: 2 [37.25 GB] / in use: 2 [37.25 GB] / in no VG: 0 [0 ]
     You have new mail in /var/spool/mail/root
 
-扫描lv
-------
+## 扫描 lv
 
     [root@localhost ~]# e2fsck -f /dev/ftpvg/ftplv
     e2fsck 1.39 (29-May-2006)
@@ -464,8 +447,7 @@ vg（逻辑卷组）由多个物理卷组成一个大的卷，可以把他想象
     - currently set to 256
     Block device 253:0
 
-缩小lv
-------
+## 缩小 lv
 
     [root@localhost ~]# lvresize -l -464 /dev/ftpvg/ftplv
     WARNING: Reducing active and open logical volume to 30.00 GB
@@ -531,8 +513,7 @@ vg（逻辑卷组）由多个物理卷组成一个大的卷，可以把他想象
     Allocated PE 728
     PV UUID sx2xgb-i6OW-G1OS-7VHu-yUc7-K18e-mHXfo6
 
-新建一个lv,过程一样
--------------------
+## 新建一个 lv,过程一样
 
     [root@localhost ~]# lvcreate -l 464 -n wwwlv ftpvg
     Logical volume “wwwlv” created
@@ -620,4 +601,4 @@ vg（逻辑卷组）由多个物理卷组成一个大的卷，可以把他想象
     /dev/mapper/ftpvg-wwwlv
     7.2G 145M 6.7G 3% /var/www
 
-至此实例演示完成，没有演示到的是用vgextend和vgreduce命令增减pv。
+至此实例演示完成，没有演示到的是用 vgextend 和 vgreduce 命令增减 pv。

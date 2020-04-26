@@ -3,37 +3,37 @@ title: 搭建私有pypi仓库
 date: 2016-02-25
 author: admin
 category: python
-tags: python, pypi
+tags: ['python', 'pypi']
 slug: 搭建私有pypi仓库
 ---
- 
+
 # 背景
 
-为了对公司内部的Python库进行统一管理，但出于隐私考虑不能直接放到公共pypi服务器上，故考虑搭建私有pypi仓库。
+为了对公司内部的 Python 库进行统一管理，但出于隐私考虑不能直接放到公共 pypi 服务器上，故考虑搭建私有 pypi 仓库。
 
 # 服务端
 
 # 安装
 
-安装pypiserver
+安装 pypiserver
 
     pip install pypiserver passlib
 
-安装supervisor
+安装 supervisor
 
     apt-get install supervisor
 
 # 配置
 
-新建package存放目录
+新建 package 存放目录
 
     mkdir -p /opt/pypi/packages
 
-创建用于上传package的密码
+创建用于上传 package 的密码
 
     htpasswd -sc /opt/pypi/.htaccess user
 
-新建supervisor配置文件，vim /etc/supervisor/conf.d/pypi.conf
+新建 supervisor 配置文件，vim /etc/supervisor/conf.d/pypi.conf
 
 ```
 [program:pypi]
@@ -45,7 +45,7 @@ redirect_stderr=true
 stderr_logfile=NONE
 ```
 
-配置nginx， vim /etc/nginx/site-enabled/pypi.conf
+配置 nginx， vim /etc/nginx/site-enabled/pypi.conf
 
 ```
 server {
@@ -61,7 +61,7 @@ server {
 
 ## setup.py
 
-编辑~/.pypirc添加如下配置：
+编辑~/.pypirc 添加如下配置：
 
 ```
 [distutils]

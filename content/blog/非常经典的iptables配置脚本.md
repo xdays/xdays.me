@@ -3,11 +3,11 @@ title: 非常经典的iptables配置脚本
 date: 2011-04-10
 author: admin
 category: server
-tags: iptables, linux, server, shell
+tags: ['iptables', 'server', 'linux']
 slug: 非常经典的iptables配置脚本
 ---
 
-花了一下午和一晚上通过<http://www.frozentux.net/iptables-tutorial/cn/iptables-tutorial-cn-1.1.19.html>这篇文档深入学习了iptables这一有力的包过滤系统，文档最后作者提供了一个脚本来配置iptables，我觉得这个脚本的结构设计的相当棒，这里转载过来并附上自己的理解共以后参考。
+花了一下午和一晚上通过<http://www.frozentux.net/iptables-tutorial/cn/iptables-tutorial-cn-1.1.19.html>这篇文档深入学习了 iptables 这一有力的包过滤系统，文档最后作者提供了一个脚本来配置 iptables，我觉得这个脚本的结构设计的相当棒，这里转载过来并附上自己的理解共以后参考。
 
     #!/bin/sh
 
@@ -293,13 +293,13 @@ slug: 非常经典的iptables配置脚本
 
     #
 
-    $IPTABLES -A bad_tcp_packets -p tcp --tcp-flags SYN,ACK SYN,ACK 
+    $IPTABLES -A bad_tcp_packets -p tcp --tcp-flags SYN,ACK SYN,ACK
 
     -m state --state NEW -j REJECT --reject-with tcp-reset
 
     #拒绝带有SYN和ACK标记的状态为NEW的包并返回错误信息
 
-    $IPTABLES -A bad_tcp_packets -p tcp ! --syn -m state --state NEW -j LOG 
+    $IPTABLES -A bad_tcp_packets -p tcp ! --syn -m state --state NEW -j LOG
 
     --log-prefix "New not syn:"
 
@@ -381,7 +381,7 @@ slug: 非常经典的iptables配置脚本
 
     #
 
-    #$IPTABLES -A udp_packets -p UDP -i $INET_IFACE -d $INET_BROADCAST 
+    #$IPTABLES -A udp_packets -p UDP -i $INET_IFACE -d $INET_BROADCAST
 
     #--destination-port 135:139 -j DROP
 
@@ -395,7 +395,7 @@ slug: 非常经典的iptables配置脚本
 
     #
 
-    #$IPTABLES -A udp_packets -p UDP -i $INET_IFACE -d 255.255.255.255 
+    #$IPTABLES -A udp_packets -p UDP -i $INET_IFACE -d 255.255.255.255
 
     #--destination-port 67:68 -j DROP
 
@@ -467,7 +467,7 @@ slug: 非常经典的iptables配置脚本
 
     #
 
-    $IPTABLES -A INPUT -p ALL -d $INET_IP -m state --state ESTABLISHED,RELATED 
+    $IPTABLES -A INPUT -p ALL -d $INET_IP -m state --state ESTABLISHED,RELATED
 
     -j ACCEPT
 
@@ -505,7 +505,7 @@ slug: 非常经典的iptables配置脚本
 
     #
 
-    $IPTABLES -A INPUT -m limit --limit 3/minute --limit-burst 3 -j LOG 
+    $IPTABLES -A INPUT -m limit --limit 3/minute --limit-burst 3 -j LOG
 
     --log-level DEBUG --log-prefix "IPT INPUT packet died: "
 
@@ -547,7 +547,7 @@ slug: 非常经典的iptables配置脚本
 
     #
 
-    $IPTABLES -A FORWARD -m limit --limit 3/minute --limit-burst 3 -j LOG 
+    $IPTABLES -A FORWARD -m limit --limit 3/minute --limit-burst 3 -j LOG
 
     --log-level DEBUG --log-prefix "IPT FORWARD packet died: "
 
@@ -589,7 +589,7 @@ slug: 非常经典的iptables配置脚本
 
     #
 
-    $IPTABLES -A OUTPUT -m limit --limit 3/minute --limit-burst 3 -j LOG 
+    $IPTABLES -A OUTPUT -m limit --limit 3/minute --limit-burst 3 -j LOG
 
     --log-level DEBUG --log-prefix "IPT OUTPUT packet died: "
 

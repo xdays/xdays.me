@@ -3,21 +3,21 @@ title: rsync文件同步服务
 date: 2012-10-17
 author: admin
 category: server
-tags: rsync, server
+tags: ['rsync', 'server']
 slug: rsync文件同步服务
 ---
 
 ### 简介
 
-rsync是一个文件同步工具，简单来说，它的功能就是在两个位置（可能是本地的两个目录或者本地目录和远程目录）之间拷贝文件；但是相比cp或者scp等命令，rsync优势在于其强大的增量拷贝（高效）和过滤条件（灵活）上。
+rsync 是一个文件同步工具，简单来说，它的功能就是在两个位置（可能是本地的两个目录或者本地目录和远程目录）之间拷贝文件；但是相比 cp 或者 scp 等命令，rsync 优势在于其强大的增量拷贝（高效）和过滤条件（灵活）上。
 
 ### 功能特点
 
--   支持特殊文件，文件常见属性的拷贝
--   可以借助常见的ssh，rsh等来传输
--   强大的过滤机制
--   通过著名的delta-transfer算法来实现高效传输
--   基于服务的匿名和认证传输
+- 支持特殊文件，文件常见属性的拷贝
+- 可以借助常见的 ssh，rsh 等来传输
+- 强大的过滤机制
+- 通过著名的 delta-transfer 算法来实现高效传输
+- 基于服务的匿名和认证传输
 
 ### 客户端使用
 
@@ -27,25 +27,25 @@ rsync是一个文件同步工具，简单来说，它的功能就是在两个位
 
     rsync [OPTION...] SRC... [DEST]
 
-如果源和目标都是本地路径则和cp类似。
+如果源和目标都是本地路径则和 cp 类似。
 
-##### shell模式
+##### shell 模式
 
     Pull: rsync [OPTION...] [USER@]HOST:SRC... [DEST]
     Push: rsync [OPTION...] SRC... [USER@]HOST:DEST
 
-通过shell连接时在主机名和路径之间用一个":"，用户名可选。
+通过 shell 连接时在主机名和路径之间用一个":"，用户名可选。
 
-##### daemon模式
+##### daemon 模式
 
     Pull: rsync [OPTION...] [USER@]HOST::SRC... [DEST] 或者 rsync [OPTION...] rsync://[USER@]HOST[:PORT]/SRC... [DEST]
     Push: rsync [OPTION...] SRC... [USER@]HOST::DEST 或者 rsync [OPTION...] SRC... rsync://[USER@]HOST[:PORT]/DEST
 
-通过daemon模式（daemon配置参照最后一部分）连接时在主机和路径之间用两个":"，用户名可选。
+通过 daemon 模式（daemon 配置参照最后一部分）连接时在主机和路径之间用两个":"，用户名可选。
 
 ##### 混合模式
 
-这里混合模式指的通过shell模式来使用daemon模式的一些特性。只要制定外部shell即可。
+这里混合模式指的通过 shell 模式来使用 daemon 模式的一些特性。只要制定外部 shell 即可。
 
     rsync -av --rsh=ssh host::module /dest
 
@@ -240,7 +240,7 @@ rsync是一个文件同步工具，简单来说，它的功能就是在两个位
 
 #### 配置示例
 
-编辑配置文件vim /etc/rsyncd.conf
+编辑配置文件 vim /etc/rsyncd.conf
 
     motd file = /etc/rsyncd.motd
     uid=root
@@ -259,6 +259,6 @@ rsync是一个文件同步工具，简单来说，它的功能就是在两个位
     hosts allow = 192.168.110.0/24
     hosts deny = *
 
-然后启动rsync
+然后启动 rsync
 
 rsync --daemon

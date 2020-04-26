@@ -3,28 +3,28 @@ title: Linux-服务管理
 date: 2010-07-20
 author: admin
 category: linux
-tags: linux, service
+tags: ['linux']
 slug: linux服务管理
 ---
 
 ### 概述
 
-服务就是跑在后台的程序；linux的服务主要分为独立启动的和依靠super
-daemon(xinetd)来启动两种；系统依靠shell脚本来管理服务的启动与停止；另外系统又一套机制负责管理服务的访问权限；最后服务的管理离不开响应的工具。
+服务就是跑在后台的程序；linux 的服务主要分为独立启动的和依靠 super
+daemon(xinetd)来启动两种；系统依靠 shell 脚本来管理服务的启动与停止；另外系统又一套机制负责管理服务的访问权限；最后服务的管理离不开响应的工具。
 
 ### 服务管理脚本
 
-系统的服务管理脚本主要位于/etc/init.d/(redhat)或者/etc/rc.d/init.d/(debian)下，脚本的结构基本上是：脚本的描述、环境调用、搜寻配置文件、加载functions、服务的启动停止与加载、最后还会有脚本的参数。然后在需要运行该服务的runlevel下建立对应的软连接，由init程序在开机时负责在对应的runlevel下启动对应的服务。
+系统的服务管理脚本主要位于/etc/init.d/(redhat)或者/etc/rc.d/init.d/(debian)下，脚本的结构基本上是：脚本的描述、环境调用、搜寻配置文件、加载 functions、服务的启动停止与加载、最后还会有脚本的参数。然后在需要运行该服务的 runlevel 下建立对应的软连接，由 init 程序在开机时负责在对应的 runlevel 下启动对应的服务。
 
 ### 服务访问控制
 
 #### 验证是否支持
 
-服务的访问的前提条件是服务加载了libwrap.so模块，可以通过如下命令查看服务是否支持访问控制
+服务的访问的前提条件是服务加载了 libwrap.so 模块，可以通过如下命令查看服务是否支持访问控制
 
     ldd $(which sshd) | grep libwrap
 
-#### hosts.allow和hosts.deny格式
+#### hosts.allow 和 hosts.deny 格式
 
     ssh:192.168.1.0/255.255.255.0:allow
     服务名:要匹配的客户端地址:处理规则
@@ -36,9 +36,9 @@ daemon(xinetd)来启动两种；系统依靠shell脚本来管理服务的启动�
 
 ### 服务管理工具
 
--   <span style="color: #000000;">ntsysv</span>
--   <span style="color: #000000;">sysv-rc-conf</span>
--   <span style="color: #000000;">BUM</span>
+- <span style="color: #000000;">ntsysv</span>
+- <span style="color: #000000;">sysv-rc-conf</span>
+- <span style="color: #000000;">BUM</span>
 
 ### 服务参考列表
 
