@@ -26,7 +26,7 @@ slug: Monit进程管理
 * 配置复杂
 
 # 配置
-<pre>
+```
 set daemon 60 # check services at 1-minute intervals 
 set logfile /var/log/monit.log 
 set pidfile /var/run/monit.pid 
@@ -66,10 +66,10 @@ check process nginx with pidfile /var/run/nginx.pid
     with timeout 15 seconds 
   then restart 
   if 3 restarts within 5 cycles then timeout
-</pre>
+```
 
 # 操作
-<pre>
+```
 monit -t 检测配置文件语法
 monit reload 重新加载配置文件
 monit status 查看服务状态

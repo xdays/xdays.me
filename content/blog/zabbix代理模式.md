@@ -22,22 +22,22 @@ Proxy模式用于监控服务器无法直接访问被监控机器的情况，如
 
 #配置
 ##创建数据库
-<pre>
+```
 CREATE DATABASE zabbix CHARACTER SET utf8;
 GRANT ALL ON zabbix.* TO zabbix@'localhost' IDENTIFIED BY 'zabbixpass';
-</pre>
+```
 
 ##导入数据
      mysql -uzabbix -pzabbixpass zabbix < /usr/share/doc/zabbix-proxy-mysql-2.2.2/create/schema.sql
 
 ##配置proxy
-<pre>
+```
 Server= 服务器IP
 Hostname= 主机名
 DBName=zabbix 数据库名
 DBUser=zabbix 用户名
 DBPassword=zabbixpass 密码
-</pre>
+```
 
 ##配置server
 

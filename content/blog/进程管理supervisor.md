@@ -25,7 +25,7 @@ slug: supervisor进程管理
 
 # 配置
 
-<pre>
+```
 [unix_http_server]
 file=/var/run/supervisor.sock
 chmod=0700
@@ -51,11 +51,11 @@ stderr_logfile=NONE
 
 [include]
 files = /etc/supervisor/conf.d/*.conf
-</pre>
+```
 
 # 操作
 
-<pre>
+```
 supervisorctl status 查看进程状态
 supervisorctl reload 重启supervisord
 supervisorctl start|stop|restart 启动关闭重启进程

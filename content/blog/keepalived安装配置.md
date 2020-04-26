@@ -17,7 +17,7 @@ Keepalived是Linux的高可用软件，其主要是高可用协议的VRRP的开�
     wget http://www.keepalived.org/software/keepalived-1.2.7.tar.gz && tar xzf keepalived-1.2.7.tar.gz && cd keepalived-1.2.7 && ./configure --prefix=/usr/local/keepalived-1.2.7 && make &&     make install && cd /usr/local && ln -s keepalived-1.2.7 keepalived
 
 # 配置
-<pre>
+```
 mv keepalived.conf{,.default}
 vim keepalived.conf
 global_defs {
@@ -57,7 +57,7 @@ vrrp_instance nginx {
        192.168.110.110
     }
 }
-</pre>
+```
 
 # 启动
     /usr/local/keepalived/sbin/keepalived -f /usr/local/keepalived/etc/keepalived/keepalived.conf -D

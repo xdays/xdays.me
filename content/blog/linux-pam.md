@@ -20,7 +20,7 @@ slug: linux-pam
 
 ### PAM运行原理
 
-<pre>
+```
  +----------------+
   | application: X |
   +----------------+       /  +----------+     +================+
@@ -41,7 +41,7 @@ slug: linux-pam
                          +--------------+
                          |   session    |--[ e ]--[ c ]
                          +--------------+
-</pre>
+```
 
 图的左边表示一个应用程序:X. 这应用程序有和Linux-PAM 库的接口并且在认证方面没有什么特别之处. Linux-PAM 函数库 (图的中部) 查询PAM配置文件的内容并且装入适用于程序 X 的模块. 这些模块进入四个管理组( 图的中下部)中的一个,并且以它们出现在配置文件中的顺序堆叠起来 . 这些模组由Linux-PAM呼叫后,为应用程序执行不同的认证工作 . 需要用户提供或提供给用户的文本信息,可以通过使用应用程序提供的conversation函数来交换.
 
@@ -49,7 +49,7 @@ slug: linux-pam
 
 下面是manual中简短说明：
 
-<pre>
+```
 Simply put, these groups take care of different aspects of a typical
 user´s request for a restricted service:
 
@@ -79,15 +79,15 @@ maintenance of audit trails and the mounting of the user´s home
 directory. The session management group is important as it provides both
 an opening and closing hook for modules to affect the services available
 to a user.
-</pre>
+```
 
 ### 配置文件
 
 在/etc/pam.conf里：  
-<pre>
+```
 service-name   module-type           control-flag   module-path   arguments  
 服务名称           模块类型（管理组）控制标志      模块路径       模块参数
-</pre>
+```
 
 这里仅讨论基本控制标志：
 

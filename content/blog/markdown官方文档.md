@@ -356,7 +356,7 @@ Markdown将产生：
     <p>This is a normal paragraph:</p>
 
     <pre><code>This is a code block.
-    </code></pre>
+```
 
 代码块的每行的一级缩进，4个空格或者1个tab将会被删除，例如：
 
@@ -373,7 +373,7 @@ Markdown将产生：
     <pre><code>tell application "Foo"
         beep
     end tell
-    </code></pre>
+```
 
 代码块一直到没有缩进为止（或者文章的结束）
 
@@ -388,7 +388,7 @@ Markdown将产生：
     <pre><code>&lt;div class="footer"&gt;
         &amp;copy; 2004 Foo Corporation
     &lt;/div&gt;
-    </code></pre>
+```
 
 标准的Markdown语法在代码块中不会被处理。比如星号就只是字面意义的星号。这意味着可以很容易的用Markdown写Markdown自己的语法。
 

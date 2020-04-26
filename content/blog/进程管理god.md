@@ -24,7 +24,7 @@ slug: god进程管理
 
 # 配置
 poll模式：
-<pre>
+```
 RAILS_ROOT = "/Users/tom/dev/gravatar2"
 
 %w{8200 8201 8202}.each do |port|
@@ -70,10 +70,10 @@ RAILS_ROOT = "/Users/tom/dev/gravatar2"
     end
   end
 end
-</pre>
+```
 
 event模式：
-<pre>
+```
 RAILS_ROOT = "/Users/tom/dev/gravatar2"
 
 God.watch do |w|
@@ -140,10 +140,10 @@ God.watch do |w|
     end
   end
 end
-</pre>
+```
 
 # 操作
-<pre>
+```
 god status 查看被监控进程状态
 god start|stop|restart 启动关闭重启进程
 god load 动态加载配置

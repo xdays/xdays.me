@@ -19,7 +19,7 @@ slug: vpn-基于LDAP认证的openvpn
 
 ## /etc/openvpn/server.conf
 
-<pre>
+```
 port 1194
 proto tcp
 dev tun
@@ -41,11 +41,11 @@ push "dhcp-option DNS 8.8.8.8"
 plugin /usr/lib64/openvpn/plugin/lib/openvpn-auth-ldap.so "/etc/openvpn/auth/ldap.conf  uid=%u "
 client-cert-not-required
 username-as-common-name
-</pre>
+```
 
 ## /etc/openvpn/auth/ldap.conf
 
-<pre>
+```
 <LDAP>
     URL   ldaps://dir.example.com:636
     BindDN     uid=apps,ou=Operations,ou=People,dc=example,dc=com
@@ -64,14 +64,14 @@ username-as-common-name
         MemberAttribute uniqueMember
     </Group>
 </Authorization>
-</pre>
+```
 
 # /etc/openldap/ldap.conf
 
 最后追加一行
-<pre>
+```
 TLS_REQCERT never
-</pre>
+```
 
 # 与桥接模式集成
 

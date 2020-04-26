@@ -17,24 +17,24 @@ DLZ实际上就是扩展了Bind，将Zonefle的内容放到外部数据库里，
  **注意：** 这里我以CentOS7上安装dlz-mysql模块为例。
 
 ## 安装依赖
-<pre>
+```
 yum install mariadb-devel gcc wget patch make
-</pre>
+```
 
 ## 下载源码
 Bind9.8之前的版本需要打patch，具体可参考DLZ官方文档，Bind9.8之后（包括9.8）的版本已经集成DLZ：
-<pre>
+```
 wget ftp://ftp.isc.org/isc/bind9/9.10.1/bind-9.10.1.tar.gz
 tar xzf bind-9.10.1.tar.gz
 cd  bind-9.10.1
-</pre>
+```
 
 ## 配置
 由于CentOS7目录结构上的变更，在编译dlz-mysql时会找不到库文件或者head文件，所以要做个软连接：
-<pre>
+```
 ln -s /usr/lib/mysql /usr/lib64/mysql
 ./configure --prefix /opt/bind --with-dlz-filesystem --with-dlz-mysql
-</pre>
+```
 
 ## 编译
 
@@ -81,12 +81,12 @@ ln -s /usr/lib/mysql /usr/lib64/mysql
 
 ## 建库建表
 新建数据库：
-<pre>
+```
 create database demo;
-</pre>
+```
 
 新建record表：
-<pre>
+```
 CREATE TABLE IF NOT EXISTS `records` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `zone` varchar(255) NOT NULL,
@@ -107,10 +107,10 @@ CREATE TABLE IF NOT EXISTS `records` (
   KEY `host` (`host`),
   KEY `zone` (`zone`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
-</pre>
+```
 
 新建acl表：
-<pre>
+```
 CREATE TABLE IF NOT EXISTS `acl` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `zone` varchar(255) NOT NULL,
@@ -119,13 +119,13 @@ CREATE TABLE IF NOT EXISTS `acl` (
   KEY `client` (`client`),
   KEY `zone` (`zone`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
-</pre>
+```
 
 # 配置
 ## GeoIP
 这块目前还没有那么灵活，基本上都是基于acl来实现的。虽然最新版的bind 9.10支持maxmind的api来做Geo，但还是改写配置文件的方式。下面是一个示例：
 
-<pre>
+```
 acl "US" {
      3.0.0.0/8;
      4.0.0.0/25;
@@ -153,7 +153,7 @@ view "other" {
             file "pri/foos-other.db";
       };
 };
-</pre>
+```
 
 该示例引用自[这里](http://www.ip2location.com/tutorials/simple-geodns-using-bind-and-ip2location)
 
@@ -161,7 +161,7 @@ view "other" {
 
 ## Dynamic Record
 DLZ新定义了一个配置关键字dlz，完整的配置项参考官方文档，这里给出简要说明：
-<pre>
+```
 dlz "Mysql zone" { //定义DLZ标识
    database "mysql //database为dlz这个block唯一可指定的关键字，mysql表示使用mysql driver
    {host=localhost dbname=dns_data ssl=tRue} //连接数据库的信息
@@ -176,12 +176,12 @@ dlz "Mysql zone" { //定义DLZ标识
    {select zone from xfr_table where zone = '$zone$' and client = '$client$'} //用于allowzonexfr()调用，用于查询客户端是否可发起AXFR查询，可选的配置项
    {update data_count set count = count + 1 where zone ='$zone$'}";
 };
-</pre>
+```
 
 **注意：** 此配置为最新Bind版本的配置，如果是打patch的版本请将`$`换成`%`，以下的配置同样。
 
 这里也给出我的配置：
-<pre>
+```
 logging {
     channel all {
         file "/opt/bind/log/named.log" versions 1;
@@ -228,47 +228,47 @@ key "rndc-key" {
 controls {
         inet 127.0.0.1 allow { localhost; } keys { "rndc-key"; };
 };
-</pre>
+```
 
 **注意：**  这里的配置开启了递归解析且支持本机发起的AXFR请求。
 
 ## 根zonefile
-<pre>
+```
 wget -SO /opt/bind/var/named.root http://www.internic.net/domain/named.root
-</pre>
+```
 
 # 启动
 
-<pre>
+```
 /opt/bind/sbin/named -n1 -c /opt/bind/etc/named.conf -d9 -g
-</pre>
+```
 
 # 测试
 
 ## 导入数据
 导入records数据：
-<pre>
+```
 INSERT INTO demo.records (zone, host, type, data, ttl) VALUES ('xdays.me', 'www', 'A', '1.1.1.1', '60');
 INSERT INTO demo.records (zone, host, type, data, ttl) VALUES ('xdays.me', 'cloud', 'A', '2.2.2.2', '60'); 
 INSERT INTO demo.records (zone, host, type, data, ttl) VALUES ('xdays.me', 'ns', 'A', '3.3.3.3', '60');
 INSERT INTO demo.records (zone, host, type, data, ttl) VALUES ('xdays.me', 'blog', 'CNAME', 'cloud.xdays.me.', '60');
 INSERT INTO demo.records (zone, host, type, data, ttl) VALUES ('xdays.me', '@', 'NS', 'ns.xdays.me.', '60');
 INSERT INTO demo.records (zone, host, type,  ttl, data,refresh, retry, expire, minimum, serial, resp_person) VALUES ('xdays.me', '@', 'SOA', '60', 'ns', '28800', '14400', '86400', '86400', '2012020809', 'admin');
-</pre>
+```
 
 导入acl数据：
-<pre>
+```
 INSERT INTO demo.acl (zone, client) VALUES ('xdays.me', '127.0.0.1');
-</pre>
+```
 
 ## 测试记录
-<pre>
+```
 dig @127.0.0.1 www.xdays.me a
 dig @127.0.0.1 blog.xdays.me a
 dig @127.0.0.1 blog.xdays.me cname
 dig @127.0.0.1 xdays.me ns
 dig @127.0.0.1 www.xdays.me axfr
-</pre>
+```
 
 #参考
 

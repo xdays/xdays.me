@@ -15,13 +15,13 @@ Puppet支持RESTful的API：master端主要涉及catalog，certificate，report,
 
 关于API的另一方面就是安全方面，Puppet用一个单独的文件（文件名由rest_authconfig）来配置API的ACL，具体ACL的语法如下：
 
-<pre>
+```
 path [~] {/path/to/resource|regex}
 [environment {list of environments}]
 [method {list of methods}]
 [auth[enthicated] {yes|no|on|off|any}]
 [allow {hostname|certname|*}]
-</pre>
+```
 
 * path为请求的url
 * environment为环境，如production
@@ -32,27 +32,27 @@ path [~] {/path/to/resource|regex}
 
 # 配置
 ## 服务端
-<pre>
+```
 path /certificate_status
 environment production,stage
 auth yes
 method find, search, save, destroy
 allow *
-</pre>
+```
 
 ## 客户端
-<pre>
+```
 curl -s --insecure --cert /var/lib/puppet/ssl/certs/test2.xdays.me.pem --key /var/lib/puppet/ssl/private_keys/test2.xdays.me.pem --cacert /var/lib/puppet/ssl/certs/ca.pem -H "Accept: pson" https://puppet.xdays.me:8140/stage/certificate_statuses/no_key | python -m json.tool
-</pre>
+```
 
-<pre>
+```
 curl -s --insecure  -X PUT --cert /var/lib/puppet/ssl/certs/test2.xdays.me.pem --key /var/lib/puppet/ssl/private_keys/test2.xdays.me.pem --cacert /var/lib/puppet/ssl/certs/ca.pem -H "Content-Type: text/pson" --data '{"desired_state":"signed"}' https://puppet.xdays.me:8140/stage/certificate_status/test2.xdays.me
-</pre>
+```
 
-<pre>
+```
 curl -s -X DELETE --insecure --cert /var/lib/puppet/ssl/certs/test2.xdays.me.pem --key /var/lib/puppet/ssl/private_keys/test2.xdays.me.pem --cacert /var/lib/puppet/ssl/certs/ca.pem -H "Accept: pson" https://puppet.xdays.me:8140/stage/certificate_status/test2.xdays.me
 "Deleted for test2.xdays.me: Puppet::SSL::Certificate"
-</pre>
+```
 
 # 扩展
 基于上一小节的curl操作，可以用Python简单封装一个Puppet的SDK用于日常操作，目前我发现已经有人做了[这个](https://github.com/daradib/pypuppet)。

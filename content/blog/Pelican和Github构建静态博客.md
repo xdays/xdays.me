@@ -34,7 +34,7 @@ pelican的配置文件就是一个python代码文件，一般在博客根目录�
 
 修改pelicanconf.py，我的配置内容如下：
 
-<pre>
+```
 #!/usr/bin/env python 
 # -*- coding: utf-8 -*- # 
 from __future__ import unicode_literals 
@@ -73,7 +73,7 @@ DISQUS_SITENAME = "xdays"
 # Github 
 GITHUB_USER = 'xdays' 
 GITHUB_REPO_COUNT = 5
-</pre>
+```
 
 最后生成博客：
 
@@ -95,7 +95,7 @@ GITHUB_REPO_COUNT = 5
 
 下边开始说坑，在每个markdown文件有个slug的meta标记，这个标记是生成的html的文件名，但是由于pelican-import对字符集处理的不是太好，所以需要自己手动将slug进行一次unquote，然后用unquote之后的字符串来命名文件，废话少说，上代码：
 
-<pre>
+```
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
  
@@ -123,20 +123,20 @@ for i in flist:
                 with open('%s/%s.md'%(out, filename), 'w') as g:
                         g.write(''.join(s))
                 break
-</pre>
+```
 
 这段代码接受两个参数：第一个是导出的markdown目录，第二个是处理后的markdown文件存放目录。
 
 ##Github
 将整个博客目录交给Git管理：
 
-<pre>
+```
 git init 
 git add . 
 git commit -m 'first owesome commit' 
 git remote add origin git@github.com:xdays/xdays.me.git 
 git push -u origin master
-</pre>
+```
 
 然后配置webhook，具体参考[Github文档](https://developer.github.com/webhooks/)
 
@@ -144,7 +144,7 @@ git push -u origin master
 ###安装
 安装过程涉及的环节比较多，也可以直接使用[openresty](http://openresty.org/)，下面脚本详细说明了安装过程：
 
-<pre>
+```
 apt-get install libpcre3-dev zlib1g-dev build-essential 
 
 cd ~ 
@@ -162,26 +162,26 @@ cd ~/nginx-1.7.4
 ./configure --with-ld-opt="-Wl,-rpath,/usr/local/xengine/luajit/lib" --with-http_stub_status_module --add-module=/root/lua-nginx-module-0.9.10/ --prefix=/usr/local/xengine/nginx 
 make -j2 
 make install
-</pre>
+```
 
 ###配置
 在博客的的server配置里添加如下配置：
 
-<pre>
+```
     location /example-url {
         content_by_lua_file /path/to/genblog.lua;
     }
-</pre>
+```
 
 再上lua代码：
 
-<pre>
+```
 os.execute('export LANG=zh_CN.UTF-8 && cd /blog/path && pelican -s pelicanconf.py content/ -t theme/')
 ngx.header.content_type = "text/html"
 ngx.print('success\n')
 
 return ngx.exit(ngx.HTTP_OK)
-</pre>
+```
 
 ###使用
 对博客做一些修改，然后请求如下url，看效果：

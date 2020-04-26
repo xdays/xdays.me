@@ -35,7 +35,7 @@ slug: U盘安装CentOS7系统
 # 参考
 ## ks.cfg
 
-<pre>
+```
 #platform=x86, AMD64, or Intel EM64T
 #version=DEVEL
 # Install OS instead of upgrade
