@@ -10,8 +10,8 @@ slug: 基于openresty签发letsencrypt证书
 # 安装 OpenResty
 
 ```
-yum-config-manager --add-repo https://openresty.org/yum/centos/OpenResty.repo
-yum install -y openresty
+curl -so /etc/yum.repos.d/openresty.repo  https://openresty.org/package/centos/openresty.repo && \
+    yum install -y openresty gcc make diffutils openssl && \
 ```
 
 OpenResty 所有的文件以及依赖包都安装在 `/usr/local/openresty` 目录下
@@ -23,14 +23,12 @@ OpenResty 所有的文件以及依赖包都安装在 `/usr/local/openresty` 目�
 Luarocks 是 Lua 的包管理工具，很多 OpenResty 的包都可以通过 luarocks 来安装。
 
 ```
-yum install -y unzip openssl gcc make
-wget http://luarocks.github.io/luarocks/releases/luarocks-2.4.2.tar.gz
-tar xzf luarocks-2.4.2.tar.gz
-cd luarocks-2.4.2
-./configure --prefix=/usr/local/openresty/luajit/ --with-lua-include=/usr/local/openresty/luajit/include/luajit-2.1
-make build && make install
-rm -rf luarocks-2.4.2*
-ln -s /usr/local/openresty/luajit/bin/luarocks /usr/local/bin/
+curl -so - http://luarocks.github.io/luarocks/releases/luarocks-3.3.1.tar.gz | tar xzf - && \
+    cd luarocks-3.3.1 && ./configure --prefix=/usr/local/openresty/luajit/ \
+    --with-lua=/usr/local/openresty/luajit/ \
+    --with-lua-include=/usr/local/openresty/luajit/include/luajit-2.1/ && \
+    make build && make install && cd .. && rm -rf ../luarocks-* && \
+    ln -s /usr/local/openresty/luajit/bin/luarocks /usr/local/bin/
 ```
 
 ## 安装 lua-resty-auto-ssl
@@ -156,6 +154,6 @@ openresty
 首先将你要签发证书的域名解析到运行 openresty 的机器上，然后直接向域名发送 https 请求即可拿到对应的证书：
 
 ```
-curl https://ttt.xdays.me/
+curl https://i.xdays.me/
 ```
 按照我的配置证书在 `/tmp/storage/` 下。
