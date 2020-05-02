@@ -55,6 +55,10 @@ http {
   # hold your certificate data. 1MB of storage holds certificates for
   # approximately 100 separate domains.
   lua_shared_dict auto_ssl 1m;
+  # The "auto_ssl_settings" shared dict is used to temporarily store various settings
+  # like the secret used by the hook server on port 8999. Do not change or
+  # omit it.
+  lua_shared_dict auto_ssl_settings 64k;
 
   # A DNS resolver must be defined for OCSP stapling to function.
   #
@@ -134,17 +138,6 @@ http {
 1. 证书的输出路径，为了避免权限问题我将证书写到了/tmp/目录下，但是 **非常不建议** 在生产环境下降证书写到这里。
 2. 默认配置允许给所有的域名签发证书，这样显然可能会被滥用，所以我对 `allow_domain` 这个配置项加了一些限制，只允许我自己的域名进来。
 
-## 修改脚本权限
-
-Luarocks 安装的 lua-resty-ssl 里有些脚本的权限不对，导致证书签发失败，这里赋予可执行权限：
-
-```
-chmod 755 /usr/local/openresty/luajit/share/lua/5.1/resty/auto-ssl/shell/start_sockproc
-chmod 755 /usr/local/openresty/luajit/share/lua/5.1/resty/auto-ssl/vendor/sockproc
-chmod 755 /usr/local/openresty/luajit/share/lua/5.1/resty/auto-ssl/vendor/dehydrated
-chmod 755 /usr/local/openresty/luajit/share/lua/5.1/resty/auto-ssl/shell/letsencrypt_hooks
-```
-
 ## 启动 OpenResty
 
 ```
@@ -165,3 +158,4 @@ openresty
 ```
 curl https://ttt.xdays.me/
 ```
+按照我的配置证书在 `/tmp/storage/` 下。
