@@ -7,9 +7,9 @@ tags: ['server', 'vsftp']
 slug: 简易vsftp搭建
 ---
 
-<div id="blog_text">
-
 一直以来都想总结一下关于 vsftp 搭建 ftp 的相关内容，今天历尽辛苦终于算是完成了一些基本的配置，在此记下以留作以后参考。
+
+# 协议
 
 首先，讨论一下 ftp 协议的主动模式和被动模式：
 
@@ -25,7 +25,6 @@ slug: 简易vsftp搭建
 被动模式：
 
 1）客户端随即开启一个大于 1024 的端口连接服务器端的 21 号端口建立连接 1，连接成功就可以下达命令。
-
 2）当需要传送数据时，客户端通过连接 1 告诉服务器要通过被动模式建立连接 2。  
 3）服务器启动特定范围内的一个端口 S 监听并告知客户端。  
 4）客户端通过大于 1024 的随进端口，连接服务器的端口 S，从而建立连接 2。  
@@ -39,68 +38,136 @@ slug: 简易vsftp搭建
 
 接下来把重点放在 vsftp 上，我这里搭建的一个很小的环境内的 ftp 服务器，只有基础设置的一些特别需要注意的地方，更为复杂的设置暂时用不到也就不去学习了，学以致用嘛。
 
-组件安装？
+# 安装
 
-（1）安装：＃sudo apt-get install vsftpd  
-（2）软件主要组成:/etc/vsftpd.conf /usr/sbin/vsftpd  
-/etc/pam.d/vsftpd   /etc/init.d/vsftpd start|stop|restart|reload}
+```
+sudo apt-get install vsftpd
+```
 
-匿名登录，支持下载上传的配置文件？
+## 匿名登录
 
-anonymous_enable=YES  
-write_enable=YES  
-anon_umask=022  
-anon_upload_enable=YES  
-anon_mkdir_write_enable=YES  
-anon_other_write_enable=YES  
-dirmessage_enable=YES  
-xferlog_enable=YES  
-connect_from_port_20=YES  
-xferlog_std_format=YES  
+匿名登录(不要放到公网)
+
+```
+anonymous_enable=YES
+write_enable=YES
+anon_umask=022
+anon_upload_enable=YES
+anon_mkdir_write_enable=YES
+anon_other_write_enable=YES
+dirmessage_enable=YES
+xferlog_enable=YES
+connect_from_port_20=YES
+xferlog_std_format=YES
 listen=YES
 
-pam_service_name=vsftpd  
-userlist_enable=YES  
+pam_service_name=vsftpd
+userlist_enable=YES
 tcp_wrappers=YES
+```
 
-关于目录权限？
+关于目录权限
 
 默认 vsftpd 是不允许根目录有写的权限的，所以要自己建立一个对 ftp（匿名用户的权限用户）有写的权限的目录。如下所示：
 
+```
 drwxr-xr-x 2 ftp ftp 4096 Apr 11 11:26 pub-writable
+```
 
-注意：关于配置匿名上传和下载的几个注意点：1)ftp 的匿名用户在 linux 系统内是 ftp 用户；2)匿名用户的默认 umask 是 077，这说明
-如果你要上传一个目录上去，连你自己都看不到你自己上传的东西，所以必须将它改成 022；3)selinux 策略也会影响到匿名用户的上传功能（/etc/selinux/config 中把 enforcing 修改成 disabled）。总之，权
-限方面的设置是一个很关键的问题，包括 selinux 规则，系统用户权限和 vsftpd 配置，必须仔细考虑才能成功。
+关于配置匿名上传和下载的几个注意点：
 
-本地用户登录配置文件？
+1. ftp 的匿名用户在 linux 系统内是 ftp 用户
+2. 匿名用户的默认 umask 是 077，这说明 如果你要上传一个目录上去，连你自己都看不到你自己上传的东西，所以必须将它改成 022
+3. selinux 策略也会影响到匿名用户的上传功能（/etc/selinux/config 中把 enforcing 修改成 disabled）
 
-local_enable=YES  
-write_enable=YES  
-local_umask=022  
-dirmessage_enable=YES  
-xferlog_enable=YES  
-connect_from_port_20=YES  
-xferlog_std_format=YES  
-chroot_local_user=YES   //限制本地用户根目录  
-local_root=/var/ftp/pub    //限制本地用户根目录到特定目录  
-chroot_list_enable=YES  
+总之，权 限方面的设置是一个很关键的问题，包括 selinux 规则，系统用户权限和 vsftpd 配置，必须仔细考虑才能成功。
+
+## 本地用户
+
+```
+local_enable=YES
+write_enable=YES
+local_umask=022
+dirmessage_enable=YES
+xferlog_enable=YES
+connect_from_port_20=YES
+xferlog_std_format=YES
+chroot_local_user=YES   //限制本地用户根目录
+local_root=/var/ftp/pub    //限制本地用户根目录到特定目录
+chroot_list_enable=YES
 chroot_list_file=/etc/vsftpd/chroot_list  
-//这两项设置不再限制范围内的用户  
+//这两项设置不再限制范围内的用户
 listen=YES
 
-pam_service_name=vsftpd  
-userlist_enable=YES  
+pam_service_name=vsftpd
+userlist_enable=YES
 tcp_wrappers=YES
+```
 
-注意：本地用户需要设置的很少，为了安全需要把本地用户限制在其家里或者特定目录下，chroot_list_enable,local_root,chroot_list_enable 三个设置项相当重要。
+注意：本地用户需要设置的很少，为了安全需要把本地用户限制在其家里或者特定目录下，
+`chroot_list_enable`, `local_root`, `chroot_list_enable` 三个设置项相当重要。
+
+## 虚拟用户
+
+也就是说用户并不对应于系统用户，每个用户也可以有自己的独立目录
+
+```
+listen=YES
+anonymous_enable=NO
+local_enable=YES
+write_enable=YES
+local_umask=022
+local_root=/web/www
+chroot_local_user=YES
+allow_writeable_chroot=YES
+hide_ids=YES
+user_config_dir=/web/vsftpd
+guest_enable=YES
+virtual_use_local_privs=YES
+nopriv_user=www-data
+guest_username=www-data
+```
+
+密码文件
+
+```
+apt-get install -y apache2-utils
+htpasswd -c -p -b /web/vsftpd/passwd user1 $(openssl passwd -1 -noverify your-password-here)
+```
+
+修改 pam 配置`/etc/pam.d/vsftpd`，使其通密码文件来验证用户
+
+```
+auth required pam_pwdfile.so pwdfile /web/vsftpd/passwd
+account required pam_permit.so
+```
+
+添加每个用户的特定配置，这里主要配置用户目录
+
+添加`/web/vsftpd/user1`，内容如下：
+
+```
+local_root=/web/www/
+```
+
+最后，更改目录权限:
+
+```
+chown -R www-data:www-data /web/www
+```
+
+```
+systemctl restart vsftpd
+```
+
+# 其他
 
 Selinux 的权限设置
 
-发现 vsftpd 和系统权限设置均没有问题，但是无法列举目录下的内容，google 了一下有了思路，selinux 的默认权限不允许 ftp 传输，这里直接修改/etc/selinux/config 文件内容如下：
+如果是 Redhat 系的系统，vsftpd 和系统权限设置均没有问题，但是无法列举目录下的内容，google 了一下有了思路，selinux 的默认权限不允许 ftp 传输，这里直接修改/etc/selinux/config 文件内容如下：
 
+```
 SELINUX=disabled
+```
 
 参考文档：<http://bbs.chinaunix.net/thread-561183-1-1.html#> （很全面）
-
-</div>
