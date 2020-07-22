@@ -135,6 +135,12 @@ apt-get install -y apache2-utils
 htpasswd -c -p -b /web/vsftpd/passwd user1 $(openssl passwd -1 -noverify your-password-here)
 ```
 
+安装 PAM 相关依赖
+
+```
+apt install -y libpam-pwdfile
+```
+
 修改 pam 配置`/etc/pam.d/vsftpd`，使其通密码文件来验证用户
 
 ```
