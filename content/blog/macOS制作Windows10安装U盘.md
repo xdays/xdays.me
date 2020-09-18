@@ -27,6 +27,8 @@ slug: macos-create-windows10-usb-installer
 
 ## 拷贝数据
 
-    cp -rpv /Volumes/CCCOMA_X64FRE_EN-GB_DV9/* /Volumes/WINDOWS10
+    rsync -vha --exclude=sources/install.wim /Volumes/CCCOMA_X64FRE_EN-US_DV9/ /Volumes/WINDOWS10/
+    brew install wimlib # 解决FAT32最大可保存4G文件
+    wimlib-imagex split /Volumes/CCCOMA_X64FRE_EN-US_DV9/sources/install.wim /Volumes/WINDOWS10/sources/install.swm 4000
 
 搞定！
