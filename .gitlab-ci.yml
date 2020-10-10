@@ -1,7 +1,6 @@
-image: node:12.19.0-alpine
+image: node:12.19.0-stretch
 pages:
   script:
-  - apk add --no-cache python3 python3-dev
   - npm i -g gatsby-cli
   - npm i
   - gatsby build
