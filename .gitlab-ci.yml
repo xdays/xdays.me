@@ -1,4 +1,4 @@
-image: node:8.11.2-alpine
+image: node:12.19.0-alpine
 pages:
   script:
   - npm i -g gatsby-cli
