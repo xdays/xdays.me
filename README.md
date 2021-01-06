@@ -1,6 +1,6 @@
 # xdays.me
 
-[![Build Status](https://gitlab.com/xdays/xdays.gitlab.io/badges/master/pipeline.svg)](https://gitlab.com/xdays/xdays.gitlab.io/tree/master) [![Netlify Status](https://api.netlify.com/api/v1/badges/9a939a63-f76d-44cf-9abf-7e602aa44ca4/deploy-status)](https://app.netlify.com/sites/xdays-blog/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/9a939a63-f76d-44cf-9abf-7e602aa44ca4/deploy-status)](https://app.netlify.com/sites/xdays-blog/deploys)
 
 我的博客使用gatsby静态博客引擎，本仓库托管所有博文的源文件。
 
