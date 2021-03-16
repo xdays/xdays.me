@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
-import SEO from '../components/seo'
+import SEO from '../components/SEO'
 
 const Tags = ({ pageContext, data, location }) => {
   const { tag } = pageContext
