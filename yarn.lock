@@ -12777,6 +12777,14 @@ react-focus-lock@^2.3.1:
     use-callback-ref "^1.2.1"
     use-sidecar "^1.0.1"
 
+react-fwn@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/react-fwn/-/react-fwn-1.0.6.tgz#888d451640a685278fefe37d979b3eea3e9ab842"
+  integrity sha512-HB//+KvgZKF+S0w6bKDhfm/JEB2PYTpk4sfe3xy1Bnrd2cXLzTAONSsyDAZAotM/OqVIrq54Oyjnn2IXeR3rBA==
+  dependencies:
+    prop-types "^15.7.2"
+    react-load-script "0.0.6"
+
 react-helmet@^5.2.1:
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/react-helmet/-/react-helmet-5.2.1.tgz#16a7192fdd09951f8e0fe22ffccbf9bb3e591ffa"
@@ -12822,6 +12830,11 @@ react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
+
+react-load-script@0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/react-load-script/-/react-load-script-0.0.6.tgz#db6851236aaa25bb622677a2eb51dad4f8d2c258"
+  integrity sha512-aRGxDGP9VoLxcsaYvKWIW+LRrMOzz2eEcubTS4NvQPPugjk2VvMhow0wWTkSl7RxookomD1MwcP4l5UStg5ShQ==
 
 react-reconciler@^0.24.0:
   version "0.24.0"

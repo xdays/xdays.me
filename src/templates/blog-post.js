@@ -6,6 +6,7 @@ import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 import { rhythm, scale } from '../utils/typography'
 import { DiscussionEmbed } from 'disqus-react'
+import ReactFWN from 'react-fwn'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -33,6 +34,19 @@ class BlogPostTemplate extends React.Component {
           {post.frontmatter.date}
         </p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <hr
+          style={{
+            marginBottom: rhythm(1),
+          }}
+        />
+        <ReactFWN
+          app_id="xyXfJ3z1UURmE6U8ayjLQtStcC2I9m3M"
+          mode="row"
+          open_in="default"
+          max_videos={12}
+          placement="middle"
+          autoplay
+        />
         <hr
           style={{
             marginBottom: rhythm(1),
