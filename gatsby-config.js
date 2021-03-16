@@ -66,7 +66,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `static/favicon.jpg`,
+        icon: `static/favicon.ico`,
       },
     },
     `gatsby-plugin-offline`,
@@ -81,8 +81,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        sitemapSize: 5000
-      }
+        sitemapSize: 5000,
+      },
     },
   ],
 }

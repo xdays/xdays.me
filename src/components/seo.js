@@ -7,7 +7,7 @@ function SEO({ description, lang, meta, keywords, title }) {
   return (
     <StaticQuery
       query={detailsQuery}
-      render={data => {
+      render={(data) => {
         const metaDescription =
           description || data.site.siteMetadata.description
         return (
@@ -17,9 +17,7 @@ function SEO({ description, lang, meta, keywords, title }) {
             }}
             title={title}
             titleTemplate={`%s | ${data.site.siteMetadata.title}`}
-            link={[
-              { rel: 'shortcut icon', type: 'image/x-icon', href: '/favicon.ico' },
-            ]}
+            link={[{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]}
             meta={[
               {
                 name: `description`,
