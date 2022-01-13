@@ -1,9 +1,9 @@
 ---
-title: proxy 服务器-squid
+title: Proxy 服务器-Squid
 date: 2010-07-22
 author: admin
 category: server
-tags: ['proxy', 'web']
+tags: ['proxy', 'server']
 slug: proxy-服务器-squid
 ---
 

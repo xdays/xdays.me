@@ -74,16 +74,12 @@ translation）是一种将私有地址转换成公有地址的技术，优点主
 
 还有一个有意思的控制，强制重定向到特定站点。
 
-\#iptables -t nat -A PREROUTING -i eth0 -p tcp -dport 80 -j DNAT --to
-192.168.1.250:80
+```
+#iptables -t nat -A PREROUTING -i eth0 -p tcp -dport 80 -j DNAT --to 192.168.1.250:80
+```
 
 参考资料：
 
-《鸟哥的 linux 私房菜--服务器架设篇》
-
-Iptables 指南
-1.1.19<http://www.frozentux.net/iptables-tutorial/cn/iptables-tutorial-cn-1.1.19.html#TRAVERSINGGENERAL>
-
-Iptables Tutorial 1.1.19<http://www.faqs.org/docs/iptables/>
-
-[](http://www.faqs.org/docs/iptables/)（一篇详细介绍 iptables 的文档，把文档写的如此详细，不得不佩服也感谢译者。）
+- 《鸟哥的 linux 私房菜--服务器架设篇》
+- [Iptables 指南 1.1.19](http://www.frozentux.net/iptables-tutorial/cn/iptables-tutorial-cn-1.1.19.html#TRAVERSINGGENERAL)
+- [Iptables Tutorial 1.1.19](http://www.faqs.org/docs/iptables/), 一篇详细介绍 iptables 的文档，把文档写的如此详细，不得不佩服也感谢译者

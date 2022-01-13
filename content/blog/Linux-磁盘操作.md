@@ -1,5 +1,5 @@
 ---
-title: linux 磁盘操作
+title: Linux 磁盘操作
 date: 2010-08-04
 author: admin
 category: linux

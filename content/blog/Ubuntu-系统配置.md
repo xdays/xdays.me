@@ -1,5 +1,5 @@
 ---
-title: ubuntu 系统配置
+title: Ubuntu 系统配置
 date: 2010-08-01
 author: admin
 category: linux

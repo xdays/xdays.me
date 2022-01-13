@@ -17,13 +17,13 @@ IPython 有个 autoreload 扩展，只需要开启扩展并定义扩展的模式
 
 ## 开启扩展
 
-默认的配置位于\~/.config/ipython/profile_default/ipython_config.py，编辑该文件新增：
+默认的配置位于`~/.config/ipython/profile_default/ipython_config.py`，编辑该文件新增：
 
     c.InteractiveShellApp.extensions = ['autoreload']
 
 ## 设定模式
 
-编辑文件\~/.config/ipython/profile_default/ipython_config.py，新增：
+编辑文件`~/.config/ipython/profile_default/ipython_config.py`，新增：
 
     c.TerminalIPythonApp.exec_lines = ['%autoreload 2']
 

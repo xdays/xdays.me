@@ -1,5 +1,5 @@
 ---
-title: linux 日志文件
+title: Linux 日志文件
 date: 2010-09-26
 author: admin
 category: linux

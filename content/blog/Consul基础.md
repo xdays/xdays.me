@@ -2,8 +2,8 @@
 title: Consul基础
 date: 2016-02-24
 author: admin
-category: database
-tags: ['kv']
+category: server
+tags: ['server', 'consul']
 slug: Consul基础
 ---
 

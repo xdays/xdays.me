@@ -1,5 +1,5 @@
 ---
-title: centos5.5-server 安装配置笔记
+title: CentOS5.5安装配置笔记
 date: 2010-10-07
 author: admin
 category: server

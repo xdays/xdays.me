@@ -1,5 +1,5 @@
 ---
-title: linux网卡绑定
+title: Linux网卡绑定
 date: 2012-09-03
 author: admin
 category: linux

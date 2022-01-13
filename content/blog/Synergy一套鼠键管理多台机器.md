@@ -1,5 +1,5 @@
 ---
-title: synergy一套鼠键管理多台机器
+title: Synergy一套鼠键管理多台机器
 date: 2013-05-12
 author: admin
 category: tool

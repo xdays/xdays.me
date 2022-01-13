@@ -1,5 +1,5 @@
 ---
-title: blog与wiki的区别
+title: Blog与wiki的区别
 date: 2012-08-11
 author: admin
 category: life

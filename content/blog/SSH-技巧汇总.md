@@ -1,5 +1,5 @@
 ---
-title: ssh技巧汇总
+title: SSH技巧汇总
 date: 2011-08-12
 author: admin
 category: server

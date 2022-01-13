@@ -1,5 +1,5 @@
 ---
-title: ssh服务器
+title: SSH服务器
 date: 2010-06-06
 author: admin
 category: server

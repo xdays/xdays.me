@@ -1,5 +1,5 @@
 ---
-title: linux 字符处理
+title: Linux 字符处理
 date: 2010-08-05
 author: admin
 category: linux

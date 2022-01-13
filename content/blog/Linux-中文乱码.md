@@ -1,5 +1,5 @@
 ---
-title: linux 中文乱码
+title: Linux 中文乱码
 date: 2010-09-26
 author: admin
 category: linux

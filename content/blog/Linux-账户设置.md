@@ -1,5 +1,5 @@
 ---
-title: linux 账户设置
+title: Linux 账户设置
 date: 2010-06-05
 author: admin
 category: linux

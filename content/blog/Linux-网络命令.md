@@ -1,5 +1,5 @@
 ---
-title: linux 网络命令
+title: Linux 网络命令
 date: 2010-08-01
 author: admin
 category: linux

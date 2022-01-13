@@ -3,7 +3,7 @@ title: Pelican和Github构建静态博客
 date: 2014-08-15
 author: admin
 category: devops
-tags: ['blog', 'pelican', 'lua']
+tags: ['blog', 'pelican', 'python']
 slug: Pelican和Github构建静态博客
 ---
 

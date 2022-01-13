@@ -1,5 +1,5 @@
 ---
-title: lnmp 基础配置
+title: LNMP 基础配置
 date: 2010-11-28
 author: admin
 category: server

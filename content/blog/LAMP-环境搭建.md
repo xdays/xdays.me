@@ -1,5 +1,5 @@
 ---
-title: lamp 环境搭建
+title: LAMP 环境搭建
 date: 2010-09-26
 author: admin
 category: server

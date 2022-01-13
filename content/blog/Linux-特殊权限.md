@@ -1,5 +1,5 @@
 ---
-title: linux 特殊权限
+title: Linux 特殊权限
 date: 2010-08-01
 author: admin
 category: linux

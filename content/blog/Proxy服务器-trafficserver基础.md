@@ -1,9 +1,9 @@
 ---
-title: proxy服务器-trafficserver基础
+title: Proxy服务器-Trafficserver基础
 date: 2013-11-07
 author: admin
 category: server
-tags: ['web', 'proxy']
+tags: ['server', 'proxy']
 slug: proxy服务器-trafficserver基础
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: linux-LVM
+title: Linux-LVM
 date: 2010-12-27
 author: admin
 category: linux
