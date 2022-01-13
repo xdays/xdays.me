@@ -1,7 +1,10 @@
 module.exports = {
   siteMetadata: {
     title: `xdays`,
-    author: `xdays`,
+    author: {
+      name: `xdays`,
+      summary: `Geek, DevOps, SRE`,
+    },
     description: `记录着我技术的成长，生活的点滴和感悟，能对你有所帮助那更好。`,
     keywords: [`blog`, `gatsby`, `devops`, `fullstack`, `indie hacker`],
     siteUrl: `https://xdays.me/`,
@@ -9,6 +12,20 @@ module.exports = {
       github: `xdays`,
       twitter: `easedays`,
     },
+    menuLinks: [
+      {
+        name: 'Home',
+        link: '/',
+      },
+      {
+        name: 'Tags',
+        link: '/tags/',
+      },
+      {
+        name: 'About',
+        link: '/about/',
+      },
+    ],
   },
   plugins: [
     {
@@ -21,8 +38,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/assets`,
-        name: `assets`,
+        name: `images`,
+        path: `${__dirname}/src/images`,
       },
     },
     {
@@ -32,7 +49,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590,
+              maxWidth: 630,
             },
           },
           {
@@ -48,7 +65,6 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-catch-links`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-google-analytics`,
@@ -56,7 +72,59 @@ module.exports = {
         trackingId: `UA-96220381-1`,
       },
     },
-    `gatsby-plugin-feed`,
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.nodes.map((node) => {
+                return Object.assign({}, node.frontmatter, {
+                  description: node.excerpt,
+                  date: node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + node.fields.slug,
+                  custom_elements: [{ 'content:encoded': node.html }],
+                })
+              })
+            },
+            query: `
+              {
+                allMarkdownRemark(
+                  sort: { order: DESC, fields: [frontmatter___date] },
+                ) {
+                  nodes {
+                    excerpt
+                    html
+                    fields {
+                      slug
+                    }
+                    frontmatter {
+                      title
+                      date
+                    }
+                  }
+                }
+              }
+            `,
+            output: '/rss.xml',
+            title: 'xdays Blog RSS Feed',
+          },
+        ],
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -71,17 +139,10 @@ module.exports = {
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-remark-prismjs`,
     {
-      resolve: `gatsby-plugin-typography`,
+      resolve: `gatsby-plugin-disqus`,
       options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-sitemap`,
-      options: {
-        sitemapSize: 5000,
+        shortname: `xdays`,
       },
     },
   ],

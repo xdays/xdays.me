@@ -1,14 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-
-// Utilities
-import kebabCase from 'lodash/kebabCase'
+import React from "react"
+import PropTypes from "prop-types"
 
 // Components
-import { Helmet } from 'react-helmet'
-import { Link, graphql } from 'gatsby'
-import Layout from '../components/Layout'
-import SEO from '../components/SEO'
+import { Link, graphql } from "gatsby"
+import Layout from "../components/layout"
+import Seo from "../components/seo"
 
 const TagsPage = ({
   data: {
@@ -20,16 +16,16 @@ const TagsPage = ({
   location,
 }) => (
   <Layout location={location} title={title}>
-    <SEO title="tags" />
+    <Seo title="tags" />
     <div>
       <div>
         <h1>Tags</h1>
         <ul>
           {group
             .sort((a, b) => b.totalCount - a.totalCount)
-            .map((tag) => (
+            .map(tag => (
               <li key={tag.fieldValue}>
-                <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
+                <Link to={`/tags/${tag.fieldValue}/`}>
                   {tag.fieldValue} ({tag.totalCount})
                 </Link>
               </li>

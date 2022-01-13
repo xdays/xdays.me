@@ -1,11 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react"
+import PropTypes from "prop-types"
 
 // Components
-import { Link, graphql } from 'gatsby'
+import { Link, graphql } from "gatsby"
 
-import Layout from '../components/Layout'
-import SEO from '../components/SEO'
+import Layout from "../components/layout"
+import Seo from "../components/seo"
 
 const Tags = ({ pageContext, data, location }) => {
   const { tag } = pageContext
@@ -13,12 +13,12 @@ const Tags = ({ pageContext, data, location }) => {
   const siteKeywords = data.site.siteMetadata.keywords
   const { edges, totalCount } = data.allMarkdownRemark
   const tagHeader = `${totalCount} post${
-    totalCount === 1 ? '' : 's'
+    totalCount === 1 ? "" : "s"
   } tagged with "${tag}"`
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title={siteTitle} keywords={siteKeywords} />
+      <Seo title={siteTitle} keywords={siteKeywords} />
       <div>
         <h1>{tagHeader}</h1>
         <ul>
