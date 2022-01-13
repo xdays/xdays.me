@@ -1,4 +1,4 @@
-image: node:12.19.0-stretch
+image: node:17.3.0-bullseye
 pages:
   script:
   - npm i -g gatsby-cli
