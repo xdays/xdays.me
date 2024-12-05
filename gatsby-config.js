@@ -145,5 +145,6 @@ module.exports = {
         shortname: `xdays`,
       },
     },
+    `gatsby-plugin-sitemap`,
   ],
 }
