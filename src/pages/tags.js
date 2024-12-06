@@ -1,10 +1,10 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from 'react'
+import PropTypes from 'prop-types'
 
 // Components
-import { Link, graphql } from "gatsby"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import { Link, graphql } from 'gatsby'
+import Layout from '../components/layout'
+import Seo from '../components/seo'
 
 const TagsPage = ({
   data: {
@@ -23,7 +23,7 @@ const TagsPage = ({
         <ul>
           {group
             .sort((a, b) => b.totalCount - a.totalCount)
-            .map(tag => (
+            .map((tag) => (
               <li key={tag.fieldValue}>
                 <Link to={`/tags/${tag.fieldValue}/`}>
                   {tag.fieldValue} ({tag.totalCount})
@@ -64,7 +64,7 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(limit: 2000) {
-      group(field: frontmatter___tags) {
+      group(field: { frontmatter: { tags: SELECT } }) {
         fieldValue
         totalCount
       }

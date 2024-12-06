@@ -1,11 +1,11 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from 'react'
+import PropTypes from 'prop-types'
 
 // Components
-import { Link, graphql } from "gatsby"
+import { Link, graphql } from 'gatsby'
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Layout from '../components/layout'
+import Seo from '../components/seo'
 
 const Tags = ({ pageContext, data, location }) => {
   const { tag } = pageContext
@@ -13,7 +13,7 @@ const Tags = ({ pageContext, data, location }) => {
   const siteKeywords = data.site.siteMetadata.keywords
   const { edges, totalCount } = data.allMarkdownRemark
   const tagHeader = `${totalCount} post${
-    totalCount === 1 ? "" : "s"
+    totalCount === 1 ? '' : 's'
   } tagged with "${tag}"`
 
   return (
@@ -76,7 +76,7 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(
       limit: 2000
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { frontmatter: { date: DESC } }
       filter: { frontmatter: { tags: { in: [$tag] } } }
     ) {
       totalCount
